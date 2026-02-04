@@ -9,9 +9,9 @@ Tenho títulos, também eles me compõe, estudei Filosofia com um encantamento q
   `,
   videoUrl: "https://www.youtube.com/watch?v=wCK0ou5bnDo",
   images: [
-    "../assets/Ensaio_Profissional_Carol_Calil-1.jpg",
-    "../assets/Ensaio_Profissional_Carol_Calil-2.jpg",
-    "../assets/Ensaio_Profissional_Carol_Calil-3.jpg",
+    "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
+    "/assets/Ensaio_Profissional_Carol_Calil-2.jpg",
+    "/assets/Ensaio_Profissional_Carol_Calil-3.jpg",
   ],
   contacts: {
     whatsapp:
