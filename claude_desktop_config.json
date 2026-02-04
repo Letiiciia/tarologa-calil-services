@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "tarologa-calil": {
+      "command": "node",
+      "args": [
+        "/Users/leticialima/Documents/Carol/tarologa-calil-services/build/server.js"
+      ],
+      "env": {}
+    }
+  }
+}
