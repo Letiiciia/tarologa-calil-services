@@ -239,7 +239,7 @@ export default function QuemSouEuPage() {
 
         {/* FORMATION SECTION */}
         {content.formation && (
-          <div className="mb-8 rounded-lg bg-violet-50 p-6">
+          <div className="mb-8 rounded-lg bg-violet-50 p-6 font-[family-name:var(--font-cinzel)]">
             <h2 className="mb-4 text-xl font-semibold text-violet-700">
               {content.formationTitle}
             </h2>
@@ -250,7 +250,7 @@ export default function QuemSouEuPage() {
         )}
 
         {/* DESCRIPTION */}
-        <div className="mb-10">
+        <div className="mb-10 font-[family-name:var(--font-cinzel)]">
           <p className="whitespace-pre-line text-sm leading-relaxed text-zinc-700">
             {content.description}
           </p>
@@ -258,7 +258,7 @@ export default function QuemSouEuPage() {
 
         {/* CONTACT */}
         <div className="text-center">
-          <p className="mb-6 font-serif italic text-zinc-600">
+          <p className="mb-6 text-sm italic text-zinc-600">
             {content.contactText}
           </p>
 
