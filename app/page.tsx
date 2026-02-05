@@ -9,6 +9,21 @@ export default function QuemSouEuPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const content = aboutContent[language];
 
+  const menuContent = {
+    pt: {
+      home: "Início",
+      about: "Quem Sou Eu",
+      cardOfDay: "Carta do Dia",
+      consultation: "Agendar Consulta",
+    },
+    en: {
+      home: "Home",
+      about: "About Me",
+      cardOfDay: "Card of the Day",
+      consultation: "Schedule Consultation",
+    },
+  };
+
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
       prev === aboutContent.images.length - 1 ? 0 : prev + 1,
@@ -27,6 +42,154 @@ export default function QuemSouEuPage() {
 
   return (
     <main className="min-h-screen bg-white text-zinc-900">
+      {/* MOBILE MENU OVERLAY */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
+      {/* SIDEBAR MENU */}
+      <aside
+        className={`fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Menu Header */}
+          <div className="flex items-center justify-between border-b px-4 py-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 p-2">
+                <svg viewBox="0 0 100 100" className="h-full w-full">
+                  <circle
+                    cx="50"
+                    cy="25"
+                    r="18"
+                    fill="none"
+                    stroke="url(#grad1-menu)"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="30"
+                    cy="55"
+                    r="18"
+                    fill="none"
+                    stroke="url(#grad2-menu)"
+                    strokeWidth="2"
+                  />
+                  <circle
+                    cx="70"
+                    cy="55"
+                    r="18"
+                    fill="none"
+                    stroke="url(#grad3-menu)"
+                    strokeWidth="2"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="grad1-menu"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stopColor="#9333ea" />
+                      <stop offset="100%" stopColor="#ec4899" />
+                    </linearGradient>
+                    <linearGradient
+                      id="grad2-menu"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stopColor="#ec4899" />
+                      <stop offset="100%" stopColor="#f97316" />
+                    </linearGradient>
+                    <linearGradient
+                      id="grad3-menu"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stopColor="#f97316" />
+                      <stop offset="100%" stopColor="#fb923c" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <span className="font-semibold">Taróloga Calil</span>
+            </div>
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="p-2 hover:bg-gray-100 rounded-md transition-colors"
+              aria-label="Close menu"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Menu Items */}
+          <nav className="flex-1 overflow-y-auto py-4">
+            <a
+              href="/"
+              className="flex items-center gap-3 px-4 py-3 bg-violet-100 border-l-4 border-violet-600 transition-colors"
+            >
+              <span className="text-2xl">🏠</span>
+              <span className="font-semibold text-violet-700">
+                {menuContent[language].home}
+              </span>
+            </a>
+            <a
+              href="/"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-violet-50 transition-colors"
+            >
+              <span className="text-2xl">🔮</span>
+              <span className="font-medium">{menuContent[language].about}</span>
+            </a>
+            <a
+              href="/carta-do-dia"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-violet-50 transition-colors"
+            >
+              <span className="text-2xl">🎴</span>
+              <span className="font-medium">
+                {menuContent[language].cardOfDay}
+              </span>
+            </a>
+            <a
+              href="#consulta"
+              className="flex items-center gap-3 px-4 py-3 hover:bg-violet-50 transition-colors"
+            >
+              <span className="text-2xl">📅</span>
+              <span className="font-medium">
+                {menuContent[language].consultation}
+              </span>
+            </a>
+          </nav>
+
+          {/* Menu Footer */}
+          <div className="border-t px-4 py-4">
+            <p className="text-sm text-gray-600 text-center">
+              © 2026 Taróloga Calil
+            </p>
+          </div>
+        </div>
+      </aside>
+
       {/* HEADER */}
       <header className="flex items-center justify-between border-b px-4 py-3">
         {/* LEFT SIDE: Hamburger Menu + Logo + Name */}

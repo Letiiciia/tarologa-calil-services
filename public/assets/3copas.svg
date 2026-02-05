@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <defs>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4c1d95;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6d28d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5b21b6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Card Background -->
+  <rect width="400" height="600" rx="20" fill="url(#cardGradient)"/>
+  
+  <!-- Border -->
+  <rect x="10" y="10" width="380" height="580" rx="15" fill="none" stroke="#a78bfa" stroke-width="3"/>
+  
+  <!-- Top Left Moon -->
+  <text x="40" y="60" font-size="32" fill="#fbbf24">☽</text>
+  
+  <!-- Top Right Moon -->
+  <text x="340" y="60" font-size="32" fill="#fbbf24">☾</text>
+  
+  <!-- Bottom Left Star -->
+  <text x="40" y="560" font-size="32" fill="#fbbf24">✦</text>
+  
+  <!-- Bottom Right Star -->
+  <text x="340" y="560" font-size="32" fill="#fbbf24">✧</text>
+  
+  <!-- Trophy (Top Cup) -->
+  <text x="185" y="220" font-size="64" filter="url(#glow)">🏆</text>
+  
+  <!-- Wine Glass (Bottom Left) -->
+  <text x="120" y="340" font-size="56">🍷</text>
+  
+  <!-- Champagne Glasses (Bottom Right) -->
+  <text x="230" y="340" font-size="56">🥂</text>
+  
+  <!-- Celebration Icons -->
+  <g transform="translate(200, 400)">
+    <text x="-60" y="0" font-size="36">🎉</text>
+    <text x="-10" y="0" font-size="36">✨</text>
+    <text x="30" y="0" font-size="36">🎊</text>
+  </g>
+  
+  <!-- Card Name -->
+  <text x="200" y="500" font-family="serif" font-size="32" font-weight="600" fill="white" text-anchor="middle">3 DE COPAS</text>
+</svg>
