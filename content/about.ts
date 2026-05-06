@@ -25,7 +25,7 @@ In simpler terms, I am the one who is open to sincere possibilities, who aspires
 
 I have titles, they also compose me, I studied Philosophy with an enchantment that illuminates my memories, at the Federal University of São Paulo, an oasis for me at that time. I am a Holistic Therapist, a path that centered me, calmed me and grounded me. As tools I use Tarot, which literally transformed my life and many other people's lives, guided meditation, which helps us access internal answers, conscious breathing, which returns our own rhythm and tranquility, favoring, with an oxygenated brain, making better choices, auriculotherapy, which works with physical points of our body to relieve emotional issues. Simultaneously I am a Coach in relationships and sexuality, with the enneagram method, an area that helps me understand and analyze human behavior and their respective profiles, in addition to inferring about the primordial and powerful energy that moves us, which is located in the base chakra (sexual energy), which recharges and stimulates us; as well as Reiki energy channeling, which balances and distributes our energy, helping us identify stagnant energy points that require more care and attention. I am a children's book writer and reflections for adults, mother of a trilingual child, Serena, creative and artistic.`,
   },
-  videoUrl: "https://www.youtube.com/embed/wCK0ou5bnDo",
+  videoUrl: "https://www.youtube.com/embed/arHpJhi7FQI?si=PM3WgREpOTxLqNqk",
   images: [
     "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
     "/assets/Ensaio_Profissional_Carol_Calil-2.jpg",
