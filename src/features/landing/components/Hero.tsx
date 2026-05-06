@@ -95,8 +95,9 @@ export function Hero() {
             <p className={styles.subheadline}>
               {content.subheadline}
             </p>
+            <p className={styles.supportingText}>{content.supportingText}</p>
 
-            {/* CTA Button - primary, singular, destacado */}
+            {/* CTA Buttons - primary + secondary */}
             <div className={styles.ctaWrapper}>
               <Button
                 href={landingContent[lang].cta.primary.href}
@@ -107,6 +108,14 @@ export function Hero() {
                 <span className={styles.ctaArrow}>
                   →
                 </span>
+              </Button>
+              <Button
+                href={content.secondaryCta.href}
+                size="lg"
+                variant="ghost"
+                className="ml-0 mt-4 sm:ml-4 sm:mt-0 text-amber-700 border border-amber-200 hover:bg-amber-50"
+              >
+                {content.secondaryCta.label}
               </Button>
             </div>
 

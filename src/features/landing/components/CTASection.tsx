@@ -37,16 +37,12 @@ export function CTASection() {
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Headline */}
         <h2 className="font-cinzel text-4xl sm:text-5xl font-bold text-white mb-6">
-          {lang === "pt"
-            ? "Pronto para encontrar suas respostas?"
-            : lang === "es"
-            ? "¿Listo para encontrar tus respuestas?"
-            : "Ready to find your answers?"}
+          {content.headline}
         </h2>
 
         {/* Description */}
         <p className="text-lg sm:text-xl text-amber-50 mb-12 max-w-2xl mx-auto leading-relaxed">
-          {content.footer}
+          {content.subtext}
         </p>
 
         {/* Primary CTA */}
@@ -77,15 +73,6 @@ export function CTASection() {
             </Button>
           )}
         </div>
-
-        {/* Safety message - reduces friction */}
-        <p className="text-sm text-amber-100 italic">
-          {lang === "pt"
-            ? "Sem obrigação. Sem compromisso. Apenas uma conversa sincera."
-            : lang === "es"
-            ? "Sin obligación. Sin compromiso. Solo una conversación sincera."
-            : "No obligation. No commitment. Just a genuine conversation."}
-        </p>
       </div>
 
       {/* Divider line */}

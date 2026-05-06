@@ -164,6 +164,7 @@
   font-weight: 700;
   color: #111827;
   line-height: 1.1;
+  white-space: pre-line;
 }
 
 @media (min-width: 640px) {
@@ -179,8 +180,18 @@
   max-width: 28rem;
 }
 
+.supportingText {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.75;
+  max-width: 28rem;
+}
+
 .ctaWrapper {
   padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .ctaButton {

@@ -26,7 +26,12 @@ interface LandingContent {
   hero: {
     headline: string;
     subheadline: string;
+    supportingText: string;
     cta: string;
+    secondaryCta: {
+      label: string;
+      href: string;
+    };
     badge: string;
     images: {
       main: string;
@@ -37,6 +42,20 @@ interface LandingContent {
     title: string;
     subtitle: string;
     benefits: Benefit[];
+    closingLine: string;
+  };
+  method: {
+    title: string;
+    intro: string;
+    steps: {
+      title: string;
+      description: string;
+    }[];
+  };
+  transformation: {
+    title: string;
+    text: string;
+    bullets: string[];
   };
   whois: {
     title: string;
@@ -49,9 +68,10 @@ interface LandingContent {
     approach: string; // Como Carol trabalha
   };
   cta: {
+    headline: string;
+    subtext: string;
     primary: CTAButton;
     secondary?: CTAButton;
-    footer: string;
   };
 }
 
@@ -59,11 +79,17 @@ export const landingContent: Bilingual<LandingContent> = {
   pt: {
     hero: {
       // Headlines de conversão: falam do BENEFÍCIO, não de Carol
-      headline: "Descubra as respostas que você procura",
+      headline: "Você não está confusa.\nVocê só está ignorando o que já sabe.",
       subheadline:
-        "Autoconhecimento profundo através do Tarot e Terapia Holística com 8 anos de experiência",
-      cta: "Iniciar conversa no WhatsApp",
-      badge: "✨ 8 anos ajudando pessoas a encontrar clareza",
+        "Reconecte-se com sua clareza emocional e com o seu poder feminino através da Jornada de Consciência com Contoterapia Oracular.",
+      supportingText:
+        "Uma experiência com Tarot, escrita terapêutica e leitura simbólica para te ajudar a enxergar o que você já sente — com clareza.",
+      cta: "Quero começar minha jornada",
+      secondaryCta: {
+        label: "Conhecer o método",
+        href: "#metodo",
+      },
+      badge: "✨ 8 anos guiando mulheres a encontrarem clareza emocional",
       images: {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
         alt: "Carol Calil - Taróloga e Terapeuta Holística",
@@ -71,41 +97,80 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     whatfor: {
-      title: "Para quem procura...",
-      subtitle: "Se você se identifica com qualquer um desses desafios:",
+      title: "Se você se reconhece nisso...",
+      subtitle: "Veja se alguma dessas frases ressoa com você.",
       benefits: [
         {
+          icon: "🧠",
+          title: "Você já sabe o que precisa fazer, mas não consegue agir",
+          description:
+            "A resposta existe dentro de você, mas falta estrutura emocional para sustentar a decisão.",
+        },
+        {
+          icon: "🌀",
+          title: "Você se sente drenada em relações que não evoluem",
+          description:
+            "Relações confusas consomem sua energia, sua autoestima e sua presença.",
+        },
+        {
+          icon: "🌙",
+          title: "Você se perdeu tentando ser o que esperam de você",
+          description:
+            "Você se adaptou tanto que esqueceu do seu próprio desejo.",
+        },
+        {
           icon: "✨",
-          title: "Clareza nas decisões",
+          title: "Você sente que vive sem direção",
           description:
-            "Entender o que seu coração realmente quer em relacionamentos, carreira e propósito de vida",
+            "Mesmo fazendo tudo certo, ainda parece que algo dentro de você está desalinhado.",
+        },
+      ],
+      closingLine: "Se isso te atravessou, essa jornada é para você.",
+    },
+    method: {
+      title: "Método R.E.S.E.T. Emocional",
+      intro:
+        "Um processo estruturado para sair da confusão emocional e reconstruir sua forma de se relacionar.",
+      steps: [
+        {
+          title: "Revelação",
+          description: "Leitura simbólica + diagnóstico emocional",
         },
         {
-          icon: "🔄",
-          title: "Transformação pessoal",
-          description:
-            "Trabalhar os bloqueios emocionais que te travam e desbloqueiar seu potencial",
+          title: "Exposição de padrões",
+          description: "Identificação de comportamentos repetitivos e ciclos emocionais",
         },
         {
-          icon: "💫",
-          title: "Reconexão com a essência",
-          description:
-            "Lembrar quem você é de verdade, além das expectativas de outros",
+          title: "Significação",
+          description: "Escrita terapêutica guiada para ressignificar experiências",
         },
         {
-          icon: "🌱",
-          title: "Orientação espiritual",
-          description:
-            "Compreender o propósito e sincronicidades da sua vida agora",
+          title: "Estratégia",
+          description: "Ação prática e decisões com clareza",
         },
+        {
+          title: "Transformação",
+          description: "Construção de uma nova identidade emocional e relacional",
+        },
+      ],
+    },
+    transformation: {
+      title: "Não é sobre prever o futuro.",
+      text:
+        "É sobre entender seus padrões, organizar suas emoções e tomar decisões com consciência.",
+      bullets: [
+        "Clareza emocional",
+        "Consciência dos seus padrões",
+        "Direção real para agir",
+        "Reconexão com seu desejo e identidade",
       ],
     },
 
     whois: {
-      title: "Quem é Carol Calil",
+      title: "Especialista em desbloqueio emocional e sexual feminino.",
       //核心 message: não é sobre Carol, é sobre o QUE ela oferece
       coreMessage:
-        "Não vendo previsão pronta. Vendo CLAREZA — te ajudo a ver o que você già sabe mas não consegue enxergar.",
+        "Eu não vendo previsão. Eu te mostro com clareza o que você já sabe — mas ainda não teve coragem de encarar.",
       credentials: [
         {
           icon: "🎓",
@@ -137,29 +202,38 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     cta: {
+      headline:
+        "Você pode continuar ignorando isso...\nou finalmente olhar para si com clareza.",
+      subtext:
+        "Sem pressão. Sem respostas prontas. Apenas um espaço real para você se enxergar.",
       primary: {
-        label: "Agendar sessão pelo WhatsApp",
+        label: "Quero começar minha jornada",
         href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
         variant: "primary",
         target: "_blank",
       },
       secondary: {
-        label: "Conhecer método no Instagram",
+        label: "Falar com Carol no Instagram",
         href: "https://www.instagram.com/tarologacalil/",
         variant: "secondary",
         target: "_blank",
       },
-      footer:
-        "Ou entre em contato direto por WhatsApp para conversar sobre sua situação",
     },
   },
 
   en: {
+    // TODO: update English translations for the new landing copy
     hero: {
       headline: "Discover the answers you're searching for",
       subheadline:
         "Deep self-knowledge through Tarot and Holistic Therapy with 8 years of experience",
+      supportingText:
+        "An experience with Tarot, therapeutic writing and symbolic reading to help you see what you already feel — with clarity.",
       cta: "Start conversation on WhatsApp",
+      secondaryCta: {
+        label: "Learn the method",
+        href: "#metodo",
+      },
       badge: "✨ 8 years helping people find clarity",
       images: {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
@@ -196,12 +270,53 @@ export const landingContent: Bilingual<LandingContent> = {
             "Understand the purpose and synchronicities in your life right now",
         },
       ],
+      closingLine: "If this resonates, it's time to talk",
+    },
+
+    method: {
+      title: "R.E.S.E.T. Emotional Method",
+      intro:
+        "A structured process to move out of emotional confusion and rebuild the way you relate.",
+      steps: [
+        {
+          title: "R — Revelation",
+          description: "Symbolic reading + emotional diagnosis",
+        },
+        {
+          title: "E — Exposure of patterns",
+          description: "Identifying repetitive behaviors and emotional cycles",
+        },
+        {
+          title: "S — Signification",
+          description: "Guided therapeutic writing to reframe experiences",
+        },
+        {
+          title: "E — Strategy",
+          description: "Practical action and decisions with clarity",
+        },
+        {
+          title: "T — Transformation",
+          description: "Building a new emotional and relational identity",
+        },
+      ],
+    },
+
+    transformation: {
+      title: "It's not about predicting the future.",
+      text:
+        "It's about understanding your patterns, organizing your emotions, and making decisions with awareness.",
+      bullets: [
+        "Emotional clarity",
+        "Awareness of your patterns",
+        "Real direction to act",
+        "Reconnection with your desire and identity",
+      ],
     },
 
     whois: {
-      title: "Who is Carol Calil",
+      title: "Emotional and sexual empowerment specialist",
       coreMessage:
-        "I don't sell ready-made predictions. I offer CLARITY — I help you see what you already know but can't perceive.",
+        "I don't sell ready-made predictions. I show you with clarity what you already know — but haven't yet had the courage to face.",
       credentials: [
         {
           icon: "🎓",
@@ -233,6 +348,10 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     cta: {
+      headline:
+        "You can keep ignoring it...\nor finally look at yourself with clarity.",
+      subtext:
+        "No pressure. No ready-made answers. Just a real space for you to see yourself.",
       primary: {
         label: "Book session on WhatsApp",
         href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
@@ -240,21 +359,27 @@ export const landingContent: Bilingual<LandingContent> = {
         target: "_blank",
       },
       secondary: {
-        label: "Learn method on Instagram",
+        label: "Talk to Carol on Instagram",
         href: "https://www.instagram.com/tarologacalil/",
         variant: "secondary",
         target: "_blank",
       },
-      footer: "Or contact directly via WhatsApp to discuss your situation",
     },
   },
 
   es: {
+    // TODO: actualizar traducciones en español para el nuevo copy de landing
     hero: {
       headline: "Descubre las respuestas que buscas",
       subheadline:
         "Autoconocimiento profundo a través del Tarot y la Terapia Holística con 8 años de experiencia",
+      supportingText:
+        "Una experiencia con Tarot, escritura terapéutica y lectura simbólica para ayudarte a ver lo que ya sientes — con claridad.",
       cta: "Iniciar conversación en WhatsApp",
+      secondaryCta: {
+        label: "Conocer el método",
+        href: "#metodo",
+      },
       badge: "✨ 8 años ayudando a personas a encontrar claridad",
       images: {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
@@ -291,12 +416,53 @@ export const landingContent: Bilingual<LandingContent> = {
             "Comprende el propósito y las sincronicidades de tu vida ahora mismo",
         },
       ],
+      closingLine: "Si esto resuena contigo, es hora de hablar",
+    },
+
+    method: {
+      title: "Método R.E.S.E.T. Emocional",
+      intro:
+        "Un proceso estructurado para salir de la confusión emocional y reconstruir tu forma de relacionarte.",
+      steps: [
+        {
+          title: "R — Revelación",
+          description: "Lectura simbólica + diagnóstico emocional",
+        },
+        {
+          title: "E — Exposición de patrones",
+          description: "Identificación de comportamientos repetitivos y ciclos emocionales",
+        },
+        {
+          title: "S — Significación",
+          description: "Escritura terapéutica guiada para resignificar experiencias",
+        },
+        {
+          title: "E — Estrategia",
+          description: "Acción práctica y decisiones con claridad",
+        },
+        {
+          title: "T — Transformación",
+          description: "Construcción de una nueva identidad emocional y relacional",
+        },
+      ],
+    },
+
+    transformation: {
+      title: "No se trata de predecir el futuro.",
+      text:
+        "Se trata de entender tus patrones, organizar tus emociones y tomar decisiones con conciencia.",
+      bullets: [
+        "Claridad emocional",
+        "Conciencia de tus patrones",
+        "Dirección real para actuar",
+        "Reconexión con tu deseo e identidad",
+      ],
     },
 
     whois: {
-      title: "Quién es Carol Calil",
+      title: "Especialista en desbloqueo emocional y sexual femenino",
       coreMessage:
-        "No vendo predicciones listas. Ofrezco CLARIDAD — te ayudo a ver lo que ya sabes pero no puedes percibir.",
+        "No vendo predicciones listas. Te muestro con claridad lo que ya sabes — pero aún no tuviste el coraje de enfrentar.",
       credentials: [
         {
           icon: "🎓",
@@ -328,20 +494,22 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     cta: {
+      headline:
+        "Puedes seguir ignorando esto...\no finalmente mirar hacia ti con claridad.",
+      subtext:
+        "Sin presión. Sin respuestas listas. Solo un espacio real para que te veas.",
       primary: {
-        label: "Agendar sesión por WhatsApp",
+        label: "Quiero comenzar mi jornada",
         href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
         variant: "primary",
         target: "_blank",
       },
       secondary: {
-        label: "Conocer método en Instagram",
+        label: "Hablar con Carol en Instagram",
         href: "https://www.instagram.com/tarologacalil/",
         variant: "secondary",
         target: "_blank",
       },
-      footer:
-        "O contacta directamente por WhatsApp para hablar sobre tu situación",
     },
   },
 };

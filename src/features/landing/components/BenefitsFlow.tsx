@@ -69,14 +69,10 @@ export function BenefitsFlow() {
           ))}
         </div>
 
-        {/* CTA after benefits */}
+        {/* Final line after benefits */}
         <div className="text-center mt-16">
           <p className="text-gray-600 text-lg mb-6">
-            {lang === "pt"
-              ? "Se você se identifica, é hora de conversar"
-              : lang === "es"
-              ? "Si esto resuena, es hora de hablar"
-              : "If this resonates, it's time to talk"}
+            {content.closingLine}
           </p>
         </div>
       </div>
