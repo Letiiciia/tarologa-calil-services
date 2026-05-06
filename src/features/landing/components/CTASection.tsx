@@ -39,6 +39,8 @@ export function CTASection() {
         <h2 className="font-cinzel text-4xl sm:text-5xl font-bold text-white mb-6">
           {lang === "pt"
             ? "Pronto para encontrar suas respostas?"
+            : lang === "es"
+            ? "¿Listo para encontrar tus respuestas?"
             : "Ready to find your answers?"}
         </h2>
 
@@ -80,6 +82,8 @@ export function CTASection() {
         <p className="text-sm text-amber-100 italic">
           {lang === "pt"
             ? "Sem obrigação. Sem compromisso. Apenas uma conversa sincera."
+            : lang === "es"
+            ? "Sin obligación. Sin compromiso. Solo una conversación sincera."
             : "No obligation. No commitment. Just a genuine conversation."}
         </p>
       </div>
@@ -94,6 +98,8 @@ export function CTASection() {
         <p className="text-sm text-amber-100 mb-4">
           {lang === "pt"
             ? "Carol Calil • Taróloga e Terapeuta Holística"
+            : lang === "es"
+            ? "Carol Calil • Tarotista y Terapeuta Holística"
             : "Carol Calil • Tarot Reader & Holistic Therapist"}
         </p>
         <div className="flex justify-center gap-6">

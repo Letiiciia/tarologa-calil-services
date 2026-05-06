@@ -74,6 +74,8 @@ export function BenefitsFlow() {
           <p className="text-gray-600 text-lg mb-6">
             {lang === "pt"
               ? "Se você se identifica, é hora de conversar"
+              : lang === "es"
+              ? "Si esto resuena, es hora de hablar"
               : "If this resonates, it's time to talk"}
           </p>
         </div>

@@ -248,20 +248,101 @@ export const landingContent: Bilingual<LandingContent> = {
       footer: "Or contact directly via WhatsApp to discuss your situation",
     },
   },
+
+  es: {
+    hero: {
+      headline: "Descubre las respuestas que buscas",
+      subheadline:
+        "Autoconocimiento profundo a través del Tarot y la Terapia Holística con 8 años de experiencia",
+      cta: "Iniciar conversación en WhatsApp",
+      badge: "✨ 8 años ayudando a personas a encontrar claridad",
+      images: {
+        main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
+        alt: "Carol Calil - Tarotista y Terapeuta Holística",
+      },
+    },
+
+    whatfor: {
+      title: "Para quienes buscan...",
+      subtitle: "Si te identificas con alguno de estos desafíos:",
+      benefits: [
+        {
+          icon: "✨",
+          title: "Claridad en decisiones",
+          description:
+            "Entiende lo que tu corazón realmente quiere en relaciones, carrera y propósito de vida",
+        },
+        {
+          icon: "🔄",
+          title: "Transformación personal",
+          description:
+            "Trabaja los bloqueos emocionales que te detienen y desbloquea tu potencial",
+        },
+        {
+          icon: "💫",
+          title: "Reconexión con la esencia",
+          description:
+            "Recuerda quién eres realmente, más allá de las expectativas de otros",
+        },
+        {
+          icon: "🌱",
+          title: "Orientación espiritual",
+          description:
+            "Comprende el propósito y las sincronicidades de tu vida ahora mismo",
+        },
+      ],
+    },
+
+    whois: {
+      title: "Quién es Carol Calil",
+      coreMessage:
+        "No vendo predicciones listas. Ofrezco CLARIDAD — te ayudo a ver lo que ya sabes pero no puedes percibir.",
+      credentials: [
+        {
+          icon: "🎓",
+          text: "Licenciada en Filosofía (UNIFESP) — entiendo la profundidad humana",
+        },
+        {
+          icon: "🔮",
+          text: "8 años de experiencia con Tarot — método propio probado y consolidado",
+        },
+        {
+          icon: "❤️",
+          text: "Especialista en relaciones e identidad LGBTIQA+ — recibo a todas las personas",
+        },
+        {
+          icon: "⚡",
+          text: "Reikiana y Auriculoterapeuta — trabajo cuerpo y energía integradamente",
+        },
+        {
+          icon: "🌍",
+          text: "Fluida en portugués y español — madre, viajera, inmersa en culturas",
+        },
+      ],
+      image: {
+        src: "/assets/Ensaio_Profissional_Carol_Calil-2.jpg",
+        alt: "Carol Calil",
+      },
+      approach:
+        "Utilizo el Tarot como herramienta de reflexión profunda, meditación guiada, respiración consciente y eneagrama para mapear tu comportamiento. Cada sesión se personaliza a lo que necesitas ahora.",
+    },
+
+    cta: {
+      primary: {
+        label: "Agendar sesión por WhatsApp",
+        href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
+        variant: "primary",
+        target: "_blank",
+      },
+      secondary: {
+        label: "Conocer método en Instagram",
+        href: "https://www.instagram.com/tarologacalil/",
+        variant: "secondary",
+        target: "_blank",
+      },
+      footer:
+        "O contacta directamente por WhatsApp para hablar sobre tu situación",
+    },
+  },
 };
 
-/**
- * DIFERENÇAS DO ANTIGO CONTENT vs NOVO:
- *
- * ❌ ANTES: "Eu sou uma mulher fantástica..." (foco em Carol)
- * ✅ AGORA: "Descubra as respostas" (foco no cliente)
- *
- * ❌ ANTES: Listava todos os títulos (formação, reiki, yoga...)
- * ✅ AGORA: Benefício de cada credencial ("Por que importa pra você")
- *
- * ❌ ANTES: Textos longos e poéticos
- * ✅ AGORA: Textos concisos, focados em transformação
- *
- * ❌ ANTES: CTAs espalhadas em vários textos
- * ✅ AGORA: CTAs organizadas e claras
- */

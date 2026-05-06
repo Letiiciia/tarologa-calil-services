@@ -10,14 +10,15 @@
  * mas com type ou interface do TypeScript.
  */
 
-export type Language = "pt" | "en";
+export type Language = "pt" | "en" | "es";
 
 /**
- * Estrutura bilíngue = qualquer coisa que tem conteúdo em múltiplos idiomas
+ * Estrutura multilíngue = qualquer coisa que tem conteúdo em múltiplos idiomas
  * Exemplo de uso:
  * const content: Bilingual<{ title: string; description: string }> = {
  *   pt: { title: "Olá", description: "..." },
- *   en: { title: "Hello", description: "..." }
+ *   en: { title: "Hello", description: "..." },
+ *   es: { title: "Hola", description: "..." }
  * }
  */
 export type Bilingual<T> = Record<Language, T>;

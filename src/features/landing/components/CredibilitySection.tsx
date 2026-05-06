@@ -90,7 +90,11 @@ export function CredibilitySection() {
             {/* Approach section */}
             <div className="bg-white rounded-lg p-6 border border-amber-100 mt-8">
               <h3 className="font-cinzel font-bold text-gray-900 mb-3">
-                {lang === "pt" ? "Como Carol trabalha:" : "How Carol works:"}
+                {lang === "pt"
+                  ? "Como Carol trabalha:"
+                  : lang === "es"
+                  ? "Cómo trabaja Carol:"
+                  : "How Carol works:"}
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 {content.approach}

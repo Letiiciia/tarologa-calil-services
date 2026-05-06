@@ -3,6 +3,7 @@
 import { Button } from "@/shared/ui/Button";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
+import styles from "./Hero.module.css";
 
 /**
  * HERO COMPONENT
@@ -18,95 +19,133 @@ import { landingContent } from "../content";
  */
 
 export function Hero() {
-  const { lang, mounted } = useLanguage();
+  const { lang, mounted, setLanguage } = useLanguage();
+  const languageOptions = ["pt", "en", "es"] as const;
 
   if (!mounted) return null; // Evita hydration mismatch
 
   const content = landingContent[lang].hero;
 
+  const getLocalizedLabel = (key: "transformed" | "method" | "personalized") => {
+    switch (key) {
+      case "transformed":
+        return lang === "pt"
+          ? "100+ pessoas transformadas"
+          : lang === "es"
+          ? "100+ personas transformadas"
+          : "100+ people transformed";
+      case "method":
+        return lang === "pt"
+          ? "Método próprio"
+          : lang === "es"
+          ? "Método propio"
+          : "Personal method";
+      case "personalized":
+        return lang === "pt"
+          ? "100% personalizado"
+          : lang === "es"
+          ? "100% personalizado"
+          : "100% personalized";
+      default:
+        return "";
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-amber-50 via-white to-white overflow-hidden pt-20 pb-16">
-      {/* Background decoration - elemento visual sutil */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-amber-300 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-orange-200 rounded-full blur-3xl" />
+    <section className={styles.section}>
+      <div className={styles.languageSwitcher}>
+        {languageOptions.map((language) => (
+          <button
+            key={language}
+            type="button"
+            onClick={() => setLanguage(language)}
+            className={`${styles.languageOption} ${
+              lang === language ? styles.languageOptionActive : ""
+            }`}
+            aria-pressed={lang === language}
+          >
+            {language.toUpperCase()}
+          </button>
+        ))}
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+      {/* Background decoration - elemento visual sutil */}
+      <div className={styles.decoration}>
+        <div className={`${styles.decorationCircle} ${styles.decorationCircleTop}`} />
+        <div className={`${styles.decorationCircle} ${styles.decorationCircleBottom}`} />
+      </div>
+
+      <div className={styles.container}>
+        <div className={styles.grid}>
           {/* Left: Text Content */}
-          <div className="space-y-6">
+          <div className={styles.textContent}>
             {/* Credibility Badge - instala confiança PRIMEIRO */}
-            <div className="inline-flex items-center justify-center px-4 py-2 bg-white rounded-full shadow-sm border border-amber-100 hover:border-amber-300 transition-colors">
-              <span className="text-sm text-amber-700 font-medium">
+            <div className={styles.badge}>
+              <span className={styles.badgeText}>
                 {content.badge}
               </span>
             </div>
 
             {/* Headline - simples, benefit-driven */}
-            <h1 className="font-cinzel text-5xl sm:text-6xl font-bold text-gray-900 leading-tight">
+            <h1 className={styles.headline}>
               {content.headline}
             </h1>
 
             {/* Subheadline - explica o método */}
-            <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
+            <p className={styles.subheadline}>
               {content.subheadline}
             </p>
 
             {/* CTA Button - primary, singular, destacado */}
-            <div className="pt-4">
+            <div className={styles.ctaWrapper}>
               <Button
                 href={landingContent[lang].cta.primary.href}
                 size="lg"
-                className="group animate-in fade-in duration-700"
+                className={styles.ctaButton}
               >
                 {content.cta}
-                <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                <span className={styles.ctaArrow}>
                   →
                 </span>
               </Button>
             </div>
 
             {/* Trust signals - social proof rápido */}
-            <div className="pt-4 flex items-center gap-4 text-sm text-gray-600">
-              <div className="flex -space-x-2">
+            <div className={styles.trustSignals}>
+              <div className={styles.avatarContainer}>
                 {/* Avatares dos beneficiários (placeholder) */}
                 {[1, 2, 3].map((i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-300 to-orange-300 border-2 border-white flex items-center justify-center text-xs font-bold text-amber-700"
+                    className={styles.avatar}
                   >
                     {i}
                   </div>
                 ))}
               </div>
-              <span>
-                {lang === "pt"
-                  ? "100+ pessoas transformadas"
-                  : "100+ people transformed"}
-              </span>
+              <span>{getLocalizedLabel("transformed")}</span>
             </div>
           </div>
 
           {/* Right: Image */}
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+          <div className={styles.imageWrapper}>
+            <div className={styles.imageContainer}>
               <img
                 src={content.images.main}
                 alt={content.images.alt}
-                className="w-full h-auto object-cover aspect-square sm:aspect-auto"
+                className={styles.image}
               />
             </div>
 
             {/* Decorative badges ao redor da imagem */}
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-3 border border-amber-100">
-              <p className="text-sm font-semibold text-amber-700">
-                {lang === "pt" ? "Método próprio" : "Personal method"}
+            <div className={`${styles.decorativeBadge} ${styles.decorativeBadgeBottomLeft}`}>
+              <p className={styles.decorativeBadgeText}>
+                {getLocalizedLabel("method")}
               </p>
             </div>
-            <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-3 border border-amber-100">
-              <p className="text-sm font-semibold text-amber-700">
-                {lang === "pt" ? "100% personalizado" : "100% personalized"}
+            <div className={`${styles.decorativeBadge} ${styles.decorativeBadgeTopRight}`}>
+              <p className={styles.decorativeBadgeText}>
+                {getLocalizedLabel("personalized")}
               </p>
             </div>
           </div>

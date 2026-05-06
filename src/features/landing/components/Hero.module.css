@@ -1,0 +1,275 @@
+/* Hero Component Styles - Pure CSS */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #fef3c7, #ffffff, #ffffff);
+  overflow: hidden;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+
+.decoration {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+}
+
+.decorationCircle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+}
+
+.decorationCircleTop {
+  top: 5rem;
+  right: 2.5rem;
+  width: 18rem;
+  height: 18rem;
+  background-color: #fcd34d;
+}
+
+.decorationCircleBottom {
+  bottom: 5rem;
+  left: 2.5rem;
+  width: 24rem;
+  height: 24rem;
+  background-color: #fed7aa;
+}
+
+.languageSwitcher {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.25rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.languageOption {
+  border-radius: 9999px;
+  padding: 0.75rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #b45309;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.languageOption:hover {
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.languageOptionActive {
+  background-color: #f59e0b;
+  color: #ffffff;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .grid {
+    gap: 3rem;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #fef3c7;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.badge:hover {
+  border-color: #fcd34d;
+}
+
+.badgeText {
+  font-size: 0.875rem;
+  color: #b45309;
+  font-weight: 500;
+}
+
+.headline {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .headline {
+    font-size: 3.75rem;
+  }
+}
+
+.subheadline {
+  font-size: 1.25rem;
+  color: #4b5563;
+  line-height: 1.625;
+  max-width: 28rem;
+}
+
+.ctaWrapper {
+  padding-top: 1rem;
+}
+
+.ctaButton {
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.ctaArrow {
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(0.25rem);
+}
+
+.trustSignals {
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.avatarContainer {
+  display: flex;
+  margin-right: -0.5rem;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fcd34d, #fed7aa);
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #b45309;
+  margin-right: -0.5rem;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.imageContainer {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 640px) {
+  .image {
+    aspect-ratio: auto;
+  }
+}
+
+.decorativeBadge {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  border: 1px solid #fef3c7;
+}
+
+.decorativeBadgeBottomLeft {
+  position: absolute;
+  bottom: -1rem;
+  left: -1rem;
+}
+
+.decorativeBadgeTopRight {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+}
+
+.decorativeBadgeText {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #b45309;
+}

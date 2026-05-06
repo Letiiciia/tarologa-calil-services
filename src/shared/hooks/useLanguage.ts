@@ -19,7 +19,7 @@ import { useState, useEffect } from "react";
  * Em vez de passar props para baixo (prop drilling), você compartilha via hook.
  */
 
-type Language = "pt" | "en";
+type Language = "pt" | "en" | "es";
 
 export function useLanguage() {
   const [lang, setLang] = useState<Language>("pt");
@@ -32,24 +32,34 @@ export function useLanguage() {
 
     // Tenta recuperar idioma salvo
     const saved = localStorage.getItem("language") as Language | null;
-    if (saved && (saved === "pt" || saved === "en")) {
+    if (saved && (saved === "pt" || saved === "en" || saved === "es")) {
       setLang(saved);
     } else {
       // Se não tem salvo, detecta pelo navegador
-      const browserLang = navigator.language.startsWith("pt") ? "pt" : "en";
+      const browserLang = navigator.language.startsWith("pt")
+        ? "pt"
+        : navigator.language.startsWith("es")
+        ? "es"
+        : "en";
       setLang(browserLang);
       localStorage.setItem("language", browserLang);
     }
   }, []);
 
+  const setLanguage = (language: Language) => {
+    setLang(language);
+    localStorage.setItem("language", language);
+  };
+
   const toggleLanguage = () => {
-    const newLang = lang === "pt" ? "en" : "pt";
+    const newLang = lang === "pt" ? "en" : lang === "en" ? "es" : "pt";
     setLang(newLang);
     localStorage.setItem("language", newLang);
   };
 
   return {
     lang,
+    setLanguage,
     toggleLanguage,
     mounted, // ⚠️ Importante: não renderiza até estar pronto (evita flickering)
   };
