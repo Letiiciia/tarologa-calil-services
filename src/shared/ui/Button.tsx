@@ -47,11 +47,11 @@ export function Button({
   // Variações: cada uma escolhe cor base + hover + focus diferente
   const variantStyles = {
     primary:
-      "bg-amber-500 text-white hover:bg-amber-600 focus:ring-amber-500 shadow-md hover:shadow-lg",
+      "bg-gradient-to-r from-[#E8B15C] to-[#F59E52] text-[#1B1A2E] hover:from-[#F0C074] hover:to-[#F7A866] focus:ring-[#E8B15C] shadow-lg hover:shadow-xl rounded-xl",
     secondary:
-      "bg-white text-amber-500 border-2 border-amber-500 hover:bg-amber-50 focus:ring-amber-500",
+      "bg-transparent text-[#5B2A86] border-2 border-[#7B3FA1] hover:bg-[#7B3FA1]/10 focus:ring-[#7B3FA1] rounded-xl",
     ghost:
-      "bg-transparent text-amber-500 hover:bg-amber-50 focus:ring-amber-500",
+      "bg-transparent text-[#5B2A86] hover:bg-[#C8A2FF]/20 focus:ring-[#7B3FA1] rounded-xl",
   };
 
   // cn combina classes sem conflito

@@ -47,8 +47,8 @@ export function CredibilitySection() {
             </div>
 
             {/* Floating badge com core message */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-6 max-w-sm border-l-4 border-amber-400">
-              <p className="text-sm italic text-gray-700 leading-relaxed">
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-6 max-w-sm border-l-4 border-[#E8B15C]">
+              <p className="text-sm italic text-[#4B5563] leading-relaxed">
                 "{content.coreMessage}"
               </p>
             </div>
@@ -58,14 +58,14 @@ export function CredibilitySection() {
           <div className="order-1 lg:order-2 space-y-8">
             {/* Title */}
             <div>
-              <h2 className="font-cinzel text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="font-cinzel text-5xl font-bold text-[#1B1A2E] mb-4">
                 {content.title}
               </h2>
             </div>
 
             {/* Core message again - para emphasis */}
-            <blockquote className="border-l-4 border-amber-400 pl-6 py-4">
-              <p className="text-xl italic text-amber-800 font-semibold">
+            <blockquote className="border-l-4 border-[#E8B15C] pl-6 py-4">
+              <p className="text-xl italic text-[#5B2A86] font-semibold">
                 "{content.coreMessage}"
               </p>
             </blockquote>
@@ -80,7 +80,7 @@ export function CredibilitySection() {
                   </span>
 
                   {/* Text */}
-                  <span className="text-gray-700 leading-relaxed pt-1">
+                  <span className="text-[#4B5563] leading-relaxed pt-1">
                     {cred.text}
                   </span>
                 </li>
@@ -88,15 +88,15 @@ export function CredibilitySection() {
             </ul>
 
             {/* Approach section */}
-            <div className="bg-white rounded-lg p-6 border border-amber-100 mt-8">
-              <h3 className="font-cinzel font-bold text-gray-900 mb-3">
+            <div className="bg-white rounded-lg p-6 border border-[#7B3FA1]/20 mt-8">
+              <h3 className="font-cinzel font-bold text-[#1B1A2E] mb-3">
                 {lang === "pt"
                   ? "Como Carol trabalha:"
                   : lang === "es"
                   ? "Cómo trabaja Carol:"
                   : "How Carol works:"}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-[#4B5563] leading-relaxed">
                 {content.approach}
               </p>
             </div>

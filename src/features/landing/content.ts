@@ -38,6 +38,22 @@ interface LandingContent {
       alt: string;
     };
   };
+  emotionalExperience: {
+    title: string;
+    subtitle: string;
+    bodyText: string[];
+  };
+  journeyFor: {
+    badge: string;
+    title: string;
+    bodyText: string[];
+    cards: {
+      icon: string;
+      title: string;
+      description: string;
+    }[];
+    closingLine?: string;
+  };
   whatfor: {
     title: string;
     subtitle: string;
@@ -94,6 +110,48 @@ export const landingContent: Bilingual<LandingContent> = {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
         alt: "Carol Calil - Taróloga e Terapeuta Holística",
       },
+    },
+
+    emotionalExperience: {
+      title: "Uma experiência de transformação emocional",
+      subtitle: "Embarque em uma jornada profunda de autoconhecimento e transformação emocional.",
+      bodyText: [
+        "Através do Tarot, escrita terapêutica, meditação, respiração e práticas de terapia holística, você será guiada por um caminho simbólico de clareza, reconexão e despertar emocional.",
+        "Essa experiência foi criada para mulheres que desejam se libertar de padrões emocionais, recuperar sua direção interna e se reconectar com sua verdadeira essência.",
+      ],
+    },
+
+    journeyFor: {
+      badge: "Uma experiência de transformação emocional profunda",
+      title: "Essa jornada foi criada para mulheres que...",
+      bodyText: [
+        "Você é uma mulher profunda, sensível, que já tentou buscar apoio emocional, mas sente que algo ainda está faltando para alcançar o que realmente deseja.",
+        "Talvez você já tenha tentado racionalizar tudo.\nTalvez já tenha buscado respostas em relacionamentos, espiritualidade, desenvolvimento pessoal ou até em outras terapias.",
+        "Mas existe uma parte sua que ainda pede acolhimento, clareza e direção.",
+        "Essa jornada foi criada para mulheres que estão prontas para parar de sobreviver emocionalmente e começar a se escutar de verdade.",
+      ],
+      cards: [
+        {
+          icon: "🔮",
+          title: "Tarot simbólico",
+          description: "Leituras para revelar padrões emocionais, bloqueios e caminhos internos.",
+        },
+        {
+          icon: "🧘",
+          title: "Meditação e respiração",
+          description: "Práticas guiadas para desacelerar a mente e acessar sua intuição.",
+        },
+        {
+          icon: "✍️",
+          title: "Escritoterapia e conto terapia",
+          description: "Narrativas, símbolos e escrita terapêutica para ressignificar sua história.",
+        },
+        {
+          icon: "👭",
+          title: "Jornada em grupo",
+          description: "Conexão profunda com outras mulheres em um ambiente íntimo e acolhedor.",
+        },
+      ],
     },
 
     whatfor: {
@@ -241,6 +299,48 @@ export const landingContent: Bilingual<LandingContent> = {
       },
     },
 
+    emotionalExperience: {
+      title: "An emotional transformation experience",
+      subtitle: "Embark on a deep journey of self-knowledge and emotional transformation.",
+      bodyText: [
+        "Through Tarot, therapeutic writing, meditation, breathing and holistic therapy practices, you will be guided through a symbolic path of clarity, reconnection and emotional awakening.",
+        "This experience was created for women who wish to free themselves from emotional patterns, recover their inner direction and reconnect with their true essence.",
+      ],
+    },
+
+    journeyFor: {
+      badge: "An experience of deep emotional transformation",
+      title: "This journey was created for women who...",
+      bodyText: [
+        "You are a deep, sensitive woman who has already sought emotional support, but feel that something is still missing to achieve what you truly desire.",
+        "Perhaps you have already tried to rationalize everything.\nPerhaps you have sought answers in relationships, spirituality, personal development or even other therapies.",
+        "But there is a part of you that still asks for care, clarity and direction.",
+        "This journey was created for women who are ready to stop surviving emotionally and start truly listening to themselves.",
+      ],
+      cards: [
+        {
+          icon: "🔮",
+          title: "Symbolic Tarot",
+          description: "Readings to reveal emotional patterns, blockages and inner pathways.",
+        },
+        {
+          icon: "🧘",
+          title: "Meditation and Breathing",
+          description: "Guided practices to slow the mind and access your intuition.",
+        },
+        {
+          icon: "✍️",
+          title: "Writing Therapy & Story Therapy",
+          description: "Narratives, symbols and therapeutic writing to reframe your story.",
+        },
+        {
+          icon: "👭",
+          title: "Group Journey",
+          description: "Deep connection with other women in an intimate and welcoming environment.",
+        },
+      ],
+    },
+
     whatfor: {
       title: "For those seeking...",
       subtitle: "If you identify with any of these challenges:",
@@ -385,6 +485,48 @@ export const landingContent: Bilingual<LandingContent> = {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
         alt: "Carol Calil - Tarotista y Terapeuta Holística",
       },
+    },
+
+    emotionalExperience: {
+      title: "Una experiencia de transformación emocional",
+      subtitle: "Embarca en un viaje profundo de autoconocimiento y transformación emocional.",
+      bodyText: [
+        "A través del Tarot, escritura terapéutica, meditación, respiración y prácticas de terapia holística, serás guiada por un camino simbólico de claridad, reconexión y despertar emocional.",
+        "Esta experiencia fue creada para mujeres que desean liberarse de patrones emocionales, recuperar su dirección interna y reconectarse con su verdadera esencia.",
+      ],
+    },
+
+    journeyFor: {
+      badge: "Una experiencia de transformación emocional profunda",
+      title: "Este viaje fue creado para mujeres que...",
+      bodyText: [
+        "Eres una mujer profunda, sensible, que ya ha buscado apoyo emocional, pero siente que algo aún falta para alcanzar lo que realmente deseas.",
+        "Quizás ya hayas intentado racionalizarlo todo.\nQuizás hayas buscado respuestas en relaciones, espiritualidad, desarrollo personal o incluso otras terapias.",
+        "Pero existe una parte de ti que aún pide acogida, claridad y dirección.",
+        "Este viaje fue creado para mujeres que están listas para dejar de sobrevivir emocionalmente y comenzar a escucharse de verdad.",
+      ],
+      cards: [
+        {
+          icon: "🔮",
+          title: "Tarot simbólico",
+          description: "Lecturas para revelar patrones emocionales, bloqueos y caminos internos.",
+        },
+        {
+          icon: "🧘",
+          title: "Meditación y respiración",
+          description: "Prácticas guiadas para desacelerar la mente y acceder a tu intuición.",
+        },
+        {
+          icon: "✍️",
+          title: "Escritoterapia y cuentoterapia",
+          description: "Narrativas, símbolos y escritura terapéutica para resignificar tu historia.",
+        },
+        {
+          icon: "👭",
+          title: "Viaje en grupo",
+          description: "Conexión profunda con otras mujeres en un ambiente íntimo y acogedor.",
+        },
+      ],
     },
 
     whatfor: {

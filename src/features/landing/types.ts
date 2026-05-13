@@ -19,6 +19,24 @@ export interface HeroSection {
   };
 }
 
+export interface EmotionalExperienceSection {
+  title: string;
+  subtitle: string;
+  bodyText: string[];
+}
+
+export interface JourneyForSection {
+  badge: string;
+  title: string;
+  bodyText: string[];
+  cards: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
+  closingLine?: string;
+}
+
 export interface BenefitsSection {
   title: string;
   items: BenefitItem[];

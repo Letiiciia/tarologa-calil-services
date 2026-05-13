@@ -9,10 +9,12 @@
  */
 
 export { Hero } from "./components/Hero";
+export { EmotionalExperience } from "./components/EmotionalExperience";
+export { JourneyFor } from "./components/JourneyFor";
 export { BenefitsFlow } from "./components/BenefitsFlow";
 export { MethodSection } from "./components/MethodSection";
 export { CredibilitySection } from "./components/CredibilitySection";
 export { TransformationSection } from "./components/TransformationSection";
 export { CTASection } from "./components/CTASection";
 export { landingContent } from "./content";
-export type { HeroSection, BenefitsSection, BenefitItem } from "./types";
+export type { HeroSection, EmotionalExperienceSection, JourneyForSection, BenefitsSection, BenefitItem } from "./types";

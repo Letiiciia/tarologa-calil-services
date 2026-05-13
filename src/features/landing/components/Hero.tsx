@@ -113,7 +113,7 @@ export function Hero() {
                 href={content.secondaryCta.href}
                 size="lg"
                 variant="ghost"
-                className="ml-0 mt-4 sm:ml-4 sm:mt-0 text-amber-700 border border-amber-200 hover:bg-amber-50"
+                className="ml-0 mt-4 sm:ml-4 sm:mt-0 text-[#5B2A86] border border-[#7B3FA1]/30 hover:bg-[#C8A2FF]/10"
               >
                 {content.secondaryCta.label}
               </Button>
