@@ -86,8 +86,8 @@ export function CTASection() {
           {lang === "pt"
             ? "Carol Calil • Taróloga e Terapeuta Holística"
             : lang === "es"
-            ? "Carol Calil • Tarotista y Terapeuta Holística"
-            : "Carol Calil • Tarot Reader & Holistic Therapist"}
+              ? "Carol Calil • Tarotista y Terapeuta Holística"
+              : "Carol Calil • Tarot Reader & Holistic Therapist"}
         </p>
         <div className="flex justify-center gap-6">
           <a

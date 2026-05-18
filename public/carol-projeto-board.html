@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Carol Calil – Board de Progresso</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0f0a1e; color: #e8d5f5; min-height: 100vh; padding: 32px 24px; }
+
+  h1 { font-size: 1.5rem; font-weight: 700; text-align: center; color: #c084fc; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .subtitle { text-align: center; color: #9b59b6; font-size: 0.85rem; margin-bottom: 32px; letter-spacing: 1px; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 960px; margin: 0 auto; }
+  @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
+
+  .col-header { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 8px 14px; border-radius: 8px 8px 0 0; margin-bottom: 0; }
+  .col-abril .col-header { background: #2d1b4e; color: #a78bfa; border-bottom: 2px solid #7c3aed; }
+  .col-maio .col-header  { background: #1a2e1a; color: #86efac; border-bottom: 2px solid #16a34a; }
+
+  .col-body { background: #1a1230; border-radius: 0 0 12px 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #2d1b4e; border-top: none; }
+
+  .card { background: #231640; border-radius: 10px; padding: 12px 14px; border-left: 3px solid transparent; }
+  .card.done   { border-left-color: #22c55e; }
+  .card.wip    { border-left-color: #f59e0b; }
+  .card.todo   { border-left-color: #6366f1; }
+  .card.block  { border-left-color: #ef4444; }
+
+  .card-title { font-size: 0.88rem; font-weight: 600; display: flex; align-items: flex-start; gap: 8px; line-height: 1.3; }
+  .card-desc  { font-size: 0.78rem; color: #9ca3af; margin-top: 5px; margin-left: 22px; line-height: 1.5; }
+  .tag { display: inline-block; font-size: 0.65rem; padding: 2px 7px; border-radius: 20px; font-weight: 600; margin-top: 6px; margin-left: 22px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tag.done   { background: #14532d; color: #86efac; }
+  .tag.wip    { background: #451a03; color: #fcd34d; }
+  .tag.todo   { background: #1e1b4b; color: #a5b4fc; }
+  .tag.block  { background: #450a0a; color: #fca5a5; }
+
+  /* Cartas section */
+  .section-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #6b21a8; margin: 8px 0 6px; padding-left: 2px; }
+
+  .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 960px; margin: 24px auto 0; }
+  @media (max-width: 640px) { .cards-grid { grid-template-columns: 1fr; } }
+  .cards-block { background: #1a1230; border-radius: 12px; padding: 16px; border: 1px solid #2d1b4e; }
+  .cards-block h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #c084fc; margin-bottom: 12px; border-bottom: 1px solid #2d1b4e; padding-bottom: 8px; }
+  .carta-row { display: flex; align-items: center; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #1f1540; font-size: 0.82rem; }
+  .carta-row:last-child { border-bottom: none; }
+  .carta-name { display: flex; align-items: center; gap: 8px; }
+  .deck-badge { font-size: 0.6rem; padding: 2px 6px; border-radius: 10px; font-weight: 600; }
+  .deck-tarot  { background: #312e81; color: #a5b4fc; }
+  .deck-oracle { background: #4a1942; color: #f0abfc; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-ok      { background: #22c55e; }
+  .dot-noimg   { background: #f59e0b; }
+  .dot-missing { background: #6366f1; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.72rem; color: #9ca3af; }
+
+  /* Landing wireframe section */
+  .wireframe-section { max-width: 960px; margin: 24px auto 0; background: #1a1230; border-radius: 12px; padding: 20px; border: 1px solid #2d1b4e; }
+  .wireframe-section h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #c084fc; margin-bottom: 16px; border-bottom: 1px solid #2d1b4e; padding-bottom: 8px; }
+  .wf-flow { display: flex; flex-direction: column; gap: 8px; }
+  .wf-block { border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; }
+  .wf-block.exists   { background: #14532d22; border: 1px solid #22c55e44; }
+  .wf-block.new      { background: #31207022; border: 1px dashed #a78bfa; }
+  .wf-block.improve  { background: #45180322; border: 1px dashed #f59e0b; }
+  .wf-label { font-weight: 600; }
+  .wf-note  { font-size: 0.72rem; color: #9ca3af; }
+  .wf-arrow { text-align: center; color: #4b3a7a; font-size: 1.1rem; padding: 2px 0; }
+
+  .footer-note { max-width: 960px; margin: 20px auto 0; text-align: center; font-size: 0.75rem; color: #6b7280; }
+</style>
+</head>
+<body>
+
+<h1>🔮 Projeto Carol Calil</h1>
+<p class="subtitle">Board de acompanhamento • Letícia Lima – Consultora de Tecnologia</p>
+
+<!-- SPRINT COLUMNS -->
+<div class="cols">
+
+  <!-- ABRIL -->
+  <div class="col-abril">
+    <div class="col-header">✦ Abril — Do onde partimos</div>
+    <div class="col-body">
+
+      <div class="section-title">Descoberta & Estratégia</div>
+
+      <div class="card done">
+        <div class="card-title">✅ Entrevista de descoberta com Carol</div>
+        <div class="card-desc">Mapeamento de produtos, dores, capacidade, diferenciais e objeções dos clientes.</div>
+        <span class="tag done">Concluído</span>
+      </div>
+
+      <div class="card done">
+        <div class="card-title">✅ Definição do funil de produto</div>
+        <div class="card-desc">Produto de entrada (Jornada de Clareza R$97–147) + upsell (Consulta Completa R$350). Estratégia: vender primeiro, automatizar depois.</div>
+        <span class="tag done">Concluído</span>
+      </div>
+
+      <div class="card done">
+        <div class="card-title">✅ Scrum / Product Backlog</div>
+        <div class="card-desc">Backlog estruturado no Miro com Epics, User Stories, Definition of Done, OKRs e riscos mapeados.</div>
+        <span class="tag done">Concluído</span>
+      </div>
+
+      <div class="card done">
+        <div class="card-title">✅ Protótipo navegável (Figma)</div>
+        <div class="card-desc">Fluxo completo: Home, Quem sou eu, Baralho, Carta do dia, Login, Agendamento, Pagamento. Entregue e aprovado na faculdade com nota máxima.</div>
+        <span class="tag done">Concluído</span>
+      </div>
+
+      <div class="section-title">Desenvolvimento</div>
+
+      <div class="card done">
+        <div class="card-title">✅ Landing page base (Next.js)</div>
+        <div class="card-desc">Hero, BenefitsFlow, CredibilitySection, CTASection. Publicada no Netlify com CTA para WhatsApp.</div>
+        <span class="tag done">Concluído</span>
+      </div>
+
+      <div class="card done">
+        <div class="card-title">✅ Conteúdo das cartas mapeado</div>
+        <div class="card-desc">9 cartas com texto em PT/EN no código: 3 de Copas, Diabo, A Morte, O Carro, Rei de Paus, 4 de Ouros, Ártemis, Durga, Cavaleiro de Espadas.</div>
+        <span class="tag done">Concluído</span>
+      </div>
+
+      <div class="card done">
+        <div class="card-title">✅ Suporte multilíngue (PT / EN / ES)</div>
+        <div class="card-desc">Todo o conteúdo da landing centralizado e traduzido. Hook de idioma funcionando.</div>
+        <span class="tag done">Concluído</span>
+      </div>
+
+      <div class="card wip">
+        <div class="card-title">⏳ Criativos de IA (imagens e vídeos)</div>
+        <div class="card-desc">Iniciado com Pippit e Seedance 2.0. Alguns assets gerados, mas não finalizados.</div>
+        <span class="tag wip">Em andamento</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAIO -->
+  <div class="col-maio">
+    <div class="col-header">✦ Maio — O que estamos construindo</div>
+    <div class="col-body">
+
+      <div class="section-title">Prioridade: Faculdade (até 31/mai)</div>
+
+      <div class="card wip">
+        <div class="card-title">⏳ Sistematização 1 – Plano de Implantação + KPIs</div>
+        <div class="card-desc">Entrega obrigatória até 31/05. Documento com cronograma, recursos, métricas e metas de conversão do projeto.</div>
+        <span class="tag wip">Em andamento</span>
+      </div>
+
+      <div class="section-title">Produto: Landing que converte</div>
+
+      <div class="card wip">
+        <div class="card-title">⏳ Seção "Carta do Dia" na landing</div>
+        <div class="card-desc">Animação de virar carta, texto personalizado por carta, CTA contextual para WhatsApp após a leitura.</div>
+        <span class="tag wip">Em andamento</span>
+      </div>
+
+      <div class="card todo">
+        <div class="card-title">🔲 Imagens das cartas</div>
+        <div class="card-desc">Atualmente todas as cartas usam a mesma imagem (3Copas.jpeg). Faltam: Ártemis, Durga, Rei de Paus, 4 de Ouros, Cavaleiro de Espadas, Diabo, A Morte, O Carro.</div>
+        <span class="tag todo">Pendente</span>
+      </div>
+
+      <div class="card todo">
+        <div class="card-title">🔲 Rastreamento de conversão</div>
+        <div class="card-desc">Medir cliques no botão WhatsApp (UTM ou evento simples) para quantificar leads gerados pela landing.</div>
+        <span class="tag todo">Pendente</span>
+      </div>
+
+      <div class="card todo">
+        <div class="card-title">🔲 Validação com Carol</div>
+        <div class="card-desc">Carol testa a landing, avalia a seção de carta do dia e aprova a copy e identidade visual.</div>
+        <span class="tag todo">Pendente</span>
+      </div>
+
+      <div class="section-title">Próximos passos (Junho)</div>
+
+      <div class="card todo">
+        <div class="card-title">🔲 Sistematização 2 – Documento integrador + defesa</div>
+        <div class="card-desc">Abre 22/06, vence 28/06. Precisa de: feedback real de usuários, documento completo e vídeo de defesa 10-20 min.</div>
+        <span class="tag todo">Pendente</span>
+      </div>
+
+      <div class="card todo">
+        <div class="card-title">🔲 Expandir banco de cartas</div>
+        <div class="card-desc">Adicionar mais cartas com imagens próprias (idealmente geradas com IA no estilo da Carol).</div>
+        <span class="tag todo">Pendente</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- INVENTÁRIO DE CARTAS -->
+<div class="cards-grid">
+  <div class="cards-block">
+    <h3>🃏 Inventário de Cartas</h3>
+
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-noimg"></div>
+        3 de Copas
+        <span class="deck-badge deck-tarot">Tarot</span>
+      </div>
+      <span style="font-size:0.72rem;color:#fcd34d">texto ✓ · imagem pendente</span>
+    </div>
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-noimg"></div>
+        Diabo
+        <span class="deck-badge deck-tarot">Tarot</span>
+      </div>
+      <span style="font-size:0.72rem;color:#fcd34d">texto ✓ · imagem pendente</span>
+    </div>
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-noimg"></div>
+        A Morte
+        <span class="deck-badge deck-tarot">Tarot</span>
+      </div>
+      <span style="font-size:0.72rem;color:#fcd34d">texto ✓ · imagem pendente</span>
+    </div>
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-noimg"></div>
+        O Carro
+        <span class="deck-badge deck-tarot">Tarot</span>
+      </div>
+      <span style="font-size:0.72rem;color:#fcd34d">texto ✓ · imagem pendente</span>
+    </div>
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-noimg"></div>
+        Cavaleiro de Espadas
+        <span class="deck-badge deck-tarot">Tarot</span>
+      </div>
+      <span style="font-size:0.72rem;color:#fcd34d">texto ✓ · imagem pendente</span>
+    </div>
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-noimg"></div>
+        Rei de Paus
+        <span class="deck-badge deck-tarot">Tarot</span>
+      </div>
+      <span style="font-size:0.72rem;color:#fcd34d">texto ✓ · imagem pendente</span>
+    </div>
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-noimg"></div>
+        4 de Ouros
+        <span class="deck-badge deck-tarot">Tarot</span>
+      </div>
+      <span style="font-size:0.72rem;color:#fcd34d">texto ✓ · imagem pendente</span>
+    </div>
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-ok"></div>
+        Ártemis
+        <span class="deck-badge deck-oracle">Oráculo</span>
+      </div>
+      <span style="font-size:0.72rem;color:#86efac">texto ✓ · imagem ✓</span>
+    </div>
+    <div class="carta-row">
+      <div class="carta-name">
+        <div class="status-dot dot-ok"></div>
+        Durga
+        <span class="deck-badge deck-oracle">Oráculo</span>
+      </div>
+      <span style="font-size:0.72rem;color:#86efac">texto ✓ · imagem ✓</span>
+    </div>
+
+    <div class="legend" style="margin-top:14px">
+      <div class="legend-item"><div class="status-dot dot-ok"></div> Completa</div>
+      <div class="legend-item"><div class="status-dot dot-noimg"></div> Falta imagem</div>
+      <div class="legend-item"><div class="status-dot dot-missing"></div> Falta tudo</div>
+    </div>
+  </div>
+
+  <!-- WIREFRAME DA LANDING -->
+  <div class="cards-block">
+    <h3>📐 Estrutura da Landing (proposta)</h3>
+    <div class="wf-flow">
+      <div class="wf-block exists">
+        <span class="wf-label">1. Hero</span>
+        <span class="wf-note">✅ Existe · ajuste de copy</span>
+      </div>
+      <div class="wf-arrow">↓</div>
+      <div class="wf-block exists">
+        <span class="wf-label">2. Para quem é</span>
+        <span class="wf-note">✅ Existe · ok</span>
+      </div>
+      <div class="wf-arrow">↓</div>
+      <div class="wf-block exists">
+        <span class="wf-label">3. Quem é Carol</span>
+        <span class="wf-note">✅ Existe · ok</span>
+      </div>
+      <div class="wf-arrow">↓</div>
+      <div class="wf-block new">
+        <span class="wf-label">4. 🃏 Carta do Dia</span>
+        <span class="wf-note">🆕 Construir agora</span>
+      </div>
+      <div class="wf-arrow">↓</div>
+      <div class="wf-block improve">
+        <span class="wf-label">5. CTA WhatsApp</span>
+        <span class="wf-note">⚡ Melhorar copy pós-carta</span>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding:10px;background:#0f0a1e;border-radius:8px;">
+      <p style="font-size:0.72rem;color:#9ca3af;line-height:1.6">
+        <strong style="color:#c084fc">Lógica de conversão:</strong><br>
+        Visitante chega → se identifica → tira carta → se emociona → clica no WhatsApp <em>aquecida</em>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<p class="footer-note">Gerado em maio/2026 · FoxFlow Consultoria · Letícia Lima</p>
+
+</body>
+</html>

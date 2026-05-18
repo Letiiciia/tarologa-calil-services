@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
 import { motion } from "framer-motion";
@@ -156,13 +157,14 @@ export function EmotionalExperience() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#F7F1E8] via-white to-[#F0E9DC] rounded-3xl shadow-2xl border border-[#7B3FA1]/20" />
 
               {/* Floating elements */}
-              <div className="relative h-full p-8 flex flex-col justify-center items-center space-y-8">
-                {/* Glowing Tarot Cards */}
+              <div className="relative h-full p-8 flex flex-col justify-center items-center">
+                {/* Animated sacerdotisa card */}
                 <motion.div
-                  className="relative"
+                  className="relative w-full max-w-sm"
                   animate={{
-                    y: [0, -10, 0],
+                    y: [0, -18, 0],
                     rotate: [0, 2, 0],
+                    scale: [1, 1.03, 1],
                   }}
                   transition={{
                     duration: 4,
@@ -170,53 +172,16 @@ export function EmotionalExperience() {
                     ease: "easeInOut",
                   }}
                 >
-                  {/* Tarot card stack with glow */}
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#5B2A86] to-[#E8B15C] rounded-xl blur-lg opacity-30 scale-110" />
-                    <div className="relative bg-gradient-to-br from-[#F7F1E8] to-[#F0E9DC] rounded-xl p-4 shadow-lg border border-[#7B3FA1]/30">
-                      <div className="text-4xl mb-2">🔮</div>
-                      <div className="text-xs text-[#5B2A86] font-medium">Tarot</div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Woman writing in journal */}
-                <motion.div
-                  className="relative"
-                  animate={{
-                    y: [0, 8, 0],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#C8A2FF] to-[#7B3FA1] rounded-full blur-xl opacity-25 scale-125" />
-                    <div className="relative bg-white rounded-full p-6 shadow-lg border border-[#C8A2FF]/50">
-                      <div className="text-4xl">✍️</div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* Warm candlelight */}
-                <motion.div
-                  className="relative"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#F59E52] to-[#E8B15C] rounded-full blur-lg opacity-40 scale-150" />
-                    <div className="relative bg-gradient-to-t from-[#F7F1E8] to-[#F0E9DC] rounded-full p-4 shadow-lg border border-[#E8B15C]/50">
-                      <div className="text-3xl">🕯️</div>
+                  <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-[#7B3FA1]/30 bg-white">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#C8A2FF]/15 via-[#F7F1E8]/25 to-[#F59E52]/15 opacity-80" />
+                    <div className="relative">
+                      <Image
+                        src="/assets/sacerdotisa.png"
+                        alt="A Sacerdotisa"
+                        width={360}
+                        height={520}
+                        className="w-full h-auto object-cover"
+                      />
                     </div>
                   </div>
                 </motion.div>
