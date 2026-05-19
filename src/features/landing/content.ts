@@ -26,17 +26,52 @@ interface LandingContent {
   hero: {
     headline: string;
     subheadline: string;
+    supportingText: string;
     cta: string;
+    secondaryCta: {
+      label: string;
+      href: string;
+    };
     badge: string;
     images: {
       main: string;
       alt: string;
     };
   };
+  emotionalExperience: {
+    title: string;
+    subtitle: string;
+    bodyText: string[];
+  };
+  journeyFor: {
+    badge: string;
+    title: string;
+    bodyText: string[];
+    cards: {
+      icon: string;
+      title: string;
+      description: string;
+    }[];
+    closingLine?: string;
+  };
   whatfor: {
     title: string;
     subtitle: string;
     benefits: Benefit[];
+    closingLine: string;
+  };
+  method: {
+    title: string;
+    intro: string;
+    steps: {
+      title: string;
+      description: string;
+    }[];
+  };
+  transformation: {
+    title: string;
+    text: string;
+    bullets: string[];
   };
   whois: {
     title: string;
@@ -49,9 +84,10 @@ interface LandingContent {
     approach: string; // Como Carol trabalha
   };
   cta: {
+    headline: string;
+    subtext: string;
     primary: CTAButton;
     secondary?: CTAButton;
-    footer: string;
   };
 }
 
@@ -59,53 +95,140 @@ export const landingContent: Bilingual<LandingContent> = {
   pt: {
     hero: {
       // Headlines de conversão: falam do BENEFÍCIO, não de Carol
-      headline: "Descubra as respostas que você procura",
+      headline: "Você não está confusa.\nVocê só está ignorando o que já sabe.",
       subheadline:
-        "Autoconhecimento profundo através do Tarot e Terapia Holística com 8 anos de experiência",
-      cta: "Iniciar conversa no WhatsApp",
-      badge: "✨ 8 anos ajudando pessoas a encontrar clareza",
+        "Reconecte-se com sua clareza emocional e com o seu poder feminino através da Jornada de Consciência com Contoterapia Oracular.",
+      supportingText:
+        "Uma experiência com Tarot, escrita terapêutica e leitura simbólica para te ajudar a enxergar o que você já sente — com clareza.",
+      cta: "Quero começar minha jornada",
+      secondaryCta: {
+        label: "Conhecer o método",
+        href: "#metodo",
+      },
+      badge: "✨ 8 anos guiando mulheres a encontrarem clareza emocional",
       images: {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
         alt: "Carol Calil - Taróloga e Terapeuta Holística",
       },
     },
 
-    whatfor: {
-      title: "Para quem procura...",
-      subtitle: "Se você se identifica com qualquer um desses desafios:",
-      benefits: [
+    emotionalExperience: {
+      title: "Uma experiência de transformação emocional",
+      subtitle: "Embarque em uma jornada profunda de autoconhecimento e transformação emocional.",
+      bodyText: [
+        "Através do Tarot, escrita terapêutica, meditação, respiração e práticas de terapia holística, você será guiada por um caminho simbólico de clareza, reconexão e despertar emocional.",
+        "Essa experiência foi criada para mulheres que desejam se libertar de padrões emocionais, recuperar sua direção interna e se reconectar com sua verdadeira essência.",
+      ],
+    },
+
+    journeyFor: {
+      badge: "Uma experiência de transformação emocional profunda",
+      title: "Essa jornada foi criada para mulheres que...",
+      bodyText: [
+        "Você é uma mulher profunda, sensível, que já tentou buscar apoio emocional, mas sente que algo ainda está faltando para alcançar o que realmente deseja.",
+        "Talvez você já tenha tentado racionalizar tudo.\nTalvez já tenha buscado respostas em relacionamentos, espiritualidade, desenvolvimento pessoal ou até em outras terapias.",
+        "Mas existe uma parte sua que ainda pede acolhimento, clareza e direção.",
+        "Essa jornada foi criada para mulheres que estão prontas para parar de sobreviver emocionalmente e começar a se escutar de verdade.",
+      ],
+      cards: [
         {
-          icon: "✨",
-          title: "Clareza nas decisões",
-          description:
-            "Entender o que seu coração realmente quer em relacionamentos, carreira e propósito de vida",
+          icon: "🔮",
+          title: "Tarot simbólico",
+          description: "Leituras para revelar padrões emocionais, bloqueios e caminhos internos.",
         },
         {
-          icon: "🔄",
-          title: "Transformação pessoal",
-          description:
-            "Trabalhar os bloqueios emocionais que te travam e desbloqueiar seu potencial",
+          icon: "🧘",
+          title: "Meditação e respiração",
+          description: "Práticas guiadas para desacelerar a mente e acessar sua intuição.",
         },
         {
-          icon: "💫",
-          title: "Reconexão com a essência",
-          description:
-            "Lembrar quem você é de verdade, além das expectativas de outros",
+          icon: "✍️",
+          title: "Escritoterapia e conto terapia",
+          description: "Narrativas, símbolos e escrita terapêutica para ressignificar sua história.",
         },
         {
-          icon: "🌱",
-          title: "Orientação espiritual",
-          description:
-            "Compreender o propósito e sincronicidades da sua vida agora",
+          icon: "👭",
+          title: "Jornada em grupo",
+          description: "Conexão profunda com outras mulheres em um ambiente íntimo e acolhedor.",
         },
       ],
     },
 
+    whatfor: {
+      title: "Se você se reconhece nisso...",
+      subtitle: "Veja se alguma dessas frases ressoa com você.",
+      benefits: [
+        {
+          icon: "🧠",
+          title: "Você já sabe o que precisa fazer, mas não consegue agir",
+          description:
+            "A resposta existe dentro de você, mas falta estrutura emocional para sustentar a decisão.",
+        },
+        {
+          icon: "🌀",
+          title: "Você se sente drenada em relações que não evoluem",
+          description:
+            "Relações confusas consomem sua energia, sua autoestima e sua presença.",
+        },
+        {
+          icon: "🌙",
+          title: "Você se perdeu tentando ser o que esperam de você",
+          description:
+            "Você se adaptou tanto que esqueceu do seu próprio desejo.",
+        },
+        {
+          icon: "✨",
+          title: "Você sente que vive sem direção",
+          description:
+            "Mesmo fazendo tudo certo, ainda parece que algo dentro de você está desalinhado.",
+        },
+      ],
+      closingLine: "Se isso te atravessou, essa jornada é para você.",
+    },
+    method: {
+      title: "Método R.E.S.E.T. Emocional",
+      intro:
+        "Um processo estruturado para sair da confusão emocional e reconstruir sua forma de se relacionar.",
+      steps: [
+        {
+          title: "Revelação",
+          description: "Leitura simbólica + diagnóstico emocional",
+        },
+        {
+          title: "Exposição de padrões",
+          description: "Identificação de comportamentos repetitivos e ciclos emocionais",
+        },
+        {
+          title: "Significação",
+          description: "Escrita terapêutica guiada para ressignificar experiências",
+        },
+        {
+          title: "Estratégia",
+          description: "Ação prática e decisões com clareza",
+        },
+        {
+          title: "Transformação",
+          description: "Construção de uma nova identidade emocional e relacional",
+        },
+      ],
+    },
+    transformation: {
+      title: "Não é sobre prever o futuro.",
+      text:
+        "É sobre entender seus padrões, organizar suas emoções e tomar decisões com consciência.",
+      bullets: [
+        "Clareza emocional",
+        "Consciência dos seus padrões",
+        "Direção real para agir",
+        "Reconexão com seu desejo e identidade",
+      ],
+    },
+
     whois: {
-      title: "Quem é Carol Calil",
+      title: "Especialista em desbloqueio emocional e sexual feminino.",
       //核心 message: não é sobre Carol, é sobre o QUE ela oferece
       coreMessage:
-        "Não vendo previsão pronta. Vendo CLAREZA — te ajudo a ver o que você già sabe mas não consegue enxergar.",
+        "Eu não vendo previsão. Eu te mostro com clareza o que você já sabe — mas ainda não teve coragem de encarar.",
       credentials: [
         {
           icon: "🎓",
@@ -137,34 +260,85 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     cta: {
+      headline:
+        "Você pode continuar ignorando isso...\nou finalmente olhar para si com clareza.",
+      subtext:
+        "Sem pressão. Sem respostas prontas. Apenas um espaço real para você se enxergar.",
       primary: {
-        label: "Agendar sessão pelo WhatsApp",
+        label: "Quero começar minha jornada",
         href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
         variant: "primary",
         target: "_blank",
       },
       secondary: {
-        label: "Conhecer método no Instagram",
+        label: "Falar com Carol no Instagram",
         href: "https://www.instagram.com/tarologacalil/",
         variant: "secondary",
         target: "_blank",
       },
-      footer:
-        "Ou entre em contato direto por WhatsApp para conversar sobre sua situação",
     },
   },
 
   en: {
+    // TODO: update English translations for the new landing copy
     hero: {
       headline: "Discover the answers you're searching for",
       subheadline:
         "Deep self-knowledge through Tarot and Holistic Therapy with 8 years of experience",
+      supportingText:
+        "An experience with Tarot, therapeutic writing and symbolic reading to help you see what you already feel — with clarity.",
       cta: "Start conversation on WhatsApp",
+      secondaryCta: {
+        label: "Learn the method",
+        href: "#metodo",
+      },
       badge: "✨ 8 years helping people find clarity",
       images: {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
         alt: "Carol Calil - Tarot Reader and Holistic Therapist",
       },
+    },
+
+    emotionalExperience: {
+      title: "An emotional transformation experience",
+      subtitle: "Embark on a deep journey of self-knowledge and emotional transformation.",
+      bodyText: [
+        "Through Tarot, therapeutic writing, meditation, breathing and holistic therapy practices, you will be guided through a symbolic path of clarity, reconnection and emotional awakening.",
+        "This experience was created for women who wish to free themselves from emotional patterns, recover their inner direction and reconnect with their true essence.",
+      ],
+    },
+
+    journeyFor: {
+      badge: "An experience of deep emotional transformation",
+      title: "This journey was created for women who...",
+      bodyText: [
+        "You are a deep, sensitive woman who has already sought emotional support, but feel that something is still missing to achieve what you truly desire.",
+        "Perhaps you have already tried to rationalize everything.\nPerhaps you have sought answers in relationships, spirituality, personal development or even other therapies.",
+        "But there is a part of you that still asks for care, clarity and direction.",
+        "This journey was created for women who are ready to stop surviving emotionally and start truly listening to themselves.",
+      ],
+      cards: [
+        {
+          icon: "🔮",
+          title: "Symbolic Tarot",
+          description: "Readings to reveal emotional patterns, blockages and inner pathways.",
+        },
+        {
+          icon: "🧘",
+          title: "Meditation and Breathing",
+          description: "Guided practices to slow the mind and access your intuition.",
+        },
+        {
+          icon: "✍️",
+          title: "Writing Therapy & Story Therapy",
+          description: "Narratives, symbols and therapeutic writing to reframe your story.",
+        },
+        {
+          icon: "👭",
+          title: "Group Journey",
+          description: "Deep connection with other women in an intimate and welcoming environment.",
+        },
+      ],
     },
 
     whatfor: {
@@ -196,12 +370,53 @@ export const landingContent: Bilingual<LandingContent> = {
             "Understand the purpose and synchronicities in your life right now",
         },
       ],
+      closingLine: "If this resonates, it's time to talk",
+    },
+
+    method: {
+      title: "R.E.S.E.T. Emotional Method",
+      intro:
+        "A structured process to move out of emotional confusion and rebuild the way you relate.",
+      steps: [
+        {
+          title: "R — Revelation",
+          description: "Symbolic reading + emotional diagnosis",
+        },
+        {
+          title: "E — Exposure of patterns",
+          description: "Identifying repetitive behaviors and emotional cycles",
+        },
+        {
+          title: "S — Signification",
+          description: "Guided therapeutic writing to reframe experiences",
+        },
+        {
+          title: "E — Strategy",
+          description: "Practical action and decisions with clarity",
+        },
+        {
+          title: "T — Transformation",
+          description: "Building a new emotional and relational identity",
+        },
+      ],
+    },
+
+    transformation: {
+      title: "It's not about predicting the future.",
+      text:
+        "It's about understanding your patterns, organizing your emotions, and making decisions with awareness.",
+      bullets: [
+        "Emotional clarity",
+        "Awareness of your patterns",
+        "Real direction to act",
+        "Reconnection with your desire and identity",
+      ],
     },
 
     whois: {
-      title: "Who is Carol Calil",
+      title: "Emotional and sexual empowerment specialist",
       coreMessage:
-        "I don't sell ready-made predictions. I offer CLARITY — I help you see what you already know but can't perceive.",
+        "I don't sell ready-made predictions. I show you with clarity what you already know — but haven't yet had the courage to face.",
       credentials: [
         {
           icon: "🎓",
@@ -233,6 +448,10 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     cta: {
+      headline:
+        "You can keep ignoring it...\nor finally look at yourself with clarity.",
+      subtext:
+        "No pressure. No ready-made answers. Just a real space for you to see yourself.",
       primary: {
         label: "Book session on WhatsApp",
         href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
@@ -240,26 +459,74 @@ export const landingContent: Bilingual<LandingContent> = {
         target: "_blank",
       },
       secondary: {
-        label: "Learn method on Instagram",
+        label: "Talk to Carol on Instagram",
         href: "https://www.instagram.com/tarologacalil/",
         variant: "secondary",
         target: "_blank",
       },
-      footer: "Or contact directly via WhatsApp to discuss your situation",
     },
   },
 
   es: {
+    // TODO: actualizar traducciones en español para el nuevo copy de landing
     hero: {
       headline: "Descubre las respuestas que buscas",
       subheadline:
         "Autoconocimiento profundo a través del Tarot y la Terapia Holística con 8 años de experiencia",
+      supportingText:
+        "Una experiencia con Tarot, escritura terapéutica y lectura simbólica para ayudarte a ver lo que ya sientes — con claridad.",
       cta: "Iniciar conversación en WhatsApp",
+      secondaryCta: {
+        label: "Conocer el método",
+        href: "#metodo",
+      },
       badge: "✨ 8 años ayudando a personas a encontrar claridad",
       images: {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
         alt: "Carol Calil - Tarotista y Terapeuta Holística",
       },
+    },
+
+    emotionalExperience: {
+      title: "Una experiencia de transformación emocional",
+      subtitle: "Embarca en un viaje profundo de autoconocimiento y transformación emocional.",
+      bodyText: [
+        "A través del Tarot, escritura terapéutica, meditación, respiración y prácticas de terapia holística, serás guiada por un camino simbólico de claridad, reconexión y despertar emocional.",
+        "Esta experiencia fue creada para mujeres que desean liberarse de patrones emocionales, recuperar su dirección interna y reconectarse con su verdadera esencia.",
+      ],
+    },
+
+    journeyFor: {
+      badge: "Una experiencia de transformación emocional profunda",
+      title: "Este viaje fue creado para mujeres que...",
+      bodyText: [
+        "Eres una mujer profunda, sensible, que ya ha buscado apoyo emocional, pero siente que algo aún falta para alcanzar lo que realmente deseas.",
+        "Quizás ya hayas intentado racionalizarlo todo.\nQuizás hayas buscado respuestas en relaciones, espiritualidad, desarrollo personal o incluso otras terapias.",
+        "Pero existe una parte de ti que aún pide acogida, claridad y dirección.",
+        "Este viaje fue creado para mujeres que están listas para dejar de sobrevivir emocionalmente y comenzar a escucharse de verdad.",
+      ],
+      cards: [
+        {
+          icon: "🔮",
+          title: "Tarot simbólico",
+          description: "Lecturas para revelar patrones emocionales, bloqueos y caminos internos.",
+        },
+        {
+          icon: "🧘",
+          title: "Meditación y respiración",
+          description: "Prácticas guiadas para desacelerar la mente y acceder a tu intuición.",
+        },
+        {
+          icon: "✍️",
+          title: "Escritoterapia y cuentoterapia",
+          description: "Narrativas, símbolos y escritura terapéutica para resignificar tu historia.",
+        },
+        {
+          icon: "👭",
+          title: "Viaje en grupo",
+          description: "Conexión profunda con otras mujeres en un ambiente íntimo y acogedor.",
+        },
+      ],
     },
 
     whatfor: {
@@ -291,12 +558,53 @@ export const landingContent: Bilingual<LandingContent> = {
             "Comprende el propósito y las sincronicidades de tu vida ahora mismo",
         },
       ],
+      closingLine: "Si esto resuena contigo, es hora de hablar",
+    },
+
+    method: {
+      title: "Método R.E.S.E.T. Emocional",
+      intro:
+        "Un proceso estructurado para salir de la confusión emocional y reconstruir tu forma de relacionarte.",
+      steps: [
+        {
+          title: "R — Revelación",
+          description: "Lectura simbólica + diagnóstico emocional",
+        },
+        {
+          title: "E — Exposición de patrones",
+          description: "Identificación de comportamientos repetitivos y ciclos emocionales",
+        },
+        {
+          title: "S — Significación",
+          description: "Escritura terapéutica guiada para resignificar experiencias",
+        },
+        {
+          title: "E — Estrategia",
+          description: "Acción práctica y decisiones con claridad",
+        },
+        {
+          title: "T — Transformación",
+          description: "Construcción de una nueva identidad emocional y relacional",
+        },
+      ],
+    },
+
+    transformation: {
+      title: "No se trata de predecir el futuro.",
+      text:
+        "Se trata de entender tus patrones, organizar tus emociones y tomar decisiones con conciencia.",
+      bullets: [
+        "Claridad emocional",
+        "Conciencia de tus patrones",
+        "Dirección real para actuar",
+        "Reconexión con tu deseo e identidad",
+      ],
     },
 
     whois: {
-      title: "Quién es Carol Calil",
+      title: "Especialista en desbloqueo emocional y sexual femenino",
       coreMessage:
-        "No vendo predicciones listas. Ofrezco CLARIDAD — te ayudo a ver lo que ya sabes pero no puedes percibir.",
+        "No vendo predicciones listas. Te muestro con claridad lo que ya sabes — pero aún no tuviste el coraje de enfrentar.",
       credentials: [
         {
           icon: "🎓",
@@ -328,20 +636,22 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     cta: {
+      headline:
+        "Puedes seguir ignorando esto...\no finalmente mirar hacia ti con claridad.",
+      subtext:
+        "Sin presión. Sin respuestas listas. Solo un espacio real para que te veas.",
       primary: {
-        label: "Agendar sesión por WhatsApp",
+        label: "Quiero comenzar mi jornada",
         href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
         variant: "primary",
         target: "_blank",
       },
       secondary: {
-        label: "Conocer método en Instagram",
+        label: "Hablar con Carol en Instagram",
         href: "https://www.instagram.com/tarologacalil/",
         variant: "secondary",
         target: "_blank",
       },
-      footer:
-        "O contacta directamente por WhatsApp para hablar sobre tu situación",
     },
   },
 };
