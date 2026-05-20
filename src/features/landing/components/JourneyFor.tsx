@@ -71,7 +71,7 @@ export function JourneyFor() {
   };
 
   return (
-    <section className="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+    <section id="jornada" className="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
       {/* Soft warm cream background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#F7F1E8] via-white to-[#F0E9DC] -z-20" />
 
@@ -206,6 +206,18 @@ export function JourneyFor() {
               </p>
             </motion.div>
           )}
+
+          {/* CTA Button */}
+          <div className="text-center mt-10">
+            <a
+              href="https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#5B2A86] text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-md hover:bg-[#7B3FA1] transition-colors"
+            >
+              Quero começar minha jornada →
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -1,11 +1,8 @@
 ﻿import {
   Hero,
-  EmotionalExperience,
   JourneyFor,
-  BenefitsFlow,
-  MethodSection,
   CredibilitySection,
-  TransformationSection,
+  CartaDoDia,
   CTASection,
 } from "@/features/landing";
 
@@ -32,12 +29,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Hero />
-      <EmotionalExperience />
       <JourneyFor />
-      <BenefitsFlow />
-      <MethodSection />
       <CredibilitySection />
-      <TransformationSection />
+      <CartaDoDia />
       <CTASection />
     </main>
   );
