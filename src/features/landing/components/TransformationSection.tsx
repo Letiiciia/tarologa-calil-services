@@ -18,7 +18,7 @@ export function TransformationSection() {
             <h2 className="font-cinzel text-4xl sm:text-5xl font-bold text-[#1B1A2E] mb-5">
               {content.title}
             </h2>
-            <p className="text-lg text-[#4B5563] max-w-3xl leading-relaxed">
+            <p className="font-cinzel text-lg text-[#4B5563] max-w-3xl leading-relaxed">
               {content.text}
             </p>
           </div>
@@ -30,7 +30,7 @@ export function TransformationSection() {
                   <span className="mt-1 h-10 w-10 inline-flex items-center justify-center rounded-full bg-[#C8A2FF]/20 text-[#5B2A86] font-semibold shadow-sm border border-[#7B3FA1]/30">
                     {idx + 1}
                   </span>
-                  <span className="text-[#4B5563] leading-relaxed">{bullet}</span>
+                  <span className="font-cinzel text-[#4B5563] leading-relaxed">{bullet}</span>
                 </li>
               ))}
             </ul>

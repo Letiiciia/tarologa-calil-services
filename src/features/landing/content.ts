@@ -97,9 +97,10 @@ export const landingContent: Bilingual<LandingContent> = {
       // Headlines de conversão: falam do BENEFÍCIO, não de Carol
       headline: "Você não está confusa.\nVocê só está ignorando o que já sabe.",
       subheadline:
-        "Reconecte-se com sua clareza emocional e com o seu poder feminino através da Jornada de Consciência com Contoterapia Oracular.",
+        "Embarque em uma jornada profunda de autoconhecimento e transformação pessoal ",
       supportingText:
-        "Uma experiência com Tarot, escrita terapêutica e leitura simbólica para te ajudar a enxergar o que você já sente — com clareza.",
+        "Combinando Tarot, Meditação, Respiração, (técnicas de Terapia Holística), vou te guiar por um caminho único de autodescoberta." + "\n" +
+        "Para mulheres que buscam clareza, equilíbrio emocional e novas perspectivas. Esta experiência foi feita para te guiar no caminho de se libertar de bloqueios emocionais, se conectar com sua verdadeira essência e alcançar o que sempre buscou",
       cta: "Quero começar minha jornada",
       secondaryCta: {
         label: "Conhecer o método",

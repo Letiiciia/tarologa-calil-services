@@ -4,6 +4,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -17,8 +18,8 @@
   justify-content: center;
   background: linear-gradient(135deg, #F7F1E8 0%, #F0E9DC 50%, #E8E0D1 100%);
   overflow: hidden;
-  padding-top: 5rem;
-  padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .decoration {
@@ -36,16 +37,16 @@
 .decorationCircleTop {
   top: 5rem;
   right: 2.5rem;
-  width: 20rem;
-  height: 20rem;
+  width: 12rem;
+  height: 12rem;
   background: radial-gradient(circle, #5B2A86 0%, #7B3FA1 30%, transparent 70%);
 }
 
 .decorationCircleBottom {
   bottom: 5rem;
   left: 2.5rem;
-  width: 28rem;
-  height: 28rem;
+  width: 16rem;
+  height: 16rem;
   background: radial-gradient(circle, #C8A2FF 0%, #7B3FA1 20%, transparent 60%);
 }
 
@@ -115,27 +116,27 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 0.75rem;
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
 }
 
 @media (min-width: 640px) {
   .grid {
-    gap: 3rem;
+    gap: 1rem;
   }
 }
 
 .textContent {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 .badge {
@@ -157,6 +158,7 @@
 }
 
 .badgeText {
+  font-family: 'Cinzel', serif;
   font-size: 0.875rem;
   color: #b45309;
   font-weight: 500;
@@ -164,7 +166,7 @@
 
 .headline {
   font-family: 'Cinzel', serif;
-  font-size: 3rem;
+  font-size: 1.875rem;
   font-weight: 700;
   color: #111827;
   line-height: 1.1;
@@ -173,29 +175,31 @@
 
 @media (min-width: 640px) {
   .headline {
-    font-size: 3.75rem;
+    font-size: 2.25rem;
   }
 }
 
 .subheadline {
-  font-size: 1.25rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.875rem;
   color: #4b5563;
   line-height: 1.625;
   max-width: 28rem;
 }
 
 .supportingText {
-  font-size: 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
   color: #6b7280;
   line-height: 1.75;
   max-width: 28rem;
 }
 
 .ctaWrapper {
-  padding-top: 1rem;
+  padding-top: 0.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .ctaButton {
@@ -212,6 +216,7 @@
 }
 
 .trustSignals {
+  font-family: 'Cinzel', serif;
   padding-top: 1rem;
   display: flex;
   align-items: center;
@@ -226,6 +231,7 @@
 }
 
 .avatar {
+  font-family: 'Cinzel', serif;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -248,6 +254,9 @@
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .image {
@@ -267,24 +276,26 @@
   background-color: #ffffff;
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  padding: 0.75rem;
+  padding: 0.5rem;
   border: 1px solid #fef3c7;
+  font-size: 0.75rem;
 }
 
 .decorativeBadgeBottomLeft {
   position: absolute;
-  bottom: -1rem;
-  left: -1rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
 }
 
 .decorativeBadgeTopRight {
   position: absolute;
-  top: -1rem;
-  right: -1rem;
+  top: -0.5rem;
+  right: -0.5rem;
 }
 
 .decorativeBadgeText {
-  font-size: 0.875rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.625rem;
   font-weight: 600;
   color: #b45309;
 }

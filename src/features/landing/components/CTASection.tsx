@@ -41,7 +41,7 @@ export function CTASection() {
         </h2>
 
         {/* Description */}
-        <p className="text-lg sm:text-xl text-[#C8A2FF] mb-12 max-w-2xl mx-auto leading-relaxed">
+        <p className="font-cinzel text-lg sm:text-xl text-[#C8A2FF] mb-12 max-w-2xl mx-auto leading-relaxed">
           {content.subtext}
         </p>
 
@@ -82,7 +82,7 @@ export function CTASection() {
 
       {/* Footer */}
       <footer className="relative z-10 mt-12 text-center">
-        <p className="text-sm text-[#C8A2FF] mb-4">
+        <p className="font-cinzel text-sm text-[#C8A2FF] mb-4">
           {lang === "pt"
             ? "Carol Calil • Taróloga e Terapeuta Holística"
             : lang === "es"

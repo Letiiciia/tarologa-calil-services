@@ -48,7 +48,7 @@ export function CredibilitySection() {
 
             {/* Floating badge com core message */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-6 max-w-sm border-l-4 border-[#E8B15C]">
-              <p className="text-sm italic text-[#4B5563] leading-relaxed">
+              <p className="font-cinzel text-sm italic text-[#4B5563] leading-relaxed">
                 "{content.coreMessage}"
               </p>
             </div>
@@ -65,7 +65,7 @@ export function CredibilitySection() {
 
             {/* Core message again - para emphasis */}
             <blockquote className="border-l-4 border-[#E8B15C] pl-6 py-4">
-              <p className="text-xl italic text-[#5B2A86] font-semibold">
+              <p className="font-cinzel text-xl italic text-[#5B2A86] font-semibold">
                 "{content.coreMessage}"
               </p>
             </blockquote>
@@ -80,7 +80,7 @@ export function CredibilitySection() {
                   </span>
 
                   {/* Text */}
-                  <span className="text-[#4B5563] leading-relaxed pt-1">
+                  <span className="font-cinzel text-[#4B5563] leading-relaxed pt-1">
                     {cred.text}
                   </span>
                 </li>
@@ -96,7 +96,7 @@ export function CredibilitySection() {
                   ? "Cómo trabaja Carol:"
                   : "How Carol works:"}
               </h3>
-              <p className="text-[#4B5563] leading-relaxed">
+              <p className="font-cinzel text-[#4B5563] leading-relaxed">
                 {content.approach}
               </p>
             </div>

@@ -125,7 +125,7 @@ export function EmotionalExperience() {
               <h2 className="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1B1A2E] leading-tight">
                 {content.title}
               </h2>
-              <p className="text-lg sm:text-xl text-[#5B2A86] font-light leading-relaxed">
+              <p className="font-cinzel text-lg sm:text-xl text-[#5B2A86] font-light leading-relaxed">
                 {content.subtitle}
               </p>
             </div>
@@ -135,7 +135,7 @@ export function EmotionalExperience() {
               {content.bodyText.map((paragraph, idx) => (
                 <p
                   key={idx}
-                  className="text-base sm:text-lg text-[#4B5563] leading-relaxed font-light"
+                  className="font-cinzel text-base sm:text-lg text-[#4B5563] leading-relaxed font-light"
                 >
                   {paragraph}
                 </p>

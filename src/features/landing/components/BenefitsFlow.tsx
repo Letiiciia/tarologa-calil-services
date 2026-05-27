@@ -33,7 +33,7 @@ export function BenefitsFlow() {
           <h2 className="font-cinzel text-4xl sm:text-5xl font-bold text-[#1B1A2E]">
             {content.title}
           </h2>
-          <p className="text-xl text-[#5B2A86] max-w-2xl mx-auto">
+          <p className="font-cinzel text-xl text-[#5B2A86] max-w-2xl mx-auto">
             {content.subtitle}
           </p>
         </div>
@@ -59,7 +59,7 @@ export function BenefitsFlow() {
               </h3>
 
               {/* Description */}
-              <p className="text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors">
+              <p className="font-cinzel text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors">
                 {benefit.description}
               </p>
 
@@ -71,7 +71,7 @@ export function BenefitsFlow() {
 
         {/* Final line after benefits */}
         <div className="text-center mt-16">
-          <p className="text-[#5B2A86] text-lg mb-6">
+          <p className="font-cinzel text-[#5B2A86] text-lg mb-6">
             {content.closingLine}
           </p>
         </div>

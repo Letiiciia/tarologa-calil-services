@@ -29,7 +29,7 @@ export function CartaDoDia() {
     <section className="w-full py-16 bg-gradient-to-br from-[#1a0f2e] via-[#2d1568] to-[#1a0f2e]">
       <div className="max-w-md mx-auto px-4 flex flex-col items-center text-center">
         {/* Eyebrow */}
-        <p className="text-[#E8B15C] text-xs tracking-[3px] uppercase mb-4">
+        <p className="font-cinzel text-[#E8B15C] text-xs tracking-[3px] uppercase mb-4">
           ✦ uma mensagem para você ✦
         </p>
 
@@ -39,7 +39,7 @@ export function CartaDoDia() {
         </h2>
 
         {/* Subtitle */}
-        <p className="text-white/60 mb-8">
+        <p className="font-cinzel text-white/60 mb-8">
           Deixe o tarot trazer uma mensagem para o seu momento atual
         </p>
 
@@ -76,7 +76,7 @@ export function CartaDoDia() {
 
         {/* Hint Text */}
         {!isRevealed && (
-          <p className="text-white/40 text-xs mb-6">Toque na carta para revelar</p>
+          <p className="font-cinzel text-white/40 text-xs mb-6">Toque na carta para revelar</p>
         )}
 
         {/* Button to Reveal */}

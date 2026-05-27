@@ -3,53 +3,17 @@
 import { Button } from "@/shared/ui/Button";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
+import { getLocalizedLabel } from "../HeroService";
 import styles from "./Hero.module.css";
 
-/**
- * HERO COMPONENT
- *
- * Por que este design?
- * 1. Badge de credibilidade ACIMA da headline = instala confiança antes do pitch
- * 2. Headline em CAPS mental = fala do BENEFÍCIO não de Carol
- * 3. Imagem profissional = prova que Carol existe e é real
- * 4. CTA singular e destacado = reduz fricção (não oferece 5 opções)
- *
- * APRENDIZADO: Componente recebe dados via `landingContent`, não hardcoda
- * Se textos mudam em content.ts, Hero automaticamente atualiza
- */
 
 export function Hero() {
   const { lang, mounted, setLanguage } = useLanguage();
   const languageOptions = ["pt", "en", "es"] as const;
 
-  if (!mounted) return null; // Evita hydration mismatch
+  if (!mounted) return null; 
 
   const content = landingContent[lang].hero;
-
-  const getLocalizedLabel = (key: "transformed" | "method" | "personalized") => {
-    switch (key) {
-      case "transformed":
-        return lang === "pt"
-          ? "100+ pessoas transformadas"
-          : lang === "es"
-          ? "100+ personas transformadas"
-          : "100+ people transformed";
-      case "method":
-        return lang === "pt"
-          ? "Método próprio"
-          : lang === "es"
-          ? "Método propio"
-          : "Personal method";
-      case "personalized":
-        return lang === "pt"
-          ? "100% personalizado"
-          : lang === "es"
-          ? "100% personalizado"
-          : "100% personalized";
-      default:
-        return "";
-    }
-  };
 
   return (
     <section className={styles.section}>
@@ -80,11 +44,11 @@ export function Hero() {
           {/* Left: Text Content */}
           <div className={styles.textContent}>
             {/* Credibility Badge - instala confiança PRIMEIRO */}
-            <div className={styles.badge}>
+            {/* <div className={styles.badge}>
               <span className={styles.badgeText}>
                 {content.badge}
               </span>
-            </div>
+            </div> */}
 
             {/* Headline - simples, benefit-driven */}
             <h1 className={styles.headline}>
@@ -118,22 +82,6 @@ export function Hero() {
                 {content.secondaryCta.label}
               </Button>
             </div>
-
-            {/* Trust signals - social proof rápido */}
-            <div className={styles.trustSignals}>
-              <div className={styles.avatarContainer}>
-                {/* Avatares dos beneficiários (placeholder) */}
-                {[1, 2, 3].map((i) => (
-                  <div
-                    key={i}
-                    className={styles.avatar}
-                  >
-                    {i}
-                  </div>
-                ))}
-              </div>
-              <span>{getLocalizedLabel("transformed")}</span>
-            </div>
           </div>
 
           {/* Right: Image */}
@@ -149,12 +97,12 @@ export function Hero() {
             {/* Decorative badges ao redor da imagem */}
             <div className={`${styles.decorativeBadge} ${styles.decorativeBadgeBottomLeft}`}>
               <p className={styles.decorativeBadgeText}>
-                {getLocalizedLabel("method")}
+                {getLocalizedLabel(lang, "method")}
               </p>
             </div>
             <div className={`${styles.decorativeBadge} ${styles.decorativeBadgeTopRight}`}>
               <p className={styles.decorativeBadgeText}>
-                {getLocalizedLabel("personalized")}
+                {getLocalizedLabel(lang, "personalized")}
               </p>
             </div>
           </div>

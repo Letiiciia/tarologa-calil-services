@@ -109,7 +109,7 @@ export function JourneyFor() {
           {/* Premium Badge */}
           <motion.div variants={itemVariants} className="flex justify-center">
             <div className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white border border-[#7B3FA1]/30 shadow-sm hover:shadow-md transition-shadow">
-              <span className="text-sm sm:text-base font-medium text-[#5B2A86]">
+              <span className="font-cinzel text-sm sm:text-base font-medium text-[#5B2A86]">
                 ✨ {content.badge}
               </span>
             </div>
@@ -127,7 +127,7 @@ export function JourneyFor() {
             {content.bodyText.map((paragraph, idx) => (
               <p
                 key={idx}
-                className="text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-light"
+                className="font-cinzel text-base sm:text-lg text-[#4B5563] leading-relaxed max-w-2xl mx-auto font-light"
               >
                 {paragraph}
               </p>
@@ -182,7 +182,7 @@ export function JourneyFor() {
                   </h3>
 
                   {/* Card Description */}
-                  <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors font-light">
+                  <p className="font-cinzel text-sm sm:text-base text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors font-light">
                     {card.description}
                   </p>
 
