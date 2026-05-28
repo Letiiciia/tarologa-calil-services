@@ -64,11 +64,11 @@ export function CredibilitySection() {
             </div>
 
             {/* Core message again - para emphasis */}
-            <blockquote className="border-l-4 border-[#E8B15C] pl-6 py-4">
+            {/* <blockquote className="border-l-4 border-[#E8B15C] pl-6 py-4">
               <p className="font-cinzel text-xl italic text-[#5B2A86] font-semibold">
                 "{content.coreMessage}"
               </p>
-            </blockquote>
+            </blockquote> */}
 
             {/* Credentials List */}
             <ul className="space-y-4">

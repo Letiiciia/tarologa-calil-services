@@ -39,11 +39,11 @@ export function BenefitsFlow() {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr">
           {content.benefits.map((benefit, idx) => (
             <div
               key={idx}
-              className="group relative p-6 rounded-xl border border-[#7B3FA1]/20 bg-white hover:border-[#C8A2FF]/40 hover:shadow-lg hover:bg-[#F7F1E8]/50 transition-all duration-300 cursor-pointer"
+              className="group relative h-full flex flex-col p-6 rounded-xl border border-[#7B3FA1]/20 bg-white hover:border-[#C8A2FF]/40 hover:shadow-[0_0_30px_rgba(200,162,255,0.5)] hover:bg-[#F7F1E8]/50 transition-all duration-300 cursor-pointer"
             >
               {/* Decorative corner accent */}
               <div className="absolute top-0 right-0 w-12 h-12 bg-[#C8A2FF]/20 rounded-bl-lg opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -59,7 +59,7 @@ export function BenefitsFlow() {
               </h3>
 
               {/* Description */}
-              <p className="font-cinzel text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors">
+              <p className="font-cinzel text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors flex-grow">
                 {benefit.description}
               </p>
 

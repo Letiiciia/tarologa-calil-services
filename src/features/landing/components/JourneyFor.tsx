@@ -142,17 +142,17 @@ export function JourneyFor() {
           {/* Emotional Cards Grid */}
           <motion.div
             variants={itemVariants}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-4 sm:pt-8"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-4 sm:pt-8 auto-rows-fr"
           >
             {content.cards.map((card, idx) => (
               <motion.div
                 key={idx}
                 variants={cardVariants}
                 whileHover="hover"
-                className="group relative"
+                className="group relative h-full flex flex-col"
               >
                 {/* Card container */}
-                <div className="relative p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#7B3FA1]/20 shadow-lg hover:shadow-2xl transition-all duration-300">
+                <div className="relative flex flex-col h-full p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#7B3FA1]/20 shadow-lg hover:shadow-[0_0_30px_rgba(200,162,255,0.6)] transition-all duration-300">
                   {/* Glow effect on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#C8A2FF]/30 to-[#7B3FA1]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur" />
 
@@ -182,7 +182,7 @@ export function JourneyFor() {
                   </h3>
 
                   {/* Card Description */}
-                  <p className="font-cinzel text-sm sm:text-base text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors font-light">
+                  <p className="font-cinzel text-sm sm:text-base text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors font-light flex-grow">
                     {card.description}
                   </p>
 

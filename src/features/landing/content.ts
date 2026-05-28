@@ -81,7 +81,7 @@ interface LandingContent {
       src: string;
       alt: string;
     };
-    approach: string; // Como Carol trabalha
+    approach: string; // Quem sou eu
   };
   cta: {
     headline: string;
@@ -100,7 +100,7 @@ export const landingContent: Bilingual<LandingContent> = {
         "Embarque em uma jornada profunda de autoconhecimento e transformação pessoal ",
       supportingText:
         "Combinando Tarot, Meditação, Respiração, (técnicas de Terapia Holística), vou te guiar por um caminho único de autodescoberta." + "\n" +
-        "Para mulheres que buscam clareza, equilíbrio emocional e novas perspectivas. Esta experiência foi feita para te guiar no caminho de se libertar de bloqueios emocionais, se conectar com sua verdadeira essência e alcançar o que sempre buscou",
+        "Para pessoas que buscam clareza, equilíbrio emocional e novas perspectivas. Esta experiência foi feita para te guiar no caminho de se libertar de bloqueios emocionais, se conectar com sua verdadeira essência e alcançar o que sempre buscou",
       cta: "Quero começar minha jornada",
       secondaryCta: {
         label: "Conhecer o método",
@@ -124,33 +124,32 @@ export const landingContent: Bilingual<LandingContent> = {
 
     journeyFor: {
       badge: "Uma experiência de transformação emocional profunda",
-      title: "Essa jornada foi criada para mulheres que...",
+      title: "Para quem busca autoconhecimento e transformação verdadeira...",
       bodyText: [
-        "Você é uma mulher profunda, sensível, que já tentou buscar apoio emocional, mas sente que algo ainda está faltando para alcançar o que realmente deseja.",
-        "Talvez você já tenha tentado racionalizar tudo.\nTalvez já tenha buscado respostas em relacionamentos, espiritualidade, desenvolvimento pessoal ou até em outras terapias.",
-        "Mas existe uma parte sua que ainda pede acolhimento, clareza e direção.",
-        "Essa jornada foi criada para mulheres que estão prontas para parar de sobreviver emocionalmente e começar a se escutar de verdade.",
+        "Se você se identifica com algum desses desafios, esta jornada é para você. Vamos conversar e dar início à sua transformação.",
+    
+      
       ],
       cards: [
         {
-          icon: "🔮",
-          title: "Tarot simbólico",
-          description: "Leituras para revelar padrões emocionais, bloqueios e caminhos internos.",
+          icon: "✨",
+          title: "Clareza nas decisões e cura da criança interior",
+          description: "Reconecte-se com a sabedoria do seu coração através da cura da criança interior, você descobrirá o que realmente deseja em áreas cruciais da sua vida, como relacionamentos, carreira e propósito",
         },
         {
-          icon: "🧘",
-          title: "Meditação e respiração",
-          description: "Práticas guiadas para desacelerar a mente e acessar sua intuição.",
+          icon: "🔄",
+          title: "Transformação pessoal",
+          description: "Liberte-se de bloqueios emocionais e desbloqueie seu verdadeiro potencial, permitindo um crescimento autêntico e profundo",
         },
         {
-          icon: "✍️",
-          title: "Escritoterapia e conto terapia",
-          description: "Narrativas, símbolos e escrita terapêutica para ressignificar sua história.",
+          icon: "💫 ",
+          title: "Reconexão com a essência",
+          description: "Conecte-se com sua verdadeira essência, além das expectativas e influências externas. Lembre-se de quem você realmente é.",
         },
         {
-          icon: "👭",
-          title: "Jornada em grupo",
-          description: "Conexão profunda com outras mulheres em um ambiente íntimo e acolhedor.",
+          icon: "🌱",
+          title: " Orientação espiritual",
+          description: "Compreenda as sincronicidades e o propósito por trás de sua jornada atual, e aprenda a confiar no caminho que a vida está te convidando a seguir.",
         },
       ],
     },
@@ -233,23 +232,23 @@ export const landingContent: Bilingual<LandingContent> = {
       credentials: [
         {
           icon: "🎓",
-          text: "Graduada em Filosofia (UNIFESP) — entendo a profundidade do ser humano",
+          text: "Graduada em Bacharel e Licenciatura em Filosofia, pela Universidade Federal de São Paulo.",
         },
         {
           icon: "🔮",
-          text: "8 anos de experiência com Tarot — método próprio testado e consolidado",
+          text: "Taróloga, pela casa Maria Menina, com 9 anos de experiência e método próprio.",
         },
         {
           icon: "❤️",
-          text: "Especialista em relacionamentos e identidade LGBTIQA+ — acolho todas as pessoas",
+          text: "Coaching, pelo método eneagrama, em relacionamentos e sexualidade com experiência com o público LGBTIQA+.",
         },
         {
           icon: "⚡",
-          text: "Reikiana e Auriculoterapeuta — trabalho corpo e energia integradamente",
+          text: "Reikiana, auriculoterapeuta, escritora, dançarina, yoguini, artista, viajante, mãe.",
         },
         {
           icon: "🌍",
-          text: "Fluente em PT e ES — mãe, viajante, imersa em culturas e misticismo",
+          text: "Este é meu quarto ano vivendo na Europa, neste momento vivo na Espanha, em uma cidade muito cultural e mística. Atendo em português e espanhol.",
         },
       ],
       image: {
@@ -257,7 +256,7 @@ export const landingContent: Bilingual<LandingContent> = {
         alt: "Carol Calil",
       },
       approach:
-        "Aplico Tarot como ferramenta de reflexão profunda, meditação guiada, respiração consciente e eneagrama para mapear seu comportamento. Cada sessão é personalizada ao que você precisa neste momento.",
+        "Eu sou uma mulher fantástica, pois deixo a fantasia participar ativamente da minha vida. E ela transforma todos os detalhes em algo único e precioso. Amo mesmo viver, até porque a vida é o instante da consciência. Me sinto viva quando danço, converso profunda e verdadeiramente com alguém, quando aprendo ou ensino algo para minha filha, ou qualquer outra criança; quando encontro saídas, respostas e principalmente perguntas. Quando escrevo, leio, choro, quando me emociono de alegria, quando interpreto o tarot e consequentemente ajudo pessoas.",
     },
 
     cta: {

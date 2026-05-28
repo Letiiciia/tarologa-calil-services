@@ -3,9 +3,17 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import type { Card } from "../../../../content/cards";
-import { cards, shuffleCards } from "../../../../content/cards";
+import { cards } from "../../../../content/cards";
 
-type Phase = "idle" | "shuffling" | "choosing" | "revealed";
+type Phase = "idle" | "gathering" | "mixing" | "spreading" | "choosing" | "revealed";
+
+function embaralharCartas(baralho: Card[]): Card[] {
+  for (let i = baralho.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [baralho[i], baralho[j]] = [baralho[j], baralho[i]];
+  }
+  return baralho;
+}
 
 export function CartaDoDia() {
   const { lang } = useLanguage();
@@ -14,68 +22,139 @@ export function CartaDoDia() {
   const [displayCards, setDisplayCards] = useState<Card[]>([]);
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
 
-  // Pick 7 random cards for the fan display
   useEffect(() => {
-    const shuffled = shuffleCards(cards).slice(0, 7);
-    setDisplayCards(shuffled);
+    setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
   }, []);
 
   const handleShuffle = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setPhase("shuffling");
+    if (phase !== "idle" && phase !== "choosing") return;
     setFlippedIndex(null);
     setSelectedCard(null);
 
-    // Animate shuffle: reassign positions 3 times
-    let count = 0;
-    const interval = setInterval(() => {
-      setDisplayCards(shuffleCards(cards).slice(0, 7));
-      count++;
-      if (count >= 3) {
-        clearInterval(interval);
-        setPhase("choosing");
-        setIsAnimating(false);
-      }
-    }, 300);
+    // Step 1: gather cards to center (600ms)
+    setPhase("gathering");
+
+    setTimeout(() => {
+      // Step 2: mix (reshuffle data mid-animation) (1200ms)
+      setPhase("mixing");
+      setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
+    }, 700);
+
+    setTimeout(() => {
+      // Step 3: mix again
+      setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
+    }, 1300);
+
+    setTimeout(() => {
+      // Step 4: spread back to fan (800ms)
+      setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
+      setPhase("spreading");
+    }, 1900);
+
+    setTimeout(() => {
+      // Done — ready to choose
+      setPhase("choosing");
+    }, 2900);
   };
 
   const handleCardClick = (card: Card, index: number) => {
-    if (phase !== "choosing" || isAnimating) return;
+    if (phase !== "choosing") return;
     setFlippedIndex(index);
     setSelectedCard(card);
-    setTimeout(() => {
-      setPhase("revealed");
-    }, 700);
+    setTimeout(() => setPhase("revealed"), 800);
   };
 
   const handleReset = () => {
     setPhase("idle");
     setSelectedCard(null);
     setFlippedIndex(null);
-    const shuffled = shuffleCards(cards).slice(0, 7);
-    setDisplayCards(shuffled);
+    setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
   };
 
-  // Fan angles for 7 cards: spread from -30deg to +30deg
-  const fanAngles = [-30, -20, -10, 0, 10, 20, 30];
-  const fanTranslateX = [-60, -40, -20, 0, 20, 40, 60];
-  const fanTranslateY = [20, 10, 4, 0, 4, 10, 20];
+  // Base fan positions
+  const fan = [
+    { x: -60, y: 20, r: -30 },
+    { x: -40, y: 10, r: -20 },
+    { x: -20, y:  4, r: -10 },
+    { x:   0, y:  0, r:   0 },
+    { x:  20, y:  4, r:  10 },
+    { x:  40, y: 10, r:  20 },
+    { x:  60, y: 20, r:  30 },
+  ];
 
-  const whatsappHref =
-    "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0";
+  // Mixing positions: cards overlap in center with slight offsets
+  const mixPositions = [
+    { x: -12, y: -8,  r: -15 },
+    { x:   8, y: -12, r:  10 },
+    { x:  -6, y:  6,  r: -5  },
+    { x:   0, y:  0,  r:  0  },
+    { x:  10, y: -6,  r:  8  },
+    { x:  -8, y:  10, r: -12 },
+    { x:  14, y:  4,  r:  18 },
+  ];
+
+  const getTransform = (i: number, isFlipped: boolean) => {
+    if (phase === "gathering") {
+      // All cards move slowly to center, stacked
+      return `translateX(calc(-50% + ${fan[i].x * 0.15}px)) translateY(${-fan[i].y * 0.3}px) rotate(${fan[i].r * 0.1}deg)`;
+    }
+    if (phase === "mixing") {
+      const m = mixPositions[i];
+      return `translateX(calc(-50% + ${m.x}px)) translateY(${m.y}px) rotate(${m.r}deg)`;
+    }
+    if (phase === "spreading") {
+      return `translateX(calc(-50% + ${fan[i].x}px)) translateY(-${fan[i].y}px) rotate(${fan[i].r}deg)`;
+    }
+    // idle / choosing / revealed → fan
+    return `
+      translateX(calc(-50% + ${fan[i].x}px))
+      translateY(-${fan[i].y}px)
+      rotate(${fan[i].r}deg)
+      ${isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"}
+    `;
+  };
+
+  const getTransitionDuration = () => {
+    if (phase === "gathering") return "0.65s";
+    if (phase === "mixing")    return "0.55s";
+    if (phase === "spreading") return "0.75s";
+    return "0.6s";
+  };
+
+  const getTransitionTiming = () => {
+    if (phase === "gathering") return "cubic-bezier(0.4, 0, 0.2, 1)";
+    if (phase === "mixing")    return "cubic-bezier(0.4, 0, 0.6, 1)";
+    if (phase === "spreading") return "cubic-bezier(0.34, 1.56, 0.64, 1)";
+    return "cubic-bezier(0.4, 0, 0.2, 1)";
+  };
+
+  const getTransition = () => {
+    if (phase === "gathering") return "transform 0.65s cubic-bezier(0.4, 0, 0.2, 1)";
+    if (phase === "mixing")    return "transform 0.55s cubic-bezier(0.4, 0, 0.6, 1)";
+    if (phase === "spreading") return "transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)";
+    return "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+  };
+
+  const isShuffling = phase === "gathering" || phase === "mixing" || phase === "spreading";
+  const whatsappHref = "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0";
+
+  const subtitle = {
+    idle: "Embaralhe as cartas e escolha uma para revelar sua mensagem",
+    gathering: "Reunindo as cartas...",
+    mixing: "Embaralhando...",
+    spreading: "Espalhando as cartas...",
+    choosing: "Toque em uma carta para revelar sua mensagem",
+    revealed: "Sua mensagem foi revelada",
+  }[phase];
 
   return (
     <section
       className="relative py-20 sm:py-28 overflow-hidden text-center"
       style={{
-        background:
-          "linear-gradient(135deg, #1a0f2e 0%, #2d1568 50%, #1a0f2e 100%)",
+        background: "linear-gradient(135deg, #1a0f2e 0%, #2d1568 50%, #1a0f2e 100%)",
       }}
     >
-      {/* Ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -85,36 +164,37 @@ export function CartaDoDia() {
       />
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
+
         {/* Header */}
-        <p
-          className="text-xs tracking-[3px] uppercase mb-3"
-          style={{ color: "#E8B15C" }}
-        >
+        <p className="text-xs tracking-[3px] uppercase mb-3" style={{ color: "#E8B15C" }}>
           ✦ uma mensagem para você ✦
         </p>
         <h2 className="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-3">
-          Sua Carta do Dia
+          Carta do Dia
         </h2>
-        <p className="text-sm sm:text-base mb-12" style={{ color: "rgba(255,255,255,0.55)" }}>
-          {phase === "idle"
-            ? "Embaralhe as cartas e escolha uma para revelar sua mensagem"
-            : phase === "shuffling"
-            ? "Embaralhando..."
-            : phase === "choosing"
-            ? "Toque em uma carta para revelar sua mensagem"
-            : "Sua mensagem foi revelada"}
+        <p
+          className="text-sm sm:text-base mb-12 transition-all duration-500"
+          style={{ color: "rgba(255,255,255,0.55)" }}
+        >
+          {subtitle}
         </p>
 
-        {/* ===== PHASE: idle / shuffling / choosing ===== */}
+        {/* ===== FAN / SHUFFLE ===== */}
         {phase !== "revealed" && (
           <>
-            {/* Fan of cards */}
+            {/* Cards container */}
             <div
               className="relative mx-auto mb-16"
-              style={{ height: "240px", width: "320px" }}
+              style={{ height: "260px", width: "340px" }}
             >
               {displayCards.map((card, i) => {
                 const isFlipped = flippedIndex === i;
+                const delay = phase === "spreading"
+                  ? `${i * 60}ms`
+                  : phase === "gathering"
+                  ? `${(6 - i) * 40}ms`
+                  : `${i * 30}ms`;
+
                 return (
                   <div
                     key={`${card.id}-${i}`}
@@ -126,41 +206,32 @@ export function CartaDoDia() {
                       width: "100px",
                       height: "160px",
                       transformOrigin: "bottom center",
-                      transform: `
-                        translateX(calc(-50% + ${fanTranslateX[i]}px))
-                        translateY(-${fanTranslateY[i]}px)
-                        rotate(${fanAngles[i]}deg)
-                        ${isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"}
-                      `,
-                      transition: isAnimating
-                        ? "transform 0.25s ease"
-                        : "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+                      transform: getTransform(i, isFlipped),
+                      transitionProperty: "transform, box-shadow",
+                      transitionDuration: `${getTransitionDuration()}, 0.2s`,
+                      transitionTimingFunction: `${getTransitionTiming()}, ease`,
+                      transitionDelay: delay,
                       cursor: phase === "choosing" ? "pointer" : "default",
-                      perspective: "1000px",
-                      zIndex: i === 3 ? 10 : i < 3 ? i : 7 - i,
+                      zIndex: phase === "mixing"
+                        ? i
+                        : i === 3 ? 10 : i < 3 ? i : 7 - i,
                     }}
                   >
-                    {/* Card back face */}
+                    {/* Card face */}
                     <div
                       className="absolute inset-0 rounded-xl flex flex-col items-center justify-center gap-2"
                       style={{
-                        background:
-                          "linear-gradient(135deg, #2d1568, #4a1942)",
+                        background: "linear-gradient(135deg, #2d1568, #4a1942)",
                         border: "1px solid rgba(232,177,92,0.3)",
-                        boxShadow:
-                          phase === "choosing"
-                            ? "0 8px 24px rgba(0,0,0,0.5)"
-                            : "0 4px 12px rgba(0,0,0,0.4)",
+                        boxShadow: phase === "choosing"
+                          ? "0 8px 24px rgba(0,0,0,0.5)"
+                          : "0 4px 12px rgba(0,0,0,0.4)",
                         backfaceVisibility: "hidden",
-                        transition: "box-shadow 0.2s",
                       }}
                     >
-                      {/* Inner border decoration */}
                       <div
                         className="absolute inset-[6px] rounded-lg"
-                        style={{
-                          border: "1px solid rgba(232,177,92,0.12)",
-                        }}
+                        style={{ border: "1px solid rgba(232,177,92,0.12)" }}
                       />
                       <span className="text-2xl relative z-10">🔮</span>
                       <span
@@ -175,13 +246,13 @@ export function CartaDoDia() {
                       </span>
                     </div>
 
-                    {/* Hover glow for choosing phase */}
+                    {/* Hover glow */}
                     {phase === "choosing" && (
                       <div
-                        className="absolute inset-0 rounded-xl opacity-0 hover:opacity-100 transition-opacity"
+                        className="absolute inset-0 rounded-xl opacity-0 hover:opacity-100 transition-opacity duration-300"
                         style={{
-                          boxShadow: "0 0 20px rgba(232,177,92,0.4)",
-                          border: "1px solid rgba(232,177,92,0.6)",
+                          boxShadow: "0 0 30px rgba(200,162,255,0.6)",
+                          border: "1px solid rgba(200,162,255,0.7)",
                         }}
                       />
                     )}
@@ -192,47 +263,42 @@ export function CartaDoDia() {
 
             {/* Hint */}
             {phase === "choosing" && (
-              <p
-                className="text-xs mb-6"
-                style={{ color: "rgba(255,255,255,0.35)" }}
-              >
+              <p className="text-xs mb-6" style={{ color: "rgba(255,255,255,0.35)" }}>
                 Toque em uma carta para revelar
               </p>
             )}
 
-            {/* Button — muda para WhatsApp quando carta é clicada */}
+            {/* Button */}
             {flippedIndex !== null ? (
               <a
-                href="https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0"
+                href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-lg transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
                 style={{ background: "#25D366", color: "#fff" }}
               >
                 💬 Ressoou aí? Vem falar comigo
               </a>
             ) : (
               <button
-                onClick={phase === "idle" || phase === "choosing" ? handleShuffle : undefined}
-                disabled={isAnimating}
-                className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-lg transition-all disabled:opacity-50"
+                onClick={handleShuffle}
+                disabled={isShuffling}
+                className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-lg transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 style={{
                   background: "transparent",
                   border: "1px solid rgba(232,177,92,0.4)",
                   color: "#E8B15C",
                 }}
               >
-                ✨{" "}
-                {phase === "choosing" ? "Embaralhar novamente" : "Embaralhar cartas"}
+                ✨ {phase === "choosing" ? "Embaralhar novamente" : "Embaralhar cartas"}
               </button>
             )}
           </>
         )}
 
-        {/* ===== PHASE: revealed ===== */}
+        {/* ===== REVEALED ===== */}
         {phase === "revealed" && selectedCard && (
           <div className="max-w-md mx-auto">
-            {/* Card image */}
             <div
               className="mx-auto mb-6 rounded-2xl overflow-hidden"
               style={{
@@ -249,7 +315,6 @@ export function CartaDoDia() {
               />
             </div>
 
-            {/* Card name */}
             <h3
               className="font-cinzel text-2xl font-bold mb-4"
               style={{ color: "#E8B15C" }}
@@ -257,7 +322,6 @@ export function CartaDoDia() {
               {lang === "en" ? selectedCard.name.en : selectedCard.name.pt}
             </h3>
 
-            {/* Card meaning */}
             <div
               className="rounded-2xl p-5 mb-6 text-left"
               style={{
@@ -269,13 +333,10 @@ export function CartaDoDia() {
                 className="text-sm leading-relaxed whitespace-pre-line"
                 style={{ color: "rgba(255,255,255,0.75)" }}
               >
-                {lang === "en"
-                  ? selectedCard.meaning.en
-                  : selectedCard.meaning.pt}
+                {lang === "en" ? selectedCard.meaning.en : selectedCard.meaning.pt}
               </p>
             </div>
 
-            {/* CTA box */}
             <div
               className="rounded-2xl p-5 mb-6"
               style={{
@@ -287,24 +348,22 @@ export function CartaDoDia() {
                 className="text-sm mb-4 leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.65)" }}
               >
-                Essa mensagem ressoou com você? Carol pode aprofundar essa
-                leitura em uma consulta personalizada.
+                Essa mensagem ressoou com você? Quer aprofundar essa leitura em uma consulta personalizada.
               </p>
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center font-semibold text-sm py-3 px-4 rounded-xl transition-opacity hover:opacity-90"
+                className="block w-full text-center font-semibold text-sm py-3 px-4 rounded-xl hover:opacity-90 transition-opacity"
                 style={{ background: "#25D366", color: "#fff" }}
               >
                 Ressoou aí? Vem falar comigo →
               </a>
             </div>
 
-            {/* Reset */}
             <button
               onClick={handleReset}
-              className="text-xs underline transition-opacity hover:opacity-80"
+              className="text-xs underline hover:opacity-80 transition-opacity"
               style={{ color: "rgba(255,255,255,0.3)" }}
             >
               Tirar outra carta
