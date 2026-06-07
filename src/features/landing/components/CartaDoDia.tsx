@@ -76,22 +76,22 @@ export function CartaDoDia() {
   const fan = [
     { x: -60, y: 20, r: -30 },
     { x: -40, y: 10, r: -20 },
-    { x: -20, y:  4, r: -10 },
-    { x:   0, y:  0, r:   0 },
-    { x:  20, y:  4, r:  10 },
-    { x:  40, y: 10, r:  20 },
-    { x:  60, y: 20, r:  30 },
+    { x: -20, y: 4, r: -10 },
+    { x: 0, y: 0, r: 0 },
+    { x: 20, y: 4, r: 10 },
+    { x: 40, y: 10, r: 20 },
+    { x: 60, y: 20, r: 30 },
   ];
 
   // Mixing positions: cards overlap in center with slight offsets
   const mixPositions = [
-    { x: -12, y: -8,  r: -15 },
-    { x:   8, y: -12, r:  10 },
-    { x:  -6, y:  6,  r: -5  },
-    { x:   0, y:  0,  r:  0  },
-    { x:  10, y: -6,  r:  8  },
-    { x:  -8, y:  10, r: -12 },
-    { x:  14, y:  4,  r:  18 },
+    { x: -12, y: -8, r: -15 },
+    { x: 8, y: -12, r: 10 },
+    { x: -6, y: 6, r: -5 },
+    { x: 0, y: 0, r: 0 },
+    { x: 10, y: -6, r: 8 },
+    { x: -8, y: 10, r: -12 },
+    { x: 14, y: 4, r: 18 },
   ];
 
   const getTransform = (i: number, isFlipped: boolean) => {
@@ -117,21 +117,21 @@ export function CartaDoDia() {
 
   const getTransitionDuration = () => {
     if (phase === "gathering") return "0.65s";
-    if (phase === "mixing")    return "0.55s";
+    if (phase === "mixing") return "0.55s";
     if (phase === "spreading") return "0.75s";
     return "0.6s";
   };
 
   const getTransitionTiming = () => {
     if (phase === "gathering") return "cubic-bezier(0.4, 0, 0.2, 1)";
-    if (phase === "mixing")    return "cubic-bezier(0.4, 0, 0.6, 1)";
+    if (phase === "mixing") return "cubic-bezier(0.4, 0, 0.6, 1)";
     if (phase === "spreading") return "cubic-bezier(0.34, 1.56, 0.64, 1)";
     return "cubic-bezier(0.4, 0, 0.2, 1)";
   };
 
   const getTransition = () => {
     if (phase === "gathering") return "transform 0.65s cubic-bezier(0.4, 0, 0.2, 1)";
-    if (phase === "mixing")    return "transform 0.55s cubic-bezier(0.4, 0, 0.6, 1)";
+    if (phase === "mixing") return "transform 0.55s cubic-bezier(0.4, 0, 0.6, 1)";
     if (phase === "spreading") return "transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)";
     return "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
   };
@@ -192,8 +192,8 @@ export function CartaDoDia() {
                 const delay = phase === "spreading"
                   ? `${i * 60}ms`
                   : phase === "gathering"
-                  ? `${(6 - i) * 40}ms`
-                  : `${i * 30}ms`;
+                    ? `${(6 - i) * 40}ms`
+                    : `${i * 30}ms`;
 
                 return (
                   <div

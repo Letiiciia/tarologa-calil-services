@@ -213,7 +213,11 @@ export function JourneyFor() {
               href="https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#5B2A86] text-white font-semibold text-sm px-6 py-3 rounded-lg shadow-md hover:bg-[#7B3FA1] transition-colors"
+              className="inline-flex items-center gap-2 text-white font-semibold text-sm px-6 py-3 rounded-lg transition-all border hover:bg-white/10"
+              style={{
+                background: "transparent",
+                borderColor: "rgba(232,177,92,0.4)",
+              }}
             >
               Quero começar minha jornada →
             </a>
