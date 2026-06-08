@@ -91,7 +91,7 @@ export function CredibilitySection() {
             <div className="bg-white rounded-lg p-6 border border-[#7B3FA1]/20 mt-8">
               <h3 className="font-cinzel font-bold text-[#1B1A2E] mb-3">
                 {lang === "pt"
-                  ? "Quem sou eu?:"
+                  ? "Quem sou eu:"
                   : lang === "es"
                   ? "Cómo trabaja Carol:"
                   : "How Carol works:"}

@@ -208,7 +208,7 @@ export function JourneyFor() {
           )}
 
           {/* CTA Button */}
-          <div className="text-center mt-10">
+          {/* <div className="text-center mt-10">
             <a
               href="https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0"
               target="_blank"
@@ -221,7 +221,7 @@ export function JourneyFor() {
             >
               Quero começar minha jornada →
             </a>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>
