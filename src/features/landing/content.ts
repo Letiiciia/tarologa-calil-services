@@ -134,12 +134,12 @@ export const landingContent: Bilingual<LandingContent> = {
         {
           icon: "✨",
           title: "Clareza nas decisões e cura da criança interior",
-          description: "Reconecte-se com a sabedoria do seu coração através da cura da criança interior, você descobrirá o que realmente deseja em áreas cruciais da sua vida, como relacionamentos, carreira e propósito",
+          description: "Reconecte-se com a sabedoria do seu coração através da cura da criança interior, você descobrirá o que realmente deseja em áreas cruciais da sua vida.",
         },
         {
           icon: "🔄",
           title: "Transformação pessoal",
-          description: "Liberte-se de bloqueios emocionais e desbloqueie seu verdadeiro potencial, permitindo um crescimento autêntico e profundo",
+          description: "Liberte-se de bloqueios emocionais e desbloqueie seu verdadeiro potencial, permitindo um crescimento autêntico e profundo.",
         },
         {
           icon: "💫 ",

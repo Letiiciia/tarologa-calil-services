@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
 import { motion } from "framer-motion";
@@ -22,10 +23,18 @@ import { motion } from "framer-motion";
 
 export function JourneyFor() {
   const { lang, mounted } = useLanguage();
+  const [flipped, setFlipped] = useState<Record<number, boolean>>({});
 
   if (!mounted) return null;
 
   const content = landingContent[lang].journeyFor;
+
+  const toggleFlip = (index: number) => {
+    setFlipped((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
 
   // Animation variants
   const containerVariants = {
@@ -46,25 +55,6 @@ export function JourneyFor() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-    hover: {
-      y: -8,
-      transition: {
-        duration: 0.3,
         ease: "easeOut",
       },
     },
@@ -142,60 +132,54 @@ export function JourneyFor() {
           {/* Emotional Cards Grid */}
           <motion.div
             variants={itemVariants}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-4 sm:pt-8 auto-rows-fr"
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 sm:pt-8"
           >
-            {content.cards.map((card, idx) => (
-              <motion.div
-                key={idx}
-                variants={cardVariants}
-                whileHover="hover"
-                className="group relative h-full flex flex-col"
-              >
-                {/* Card container */}
-                <div className="relative flex flex-col h-full p-6 sm:p-7 rounded-2xl bg-white/90 backdrop-blur-sm border border-[#7B3FA1]/20 shadow-lg hover:shadow-[0_0_30px_rgba(200,162,255,0.6)] transition-all duration-300">
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#C8A2FF]/30 to-[#7B3FA1]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur" />
+            {content.cards.map((card, idx) => {
+              const isFlipped = flipped[idx] || false;
 
-                  {/* Icon with soft glow */}
-                  <div className="mb-4 inline-block">
-                    <div className="relative">
-                      {/* Glow background */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-[#5B2A86] to-[#E8B15C] rounded-xl opacity-20 blur-lg"
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      />
-                      {/* Icon */}
-                      <div className="relative text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300">
-                        {card.icon}
-                      </div>
+              return (
+                <div
+                  key={idx}
+                  className="h-80 cursor-pointer"
+                  onClick={() => toggleFlip(idx)}
+                  style={{ perspective: "1000px" }}
+                >
+                  <div
+                    className="relative w-full h-full transition-transform duration-500"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                    }}
+                  >
+                    {/* Front - Icon and Title Only */}
+                    <div
+                      className="absolute w-full h-full rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-white border border-gray-100"
+                      style={{
+                        backfaceVisibility: "hidden",
+                      }}
+                    >
+                      <div className="text-6xl mb-6">{card.icon}</div>
+                      <h3 className="font-cinzel text-xl font-bold text-[#1B1A2E]">
+                        {card.title}
+                      </h3>
+                    </div>
+
+                    {/* Back - Description */}
+                    <div
+                      className="absolute w-full h-full rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-[#F7F1E8] border border-gray-100"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)",
+                      }}
+                    >
+                      <p className="font-cinzel text-base leading-relaxed text-[#4B5563]">
+                        {card.description}
+                      </p>
                     </div>
                   </div>
-
-                  {/* Card Title */}
-                  <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#1B1A2E] mb-3 group-hover:text-[#5B2A86] transition-colors">
-                    {card.title}
-                  </h3>
-
-                  {/* Card Description */}
-                  <p className="font-cinzel text-sm sm:text-base text-[#4B5563] leading-relaxed group-hover:text-[#1B1A2E] transition-colors font-light flex-grow">
-                    {card.description}
-                  </p>
-
-                  {/* Subtle bottom accent line */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#E8B15C] to-[#F59E52] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                    initial={{ width: "0%" }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
 
           {/* Closing message - optional */}
