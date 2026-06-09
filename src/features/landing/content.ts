@@ -99,12 +99,13 @@ export const landingContent: Bilingual<LandingContent> = {
       subheadline:
         "Embarque em uma jornada profunda de autoconhecimento e transformação pessoal ",
       supportingText:
-        "Combinando Tarot, Meditação, Respiração, (técnicas de Terapia Holística), vou te guiar por um caminho único de autodescoberta." + "\n" +
+        "Combinando Tarot, Meditação, Respiração, (técnicas de Terapia Holística), vou te guiar por um caminho único de autodescoberta." +
+        "\n" +
         "Para pessoas que buscam clareza, equilíbrio emocional e novas perspectivas. Esta experiência foi feita para te guiar no caminho de se libertar de bloqueios emocionais, se conectar com sua verdadeira essência e alcançar o que sempre buscou",
       cta: "Quero começar minha jornada",
       secondaryCta: {
-        label: "Conhecer o método",
-        href: "#metodo",
+        label: "Quero conhecer o método",
+        href: "https://wa.me/34639664590?text=Ol%C3%A1%20Carol!%20Vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20melhor%20o%20seu%20m%C3%A9todo%20antes%20de%20decidir.%20Pode%20me%20contar%20mais%3F",
       },
       badge: "✨ 8 anos guiando mulheres a encontrarem clareza emocional",
       images: {
@@ -115,7 +116,8 @@ export const landingContent: Bilingual<LandingContent> = {
 
     emotionalExperience: {
       title: "Uma experiência de transformação emocional",
-      subtitle: "Embarque em uma jornada profunda de autoconhecimento e transformação emocional.",
+      subtitle:
+        "Embarque em uma jornada profunda de autoconhecimento e transformação emocional.",
       bodyText: [
         "Através do Tarot, escrita terapêutica, meditação, respiração e práticas de terapia holística, você será guiada por um caminho simbólico de clareza, reconexão e despertar emocional.",
         "Essa experiência foi criada para mulheres que desejam se libertar de padrões emocionais, recuperar sua direção interna e se reconectar com sua verdadeira essência.",
@@ -127,29 +129,31 @@ export const landingContent: Bilingual<LandingContent> = {
       title: "Para quem busca autoconhecimento e transformação verdadeira...",
       bodyText: [
         "Se você se identifica com algum desses desafios, esta jornada é para você. Vamos conversar e dar início à sua transformação.",
-    
-      
       ],
       cards: [
         {
           icon: "✨",
           title: "Clareza nas decisões e cura da criança interior",
-          description: "Reconecte-se com a sabedoria do seu coração através da cura da criança interior, você descobrirá o que realmente deseja em áreas cruciais da sua vida.",
+          description:
+            "Reconecte-se com a sabedoria do seu coração através da cura da criança interior, você descobrirá o que realmente deseja em áreas cruciais da sua vida.",
         },
         {
           icon: "🔄",
           title: "Transformação pessoal",
-          description: "Liberte-se de bloqueios emocionais e desbloqueie seu verdadeiro potencial, permitindo um crescimento autêntico e profundo.",
+          description:
+            "Liberte-se de bloqueios emocionais e desbloqueie seu verdadeiro potencial, permitindo um crescimento autêntico e profundo.",
         },
         {
           icon: "💫 ",
           title: "Reconexão com a essência",
-          description: "Conecte-se com sua verdadeira essência, além das expectativas e influências externas. Lembre-se de quem você realmente é.",
+          description:
+            "Conecte-se com sua verdadeira essência, além das expectativas e influências externas. Lembre-se de quem você realmente é.",
         },
         {
           icon: "🌱",
           title: " Orientação espiritual",
-          description: "Compreenda as sincronicidades e o propósito por trás de sua jornada atual, e aprenda a confiar no caminho que a vida está te convidando a seguir.",
+          description:
+            "Compreenda as sincronicidades e o propósito por trás de sua jornada atual, e aprenda a confiar no caminho que a vida está te convidando a seguir.",
         },
       ],
     },
@@ -196,11 +200,13 @@ export const landingContent: Bilingual<LandingContent> = {
         },
         {
           title: "Exposição de padrões",
-          description: "Identificação de comportamentos repetitivos e ciclos emocionais",
+          description:
+            "Identificação de comportamentos repetitivos e ciclos emocionais",
         },
         {
           title: "Significação",
-          description: "Escrita terapêutica guiada para ressignificar experiências",
+          description:
+            "Escrita terapêutica guiada para ressignificar experiências",
         },
         {
           title: "Estratégia",
@@ -208,14 +214,14 @@ export const landingContent: Bilingual<LandingContent> = {
         },
         {
           title: "Transformação",
-          description: "Construção de uma nova identidade emocional e relacional",
+          description:
+            "Construção de uma nova identidade emocional e relacional",
         },
       ],
     },
     transformation: {
       title: "Não é sobre prever o futuro.",
-      text:
-        "É sobre entender seus padrões, organizar suas emoções e tomar decisões com consciência.",
+      text: "É sobre entender seus padrões, organizar suas emoções e tomar decisões com consciência.",
       bullets: [
         "Clareza emocional",
         "Consciência dos seus padrões",
@@ -266,7 +272,7 @@ export const landingContent: Bilingual<LandingContent> = {
         "Sem pressão. Sem respostas prontas. Apenas um espaço real para você se enxergar.",
       primary: {
         label: "Quero começar minha jornada",
-        href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
+        href: "https://wa.me/34639664590?text=Ol%C3%A1%20Carol!%20Vim%20pelo%20site%20e%20quero%20iniciar%20minha%20jornada.%20Gostaria%20de%20adquirir%20uma%20sess%C3%A3o%20com%20voc%C3%AA!",
         variant: "primary",
         target: "_blank",
       },
@@ -290,7 +296,7 @@ export const landingContent: Bilingual<LandingContent> = {
       cta: "Start conversation on WhatsApp",
       secondaryCta: {
         label: "Learn the method",
-        href: "#metodo",
+        href: "https://wa.me/34639664590?text=Hi%20Carol!%20I%20came%20from%20your%20website%20and%20I%27d%20like%20to%20know%20more%20about%20your%20method%20before%20deciding.%20Can%20you%20tell%20me%20more%3F",
       },
       badge: "✨ 8 years helping people find clarity",
       images: {
@@ -301,7 +307,8 @@ export const landingContent: Bilingual<LandingContent> = {
 
     emotionalExperience: {
       title: "An emotional transformation experience",
-      subtitle: "Embark on a deep journey of self-knowledge and emotional transformation.",
+      subtitle:
+        "Embark on a deep journey of self-knowledge and emotional transformation.",
       bodyText: [
         "Through Tarot, therapeutic writing, meditation, breathing and holistic therapy practices, you will be guided through a symbolic path of clarity, reconnection and emotional awakening.",
         "This experience was created for women who wish to free themselves from emotional patterns, recover their inner direction and reconnect with their true essence.",
@@ -321,22 +328,26 @@ export const landingContent: Bilingual<LandingContent> = {
         {
           icon: "🔮",
           title: "Symbolic Tarot",
-          description: "Readings to reveal emotional patterns, blockages and inner pathways.",
+          description:
+            "Readings to reveal emotional patterns, blockages and inner pathways.",
         },
         {
           icon: "🧘",
           title: "Meditation and Breathing",
-          description: "Guided practices to slow the mind and access your intuition.",
+          description:
+            "Guided practices to slow the mind and access your intuition.",
         },
         {
           icon: "✍️",
           title: "Writing Therapy & Story Therapy",
-          description: "Narratives, symbols and therapeutic writing to reframe your story.",
+          description:
+            "Narratives, symbols and therapeutic writing to reframe your story.",
         },
         {
           icon: "👭",
           title: "Group Journey",
-          description: "Deep connection with other women in an intimate and welcoming environment.",
+          description:
+            "Deep connection with other women in an intimate and welcoming environment.",
         },
       ],
     },
@@ -403,8 +414,7 @@ export const landingContent: Bilingual<LandingContent> = {
 
     transformation: {
       title: "It's not about predicting the future.",
-      text:
-        "It's about understanding your patterns, organizing your emotions, and making decisions with awareness.",
+      text: "It's about understanding your patterns, organizing your emotions, and making decisions with awareness.",
       bullets: [
         "Emotional clarity",
         "Awareness of your patterns",
@@ -454,7 +464,7 @@ export const landingContent: Bilingual<LandingContent> = {
         "No pressure. No ready-made answers. Just a real space for you to see yourself.",
       primary: {
         label: "Book session on WhatsApp",
-        href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
+        href: "https://wa.me/34639664590?text=Hi%20Carol!%20I%20came%20from%20your%20website%20and%20I%27d%20like%20to%20book%20a%20session%20with%20you!",
         variant: "primary",
         target: "_blank",
       },
@@ -478,7 +488,7 @@ export const landingContent: Bilingual<LandingContent> = {
       cta: "Iniciar conversación en WhatsApp",
       secondaryCta: {
         label: "Conocer el método",
-        href: "#metodo",
+        href: "https://wa.me/34639664590?text=%C2%A1Hola%20Carol!%20Vine%20desde%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tu%20m%C3%A9todo%20antes%20de%20decidir.%20%C2%BFPuedes%20contarme%20m%C3%A1s%3F",
       },
       badge: "✨ 8 años ayudando a personas a encontrar claridad",
       images: {
@@ -489,7 +499,8 @@ export const landingContent: Bilingual<LandingContent> = {
 
     emotionalExperience: {
       title: "Una experiencia de transformación emocional",
-      subtitle: "Embarca en un viaje profundo de autoconocimiento y transformación emocional.",
+      subtitle:
+        "Embarca en un viaje profundo de autoconocimiento y transformación emocional.",
       bodyText: [
         "A través del Tarot, escritura terapéutica, meditación, respiración y prácticas de terapia holística, serás guiada por un camino simbólico de claridad, reconexión y despertar emocional.",
         "Esta experiencia fue creada para mujeres que desean liberarse de patrones emocionales, recuperar su dirección interna y reconectarse con su verdadera esencia.",
@@ -509,22 +520,26 @@ export const landingContent: Bilingual<LandingContent> = {
         {
           icon: "🔮",
           title: "Tarot simbólico",
-          description: "Lecturas para revelar patrones emocionales, bloqueos y caminos internos.",
+          description:
+            "Lecturas para revelar patrones emocionales, bloqueos y caminos internos.",
         },
         {
           icon: "🧘",
           title: "Meditación y respiración",
-          description: "Prácticas guiadas para desacelerar la mente y acceder a tu intuición.",
+          description:
+            "Prácticas guiadas para desacelerar la mente y acceder a tu intuición.",
         },
         {
           icon: "✍️",
           title: "Escritoterapia y cuentoterapia",
-          description: "Narrativas, símbolos y escritura terapéutica para resignificar tu historia.",
+          description:
+            "Narrativas, símbolos y escritura terapéutica para resignificar tu historia.",
         },
         {
           icon: "👭",
           title: "Viaje en grupo",
-          description: "Conexión profunda con otras mujeres en un ambiente íntimo y acogedor.",
+          description:
+            "Conexión profunda con otras mujeres en un ambiente íntimo y acogedor.",
         },
       ],
     },
@@ -572,11 +587,13 @@ export const landingContent: Bilingual<LandingContent> = {
         },
         {
           title: "E — Exposición de patrones",
-          description: "Identificación de comportamientos repetitivos y ciclos emocionales",
+          description:
+            "Identificación de comportamientos repetitivos y ciclos emocionales",
         },
         {
           title: "S — Significación",
-          description: "Escritura terapéutica guiada para resignificar experiencias",
+          description:
+            "Escritura terapéutica guiada para resignificar experiencias",
         },
         {
           title: "E — Estrategia",
@@ -584,15 +601,15 @@ export const landingContent: Bilingual<LandingContent> = {
         },
         {
           title: "T — Transformación",
-          description: "Construcción de una nueva identidad emocional y relacional",
+          description:
+            "Construcción de una nueva identidad emocional y relacional",
         },
       ],
     },
 
     transformation: {
       title: "No se trata de predecir el futuro.",
-      text:
-        "Se trata de entender tus patrones, organizar tus emociones y tomar decisiones con conciencia.",
+      text: "Se trata de entender tus patrones, organizar tus emociones y tomar decisiones con conciencia.",
       bullets: [
         "Claridad emocional",
         "Conciencia de tus patrones",
@@ -642,7 +659,7 @@ export const landingContent: Bilingual<LandingContent> = {
         "Sin presión. Sin respuestas listas. Solo un espacio real para que te veas.",
       primary: {
         label: "Quiero comenzar mi jornada",
-        href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
+        href: "https://wa.me/34639664590?text=%C2%A1Hola%20Carol!%20Vine%20desde%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20adquirir%20una%20sesi%C3%B3n%20contigo!",
         variant: "primary",
         target: "_blank",
       },
@@ -655,4 +672,3 @@ export const landingContent: Bilingual<LandingContent> = {
     },
   },
 };
-

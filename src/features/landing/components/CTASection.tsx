@@ -30,7 +30,8 @@ export function CTASection() {
     <section
       className="relative py-20 sm:py-32 overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #1a0f2e 0%, #2d1568 50%, #1a0f2e 100%)",
+        background:
+          "linear-gradient(135deg, #1a0f2e 0%, #2d1568 50%, #1a0f2e 100%)",
       }}
     >
       {/* Background decoration */}
@@ -49,7 +50,10 @@ export function CTASection() {
         </h2>
 
         {/* Description */}
-        <p className="font-cinzel text-lg sm:text-xl text-white mb-12 max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+        <p
+          className="font-cinzel text-lg sm:text-xl text-white mb-12 max-w-2xl mx-auto leading-relaxed"
+          style={{ color: "rgba(255,255,255,0.75)" }}
+        >
           {content.subtext}
         </p>
 
@@ -60,14 +64,19 @@ export function CTASection() {
             size="lg"
             variant="secondary"
             className="text-white hover:bg-white/10 border"
-              style={{ borderColor: "rgba(232,177,92,0.4)" }}
+            style={{ borderColor: "rgba(232,177,92,0.4)" }}
           >
             {content.primary.label}
             <span className="ml-2">💬</span>
           </Button>
 
           {/* Divider */}
-          <span className="hidden sm:inline text-white" style={{ color: "rgba(255,255,255,0.35)" }}>|</span>
+          <span
+            className="hidden sm:inline text-white"
+            style={{ color: "rgba(255,255,255,0.35)" }}
+          >
+            |
+          </span>
 
           {/* Secondary CTA */}
           {content.secondary && (
@@ -92,7 +101,10 @@ export function CTASection() {
 
       {/* Footer */}
       <footer className="relative z-10 mt-12 text-center">
-        <p className="font-cinzel text-sm text-white mb-4" style={{ color: "rgba(255,255,255,0.65)" }}>
+        <p
+          className="font-cinzel text-sm text-white mb-4"
+          style={{ color: "rgba(255,255,255,0.65)" }}
+        >
           {lang === "pt"
             ? "Carol Calil • Taróloga e Terapeuta Holística"
             : lang === "es"
@@ -119,7 +131,7 @@ export function CTASection() {
             YouTube
           </a>
           <a
-            href="https://api.whatsapp.com/message/AWE5FVFPURUMK1"
+            href="https://wa.me/34639664590?text=Ol%C3%A1%20Carol!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20suas%20sess%C3%B5es."
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-white transition-colors text-sm"

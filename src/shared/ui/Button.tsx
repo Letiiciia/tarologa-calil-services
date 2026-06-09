@@ -23,6 +23,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg";
   variant?: "primary" | "secondary" | "ghost";
   children: React.ReactNode;
+  target?: string;
+  rel?: string;
 }
 
 export function Button({
@@ -31,6 +33,8 @@ export function Button({
   variant = "primary",
   className,
   children,
+  target,
+  rel,
   ...props
 }: ButtonProps) {
   // Estilos base = aplicados em TODOS os botões
@@ -65,7 +69,7 @@ export function Button({
   // Se tem href, renderiza como Link (melhor pra SEO e navegação)
   if (href) {
     return (
-      <Link href={href} className={finalClassName}>
+      <Link href={href} className={finalClassName} target={target} rel={rel}>
         {children}
       </Link>
     );

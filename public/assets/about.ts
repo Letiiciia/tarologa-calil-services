@@ -3,7 +3,7 @@ export const aboutContent = {
 
   contacts: {
     whatsapp:
-      "https://wa.me/XXXXXXXXhttps://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
+      "https://wa.me/34639664590?text=Ol%C3%A1%20Carol!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20suas%20sess%C3%B5es.",
     instagram: "https://instagram.com/https://www.instagram.com/tarologacalil/",
     youtube:
       "https://www.youtube.com/@tarologacalil6735https://youtube.com/XXXX",
