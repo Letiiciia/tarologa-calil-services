@@ -1,11 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import type { Card } from "../../../../content/cards";
 import { cards } from "../../../../content/cards";
 
-type Phase = "idle" | "gathering" | "mixing" | "spreading" | "choosing" | "revealed";
+type Phase =
+  | "idle"
+  | "gathering"
+  | "mixing"
+  | "spreading"
+  | "choosing"
+  | "revealed";
 
 function embaralharCartas(baralho: Card[]): Card[] {
   for (let i = baralho.length - 1; i > 0; i--) {
@@ -22,6 +29,7 @@ export function CartaDoDia() {
   const [displayCards, setDisplayCards] = useState<Card[]>([]);
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
@@ -32,30 +40,34 @@ export function CartaDoDia() {
     setFlippedIndex(null);
     setSelectedCard(null);
 
-    // Step 1: gather cards to center (600ms)
+    // Step 1: gather
     setPhase("gathering");
 
     setTimeout(() => {
-      // Step 2: mix (reshuffle data mid-animation) (1200ms)
       setPhase("mixing");
       setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
-    }, 700);
+    }, 900);
 
     setTimeout(() => {
-      // Step 3: mix again
       setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
-    }, 1300);
+    }, 1600);
 
     setTimeout(() => {
-      // Step 4: spread back to fan (800ms)
+      setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
+    }, 2200);
+
+    setTimeout(() => {
+      setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
+    }, 2800);
+
+    setTimeout(() => {
       setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
       setPhase("spreading");
-    }, 1900);
+    }, 3400);
 
     setTimeout(() => {
-      // Done — ready to choose
       setPhase("choosing");
-    }, 2900);
+    }, 4800);
   };
 
   const handleCardClick = (card: Card, index: number) => {
@@ -66,6 +78,7 @@ export function CartaDoDia() {
   };
 
   const handleReset = () => {
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     setPhase("idle");
     setSelectedCard(null);
     setFlippedIndex(null);
@@ -74,70 +87,67 @@ export function CartaDoDia() {
 
   // Base fan positions
   const fan = [
-    { x: -60, y: 20, r: -30 },
-    { x: -40, y: 10, r: -20 },
-    { x: -20, y: 4, r: -10 },
+    { x: -120, y: 20, r: -30 },
+    { x: -80, y: 10, r: -20 },
+    { x: -40, y: 4, r: -10 },
     { x: 0, y: 0, r: 0 },
-    { x: 20, y: 4, r: 10 },
-    { x: 40, y: 10, r: 20 },
-    { x: 60, y: 20, r: 30 },
+    { x: 40, y: 4, r: 10 },
+    { x: 80, y: 10, r: 20 },
+    { x: 120, y: 20, r: 30 },
   ];
 
-  // Mixing positions: cards overlap in center with slight offsets
-  const mixPositions = [
-    { x: -12, y: -8, r: -15 },
-    { x: 8, y: -12, r: 10 },
-    { x: -6, y: 6, r: -5 },
-    { x: 0, y: 0, r: 0 },
-    { x: 10, y: -6, r: 8 },
-    { x: -8, y: 10, r: -12 },
-    { x: 14, y: 4, r: 18 },
-  ];
-
-  const getTransform = (i: number, isFlipped: boolean) => {
+  const getCardAnimate = (i: number, isFlipped: boolean) => {
     if (phase === "gathering") {
-      // All cards move slowly to center, stacked
-      return `translateX(calc(-50% + ${fan[i].x * 0.15}px)) translateY(${-fan[i].y * 0.3}px) rotate(${fan[i].r * 0.1}deg)`;
+      return {
+        x: fan[i].x * 0.05,
+        y: 0,
+        rotate: fan[i].r * 0.05,
+        scale: 1,
+      };
     }
     if (phase === "mixing") {
-      const m = mixPositions[i];
-      return `translateX(calc(-50% + ${m.x}px)) translateY(${m.y}px) rotate(${m.r}deg)`;
+      const seed = i * 137.5;
+      const angle = ((seed % 360) * Math.PI) / 180;
+      return {
+        x: Math.cos(angle) * 35,
+        y: Math.sin(angle) * 20 - 10,
+        rotate: Math.sin(angle) * 45,
+        scale: 0.95,
+      };
     }
     if (phase === "spreading") {
-      return `translateX(calc(-50% + ${fan[i].x}px)) translateY(-${fan[i].y}px) rotate(${fan[i].r}deg)`;
+      return {
+        x: fan[i].x,
+        y: fan[i].y,
+        rotate: fan[i].r,
+        scale: 1,
+      };
     }
-    // idle / choosing / revealed → fan
-    return `
-      translateX(calc(-50% + ${fan[i].x}px))
-      translateY(-${fan[i].y}px)
-      rotate(${fan[i].r}deg)
-      ${isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"}
-    `;
+    return {
+      x: fan[i].x,
+      y: fan[i].y,
+      rotate: fan[i].r,
+      scale: isFlipped ? 1.05 : 1,
+    };
   };
 
-  const getTransitionDuration = () => {
-    if (phase === "gathering") return "0.65s";
-    if (phase === "mixing") return "0.55s";
-    if (phase === "spreading") return "0.75s";
-    return "0.6s";
+  const getCardTransition = (i: number) => {
+    if (phase === "gathering") {
+      return { type: "spring", stiffness: 80, damping: 18, delay: i * 0.06 };
+    }
+    if (phase === "mixing") {
+      return { type: "spring", stiffness: 160, damping: 18, delay: i * 0.08 };
+    }
+    if (phase === "spreading") {
+      return { type: "spring", stiffness: 70, damping: 12, delay: i * 0.1 };
+    }
+    return { type: "spring", stiffness: 100, damping: 18 };
   };
 
-  const getTransitionTiming = () => {
-    if (phase === "gathering") return "cubic-bezier(0.4, 0, 0.2, 1)";
-    if (phase === "mixing") return "cubic-bezier(0.4, 0, 0.6, 1)";
-    if (phase === "spreading") return "cubic-bezier(0.34, 1.56, 0.64, 1)";
-    return "cubic-bezier(0.4, 0, 0.2, 1)";
-  };
-
-  const getTransition = () => {
-    if (phase === "gathering") return "transform 0.65s cubic-bezier(0.4, 0, 0.2, 1)";
-    if (phase === "mixing") return "transform 0.55s cubic-bezier(0.4, 0, 0.6, 1)";
-    if (phase === "spreading") return "transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)";
-    return "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
-  };
-
-  const isShuffling = phase === "gathering" || phase === "mixing" || phase === "spreading";
-  const whatsappHref = "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0";
+  const isShuffling =
+    phase === "gathering" || phase === "mixing" || phase === "spreading";
+  const whatsappHref =
+    "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0";
 
   const subtitle = {
     idle: "Embaralhe as cartas e escolha uma para revelar sua mensagem",
@@ -150,9 +160,11 @@ export function CartaDoDia() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative py-20 sm:py-28 overflow-hidden text-center"
       style={{
-        background: "linear-gradient(135deg, #1a0f2e 0%, #2d1568 50%, #1a0f2e 100%)",
+        background:
+          "linear-gradient(135deg, #1a0f2e 0%, #2d1568 50%, #1a0f2e 100%)",
       }}
     >
       <div
@@ -164,9 +176,11 @@ export function CartaDoDia() {
       />
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6">
-
         {/* Header */}
-        <p className="text-xs tracking-[3px] uppercase mb-3" style={{ color: "#E8B15C" }}>
+        <p
+          className="text-xs tracking-[3px] uppercase mb-3"
+          style={{ color: "#E8B15C" }}
+        >
           ✦ uma mensagem para você ✦
         </p>
         <h2 className="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-3">
@@ -189,32 +203,30 @@ export function CartaDoDia() {
             >
               {displayCards.map((card, i) => {
                 const isFlipped = flippedIndex === i;
-                const delay = phase === "spreading"
-                  ? `${i * 60}ms`
-                  : phase === "gathering"
-                    ? `${(6 - i) * 40}ms`
-                    : `${i * 30}ms`;
 
                 return (
-                  <div
+                  <motion.div
                     key={`${card.id}-${i}`}
                     onClick={() => handleCardClick(card, i)}
-                    className="absolute"
+                    animate={getCardAnimate(i, isFlipped)}
+                    transition={getCardTransition(i)}
                     style={{
+                      position: "absolute",
                       left: "50%",
                       bottom: 0,
                       width: "100px",
                       height: "160px",
                       transformOrigin: "bottom center",
-                      transform: getTransform(i, isFlipped),
-                      transitionProperty: "transform, box-shadow",
-                      transitionDuration: `${getTransitionDuration()}, 0.2s`,
-                      transitionTimingFunction: `${getTransitionTiming()}, ease`,
-                      transitionDelay: delay,
+                      marginLeft: "-50px",
                       cursor: phase === "choosing" ? "pointer" : "default",
-                      zIndex: phase === "mixing"
-                        ? i
-                        : i === 3 ? 10 : i < 3 ? i : 7 - i,
+                      zIndex:
+                        phase === "mixing"
+                          ? i
+                          : i === 3
+                            ? 10
+                            : i < 3
+                              ? i
+                              : 7 - i,
                     }}
                   >
                     {/* Card face */}
@@ -223,9 +235,10 @@ export function CartaDoDia() {
                       style={{
                         background: "linear-gradient(135deg, #2d1568, #4a1942)",
                         border: "1px solid rgba(232,177,92,0.3)",
-                        boxShadow: phase === "choosing"
-                          ? "0 8px 24px rgba(0,0,0,0.5)"
-                          : "0 4px 12px rgba(0,0,0,0.4)",
+                        boxShadow:
+                          phase === "choosing"
+                            ? "0 8px 24px rgba(0,0,0,0.5)"
+                            : "0 4px 12px rgba(0,0,0,0.4)",
                         backfaceVisibility: "hidden",
                       }}
                     >
@@ -256,14 +269,17 @@ export function CartaDoDia() {
                         }}
                       />
                     )}
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
 
             {/* Hint */}
             {phase === "choosing" && (
-              <p className="text-xs mb-6" style={{ color: "rgba(255,255,255,0.35)" }}>
+              <p
+                className="text-xs mb-6"
+                style={{ color: "rgba(255,255,255,0.35)" }}
+              >
                 Toque em uma carta para revelar
               </p>
             )}
@@ -290,7 +306,10 @@ export function CartaDoDia() {
                   color: "#E8B15C",
                 }}
               >
-                ✨ {phase === "choosing" ? "Embaralhar novamente" : "Embaralhar cartas"}
+                ✨{" "}
+                {phase === "choosing"
+                  ? "Embaralhar novamente"
+                  : "Embaralhar cartas"}
               </button>
             )}
           </>
@@ -333,7 +352,9 @@ export function CartaDoDia() {
                 className="text-sm leading-relaxed whitespace-pre-line"
                 style={{ color: "rgba(255,255,255,0.75)" }}
               >
-                {lang === "en" ? selectedCard.meaning.en : selectedCard.meaning.pt}
+                {lang === "en"
+                  ? selectedCard.meaning.en
+                  : selectedCard.meaning.pt}
               </p>
             </div>
 
@@ -348,7 +369,8 @@ export function CartaDoDia() {
                 className="text-sm mb-4 leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.65)" }}
               >
-                Essa mensagem ressoou com você? Quer aprofundar essa leitura em uma consulta personalizada.
+                Essa mensagem ressoou com você? Quer aprofundar essa leitura em
+                uma consulta personalizada.
               </p>
               <a
                 href={whatsappHref}
