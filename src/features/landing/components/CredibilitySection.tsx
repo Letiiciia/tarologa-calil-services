@@ -36,8 +36,8 @@ export function CredibilitySection() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Image */}
-          <div className="relative order-2 lg:order-1">
+          {/* Left: Image — hidden on mobile, shown on desktop */}
+          <div className="relative order-2 lg:order-1 hidden lg:block">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={content.image.src}
@@ -48,7 +48,7 @@ export function CredibilitySection() {
 
             {/* Floating badge com core message */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-6 max-w-sm border-l-4 border-[#E8B15C]">
-              <p className="text-sm italic text-[#4B5563] leading-relaxed">
+              <p className="font-cinzel text-sm italic text-[#4B5563] leading-relaxed">
                 "{content.coreMessage}"
               </p>
             </div>
@@ -63,12 +63,28 @@ export function CredibilitySection() {
               </h2>
             </div>
 
+            {/* Mobile-only image — shown below title on small screens */}
+            <div className="block lg:hidden relative pb-10">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src={content.image.src}
+                  alt={content.image.alt}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 left-4 bg-white rounded-xl shadow-xl p-4 border-l-4 border-[#E8B15C]">
+                <p className="font-cinzel text-sm italic text-[#4B5563] leading-relaxed">
+                  "{content.coreMessage}"
+                </p>
+              </div>
+            </div>
+
             {/* Core message again - para emphasis */}
-            <blockquote className="border-l-4 border-[#E8B15C] pl-6 py-4">
-              <p className="text-xl italic text-[#5B2A86] font-semibold">
+            {/* <blockquote className="border-l-4 border-[#E8B15C] pl-6 py-4">
+              <p className="font-cinzel text-xl italic text-[#5B2A86] font-semibold">
                 "{content.coreMessage}"
               </p>
-            </blockquote>
+            </blockquote> */}
 
             {/* Credentials List */}
             <ul className="space-y-4">
@@ -80,7 +96,7 @@ export function CredibilitySection() {
                   </span>
 
                   {/* Text */}
-                  <span className="text-[#4B5563] leading-relaxed pt-1">
+                  <span className="font-cinzel text-[#4B5563] leading-relaxed pt-1">
                     {cred.text}
                   </span>
                 </li>
@@ -91,12 +107,12 @@ export function CredibilitySection() {
             <div className="bg-white rounded-lg p-6 border border-[#7B3FA1]/20 mt-8">
               <h3 className="font-cinzel font-bold text-[#1B1A2E] mb-3">
                 {lang === "pt"
-                  ? "Como Carol trabalha:"
+                  ? "Quem sou eu:"
                   : lang === "es"
-                  ? "Cómo trabaja Carol:"
-                  : "How Carol works:"}
+                    ? "Cómo trabaja Carol:"
+                    : "How Carol works:"}
               </h3>
-              <p className="text-[#4B5563] leading-relaxed">
+              <p className="font-cinzel text-[#4B5563] leading-relaxed">
                 {content.approach}
               </p>
             </div>

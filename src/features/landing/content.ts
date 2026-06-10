@@ -81,7 +81,7 @@ interface LandingContent {
       src: string;
       alt: string;
     };
-    approach: string; // Como Carol trabalha
+    approach: string; // Quem sou eu
   };
   cta: {
     headline: string;
@@ -97,13 +97,15 @@ export const landingContent: Bilingual<LandingContent> = {
       // Headlines de conversão: falam do BENEFÍCIO, não de Carol
       headline: "Você não está confusa.\nVocê só está ignorando o que já sabe.",
       subheadline:
-        "Reconecte-se com sua clareza emocional e com o seu poder feminino através da Jornada de Consciência com Contoterapia Oracular.",
+        "Embarque em uma jornada profunda de autoconhecimento e transformação pessoal ",
       supportingText:
-        "Uma experiência com Tarot, escrita terapêutica e leitura simbólica para te ajudar a enxergar o que você já sente — com clareza.",
+        "Combinando Tarot, Meditação, Respiração, (técnicas de Terapia Holística), vou te guiar por um caminho único de autodescoberta." +
+        "\n" +
+        "Para pessoas que buscam clareza, equilíbrio emocional e novas perspectivas. Esta experiência foi feita para te guiar no caminho de se libertar de bloqueios emocionais, se conectar com sua verdadeira essência e alcançar o que sempre buscou",
       cta: "Quero começar minha jornada",
       secondaryCta: {
-        label: "Conhecer o método",
-        href: "#metodo",
+        label: "Quero conhecer o método",
+        href: "https://wa.me/34639664590?text=Ol%C3%A1%20Carol!%20Vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20melhor%20o%20seu%20m%C3%A9todo%20antes%20de%20decidir.%20Pode%20me%20contar%20mais%3F",
       },
       badge: "✨ 8 anos guiando mulheres a encontrarem clareza emocional",
       images: {
@@ -114,7 +116,8 @@ export const landingContent: Bilingual<LandingContent> = {
 
     emotionalExperience: {
       title: "Uma experiência de transformação emocional",
-      subtitle: "Embarque em uma jornada profunda de autoconhecimento e transformação emocional.",
+      subtitle:
+        "Embarque em uma jornada profunda de autoconhecimento e transformação emocional.",
       bodyText: [
         "Através do Tarot, escrita terapêutica, meditação, respiração e práticas de terapia holística, você será guiada por um caminho simbólico de clareza, reconexão e despertar emocional.",
         "Essa experiência foi criada para mulheres que desejam se libertar de padrões emocionais, recuperar sua direção interna e se reconectar com sua verdadeira essência.",
@@ -123,33 +126,34 @@ export const landingContent: Bilingual<LandingContent> = {
 
     journeyFor: {
       badge: "Uma experiência de transformação emocional profunda",
-      title: "Essa jornada foi criada para mulheres que...",
+      title: "Para quem busca autoconhecimento e transformação verdadeira...",
       bodyText: [
-        "Você é uma mulher profunda, sensível, que já tentou buscar apoio emocional, mas sente que algo ainda está faltando para alcançar o que realmente deseja.",
-        "Talvez você já tenha tentado racionalizar tudo.\nTalvez já tenha buscado respostas em relacionamentos, espiritualidade, desenvolvimento pessoal ou até em outras terapias.",
-        "Mas existe uma parte sua que ainda pede acolhimento, clareza e direção.",
-        "Essa jornada foi criada para mulheres que estão prontas para parar de sobreviver emocionalmente e começar a se escutar de verdade.",
+        "Se você se identifica com algum desses desafios, esta jornada é para você. Vamos conversar e dar início à sua transformação.",
       ],
       cards: [
         {
-          icon: "🔮",
-          title: "Tarot simbólico",
-          description: "Leituras para revelar padrões emocionais, bloqueios e caminhos internos.",
+          icon: "✨",
+          title: "Clareza nas decisões e cura da criança interior",
+          description:
+            "Reconecte-se com a sabedoria do seu coração através da cura da criança interior, você descobrirá o que realmente deseja em áreas cruciais da sua vida.",
         },
         {
-          icon: "🧘",
-          title: "Meditação e respiração",
-          description: "Práticas guiadas para desacelerar a mente e acessar sua intuição.",
+          icon: "🔄",
+          title: "Transformação pessoal",
+          description:
+            "Liberte-se de bloqueios emocionais e desbloqueie seu verdadeiro potencial, permitindo um crescimento autêntico e profundo.",
         },
         {
-          icon: "✍️",
-          title: "Escritoterapia e conto terapia",
-          description: "Narrativas, símbolos e escrita terapêutica para ressignificar sua história.",
+          icon: "💫 ",
+          title: "Reconexão com a essência",
+          description:
+            "Conecte-se com sua verdadeira essência, além das expectativas e influências externas. Lembre-se de quem você realmente é.",
         },
         {
-          icon: "👭",
-          title: "Jornada em grupo",
-          description: "Conexão profunda com outras mulheres em um ambiente íntimo e acolhedor.",
+          icon: "🌱",
+          title: " Orientação espiritual",
+          description:
+            "Compreenda as sincronicidades e o propósito por trás de sua jornada atual, e aprenda a confiar no caminho que a vida está te convidando a seguir.",
         },
       ],
     },
@@ -196,11 +200,13 @@ export const landingContent: Bilingual<LandingContent> = {
         },
         {
           title: "Exposição de padrões",
-          description: "Identificação de comportamentos repetitivos e ciclos emocionais",
+          description:
+            "Identificação de comportamentos repetitivos e ciclos emocionais",
         },
         {
           title: "Significação",
-          description: "Escrita terapêutica guiada para ressignificar experiências",
+          description:
+            "Escrita terapêutica guiada para ressignificar experiências",
         },
         {
           title: "Estratégia",
@@ -208,14 +214,14 @@ export const landingContent: Bilingual<LandingContent> = {
         },
         {
           title: "Transformação",
-          description: "Construção de uma nova identidade emocional e relacional",
+          description:
+            "Construção de uma nova identidade emocional e relacional",
         },
       ],
     },
     transformation: {
       title: "Não é sobre prever o futuro.",
-      text:
-        "É sobre entender seus padrões, organizar suas emoções e tomar decisões com consciência.",
+      text: "É sobre entender seus padrões, organizar suas emoções e tomar decisões com consciência.",
       bullets: [
         "Clareza emocional",
         "Consciência dos seus padrões",
@@ -232,23 +238,23 @@ export const landingContent: Bilingual<LandingContent> = {
       credentials: [
         {
           icon: "🎓",
-          text: "Graduada em Filosofia (UNIFESP) — entendo a profundidade do ser humano",
+          text: "Graduada em Bacharel e Licenciatura em Filosofia, pela Universidade Federal de São Paulo.",
         },
         {
           icon: "🔮",
-          text: "8 anos de experiência com Tarot — método próprio testado e consolidado",
+          text: "Taróloga, pela casa Maria Menina, com 9 anos de experiência e método próprio.",
         },
         {
           icon: "❤️",
-          text: "Especialista em relacionamentos e identidade LGBTIQA+ — acolho todas as pessoas",
+          text: "Coaching, pelo método eneagrama, em relacionamentos e sexualidade com experiência com o público LGBTIQA+.",
         },
         {
           icon: "⚡",
-          text: "Reikiana e Auriculoterapeuta — trabalho corpo e energia integradamente",
+          text: "Reikiana, auriculoterapeuta, escritora, dançarina, yoguini, artista, viajante, mãe.",
         },
         {
           icon: "🌍",
-          text: "Fluente em PT e ES — mãe, viajante, imersa em culturas e misticismo",
+          text: "Este é meu quarto ano vivendo na Europa, neste momento vivo na Espanha, em uma cidade muito cultural e mística. Atendo em português e espanhol.",
         },
       ],
       image: {
@@ -256,7 +262,7 @@ export const landingContent: Bilingual<LandingContent> = {
         alt: "Carol Calil",
       },
       approach:
-        "Aplico Tarot como ferramenta de reflexão profunda, meditação guiada, respiração consciente e eneagrama para mapear seu comportamento. Cada sessão é personalizada ao que você precisa neste momento.",
+        "Eu sou uma mulher fantástica, pois deixo a fantasia participar ativamente da minha vida. E ela transforma todos os detalhes em algo único e precioso. Amo mesmo viver, até porque a vida é o instante da consciência. Me sinto viva quando danço, converso profunda e verdadeiramente com alguém, quando aprendo ou ensino algo para minha filha, ou qualquer outra criança; quando encontro saídas, respostas e principalmente perguntas. Quando escrevo, leio, choro, quando me emociono de alegria, quando interpreto o tarot e consequentemente ajudo pessoas.",
     },
 
     cta: {
@@ -266,7 +272,7 @@ export const landingContent: Bilingual<LandingContent> = {
         "Sem pressão. Sem respostas prontas. Apenas um espaço real para você se enxergar.",
       primary: {
         label: "Quero começar minha jornada",
-        href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
+        href: "https://wa.me/34639664590?text=Ol%C3%A1%20Carol!%20Vim%20pelo%20site%20e%20quero%20iniciar%20minha%20jornada.%20Gostaria%20de%20adquirir%20uma%20sess%C3%A3o%20com%20voc%C3%AA!",
         variant: "primary",
         target: "_blank",
       },
@@ -280,19 +286,21 @@ export const landingContent: Bilingual<LandingContent> = {
   },
 
   en: {
-    // TODO: update English translations for the new landing copy
     hero: {
-      headline: "Discover the answers you're searching for",
+      headline:
+        "You are not confused.\nYou are just ignoring what you already know.",
       subheadline:
-        "Deep self-knowledge through Tarot and Holistic Therapy with 8 years of experience",
+        "Embark on a deep journey of self-knowledge and personal transformation",
       supportingText:
-        "An experience with Tarot, therapeutic writing and symbolic reading to help you see what you already feel — with clarity.",
-      cta: "Start conversation on WhatsApp",
+        "Combining Tarot, Meditation, Breathing (Holistic Therapy techniques), I will guide you through a unique path of self-discovery." +
+        "\n" +
+        "For people seeking clarity, emotional balance and new perspectives. This experience was made to guide you on the path to freeing yourself from emotional blocks, connecting with your true essence and achieving what you have always sought",
+      cta: "I want to start my journey",
       secondaryCta: {
-        label: "Learn the method",
-        href: "#metodo",
+        label: "I want to know the method",
+        href: "https://wa.me/34639664590?text=Hi%20Carol!%20I%20came%20from%20your%20website%20and%20I%27d%20like%20to%20know%20more%20about%20your%20method%20before%20deciding.%20Can%20you%20tell%20me%20more%3F",
       },
-      badge: "✨ 8 years helping people find clarity",
+      badge: "✨ 8 years guiding women to find emotional clarity",
       images: {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
         alt: "Carol Calil - Tarot Reader and Holistic Therapist",
@@ -301,7 +309,8 @@ export const landingContent: Bilingual<LandingContent> = {
 
     emotionalExperience: {
       title: "An emotional transformation experience",
-      subtitle: "Embark on a deep journey of self-knowledge and emotional transformation.",
+      subtitle:
+        "Embark on a deep journey of self-knowledge and emotional transformation.",
       bodyText: [
         "Through Tarot, therapeutic writing, meditation, breathing and holistic therapy practices, you will be guided through a symbolic path of clarity, reconnection and emotional awakening.",
         "This experience was created for women who wish to free themselves from emotional patterns, recover their inner direction and reconnect with their true essence.",
@@ -310,67 +319,67 @@ export const landingContent: Bilingual<LandingContent> = {
 
     journeyFor: {
       badge: "An experience of deep emotional transformation",
-      title: "This journey was created for women who...",
+      title: "For those seeking true self-knowledge and transformation...",
       bodyText: [
-        "You are a deep, sensitive woman who has already sought emotional support, but feel that something is still missing to achieve what you truly desire.",
-        "Perhaps you have already tried to rationalize everything.\nPerhaps you have sought answers in relationships, spirituality, personal development or even other therapies.",
-        "But there is a part of you that still asks for care, clarity and direction.",
-        "This journey was created for women who are ready to stop surviving emotionally and start truly listening to themselves.",
+        "If you identify with any of these challenges, this journey is for you. Let's talk and start your transformation.",
       ],
       cards: [
         {
-          icon: "🔮",
-          title: "Symbolic Tarot",
-          description: "Readings to reveal emotional patterns, blockages and inner pathways.",
-        },
-        {
-          icon: "🧘",
-          title: "Meditation and Breathing",
-          description: "Guided practices to slow the mind and access your intuition.",
-        },
-        {
-          icon: "✍️",
-          title: "Writing Therapy & Story Therapy",
-          description: "Narratives, symbols and therapeutic writing to reframe your story.",
-        },
-        {
-          icon: "👭",
-          title: "Group Journey",
-          description: "Deep connection with other women in an intimate and welcoming environment.",
-        },
-      ],
-    },
-
-    whatfor: {
-      title: "For those seeking...",
-      subtitle: "If you identify with any of these challenges:",
-      benefits: [
-        {
           icon: "✨",
-          title: "Clarity in decisions",
+          title: "Clarity in decisions and inner child healing",
           description:
-            "Understand what your heart truly wants in relationships, career and life purpose",
+            "Reconnect with the wisdom of your heart through inner child healing — you will discover what you truly desire in crucial areas of your life.",
         },
         {
           icon: "🔄",
           title: "Personal transformation",
           description:
-            "Work through emotional blocks that hold you back and unlock your potential",
+            "Free yourself from emotional blocks and unlock your true potential, allowing authentic and profound growth.",
         },
         {
-          icon: "💫",
-          title: "Reconnection with essence",
+          icon: "💫 ",
+          title: "Reconnection with your essence",
           description:
-            "Remember who you truly are, beyond others' expectations",
+            "Connect with your true essence, beyond external expectations and influences. Remember who you really are.",
         },
         {
           icon: "🌱",
           title: "Spiritual guidance",
           description:
-            "Understand the purpose and synchronicities in your life right now",
+            "Understand the synchronicities and the purpose behind your current journey, and learn to trust the path life is inviting you to follow.",
         },
       ],
-      closingLine: "If this resonates, it's time to talk",
+    },
+
+    whatfor: {
+      title: "If you recognize yourself in this...",
+      subtitle: "See if any of these phrases resonates with you.",
+      benefits: [
+        {
+          icon: "🧠",
+          title: "You already know what you need to do, but can't act",
+          description:
+            "The answer exists within you, but there is a lack of emotional structure to support the decision.",
+        },
+        {
+          icon: "🌀",
+          title: "You feel drained in relationships that don't evolve",
+          description:
+            "Confusing relationships consume your energy, your self-esteem and your presence.",
+        },
+        {
+          icon: "🌙",
+          title: "You got lost trying to be what others expect of you",
+          description: "You adapted so much that you forgot your own desire.",
+        },
+        {
+          icon: "✨",
+          title: "You feel like you live without direction",
+          description:
+            "Even doing everything right, it still feels like something inside you is misaligned.",
+        },
+      ],
+      closingLine: "If this struck a chord, this journey is for you.",
     },
 
     method: {
@@ -379,23 +388,23 @@ export const landingContent: Bilingual<LandingContent> = {
         "A structured process to move out of emotional confusion and rebuild the way you relate.",
       steps: [
         {
-          title: "R — Revelation",
+          title: "Revelation",
           description: "Symbolic reading + emotional diagnosis",
         },
         {
-          title: "E — Exposure of patterns",
+          title: "Exposure of patterns",
           description: "Identifying repetitive behaviors and emotional cycles",
         },
         {
-          title: "S — Signification",
+          title: "Signification",
           description: "Guided therapeutic writing to reframe experiences",
         },
         {
-          title: "E — Strategy",
+          title: "Strategy",
           description: "Practical action and decisions with clarity",
         },
         {
-          title: "T — Transformation",
+          title: "Transformation",
           description: "Building a new emotional and relational identity",
         },
       ],
@@ -403,8 +412,7 @@ export const landingContent: Bilingual<LandingContent> = {
 
     transformation: {
       title: "It's not about predicting the future.",
-      text:
-        "It's about understanding your patterns, organizing your emotions, and making decisions with awareness.",
+      text: "It's about understanding your patterns, organizing your emotions, and making decisions with awareness.",
       bullets: [
         "Emotional clarity",
         "Awareness of your patterns",
@@ -414,29 +422,29 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     whois: {
-      title: "Emotional and sexual empowerment specialist",
+      title: "Specialist in feminine emotional and sexual unblocking.",
       coreMessage:
-        "I don't sell ready-made predictions. I show you with clarity what you already know — but haven't yet had the courage to face.",
+        "I don't sell predictions. I show you clearly what you already know — but haven't yet had the courage to face.",
       credentials: [
         {
           icon: "🎓",
-          text: "Bachelor's degree in Philosophy (UNIFESP) — I understand human depth",
+          text: "Bachelor's degree in Philosophy from the Federal University of São Paulo.",
         },
         {
           icon: "🔮",
-          text: "8 years of Tarot experience — tested and consolidated personal method",
+          text: "Tarot reader from Casa Maria Menina, with 9 years of experience and her own method.",
         },
         {
           icon: "❤️",
-          text: "Specialist in relationships and LGBTIQA+ identity — I welcome all people",
+          text: "Coaching through the enneagram method in relationships and sexuality, with experience with the LGBTIQA+ community.",
         },
         {
           icon: "⚡",
-          text: "Reiki practitioner and Auriculotherapist — I work with body and energy",
+          text: "Reiki practitioner, auriculotherapist, writer, dancer, yoga practitioner, artist, traveler, mother.",
         },
         {
           icon: "🌍",
-          text: "Fluent in Portuguese and Spanish — mother, traveler, immersed in cultures",
+          text: "This is my fourth year living in Europe, currently in Spain, in a very cultural and mystical city. I serve in Portuguese and Spanish.",
         },
       ],
       image: {
@@ -444,7 +452,7 @@ export const landingContent: Bilingual<LandingContent> = {
         alt: "Carol Calil",
       },
       approach:
-        "I use Tarot as a tool for deep reflection, guided meditation, conscious breathing and enneagram to map your behavior. Each session is personalized to what you need right now.",
+        "I am a fantastic woman, because I let fantasy actively participate in my life. And it transforms every detail into something unique and precious. I truly love living, because life is the moment of consciousness. I feel alive when I dance, have deep and honest conversations, when I learn or teach something to my daughter or any other child; when I find solutions, answers and especially questions. When I write, read, cry, when I am moved by joy, when I interpret the tarot and consequently help people.",
     },
 
     cta: {
@@ -453,8 +461,8 @@ export const landingContent: Bilingual<LandingContent> = {
       subtext:
         "No pressure. No ready-made answers. Just a real space for you to see yourself.",
       primary: {
-        label: "Book session on WhatsApp",
-        href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
+        label: "I want to start my journey",
+        href: "https://wa.me/34639664590?text=Hi%20Carol!%20I%20came%20from%20your%20website%20and%20I%27d%20like%20to%20book%20a%20session%20with%20you!",
         variant: "primary",
         target: "_blank",
       },
@@ -468,19 +476,20 @@ export const landingContent: Bilingual<LandingContent> = {
   },
 
   es: {
-    // TODO: actualizar traducciones en español para el nuevo copy de landing
     hero: {
-      headline: "Descubre las respuestas que buscas",
+      headline: "No estás confundida.\nSolo estás ignorando lo que ya sabes.",
       subheadline:
-        "Autoconocimiento profundo a través del Tarot y la Terapia Holística con 8 años de experiencia",
+        "Embarca en un viaje profundo de autoconocimiento y transformación personal",
       supportingText:
-        "Una experiencia con Tarot, escritura terapéutica y lectura simbólica para ayudarte a ver lo que ya sientes — con claridad.",
-      cta: "Iniciar conversación en WhatsApp",
+        "Combinando Tarot, Meditación, Respiración (técnicas de Terapia Holística), te guiaré por un camino único de autodescubrimiento." +
+        "\n" +
+        "Para personas que buscan claridad, equilibrio emocional y nuevas perspectivas. Esta experiencia fue creada para guiarte en el camino de liberarte de bloqueos emocionales, conectarte con tu verdadera esencia y alcanzar lo que siempre has buscado",
+      cta: "Quiero comenzar mi viaje",
       secondaryCta: {
-        label: "Conocer el método",
-        href: "#metodo",
+        label: "Quiero conocer el método",
+        href: "https://wa.me/34639664590?text=%C2%A1Hola%20Carol!%20Vine%20desde%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20tu%20m%C3%A9todo%20antes%20de%20decidir.%20%C2%BFPuedes%20contarme%20m%C3%A1s%3F",
       },
-      badge: "✨ 8 años ayudando a personas a encontrar claridad",
+      badge: "✨ 8 años guiando mujeres a encontrar claridad emocional",
       images: {
         main: "/assets/Ensaio_Profissional_Carol_Calil-1.jpg",
         alt: "Carol Calil - Tarotista y Terapeuta Holística",
@@ -489,7 +498,8 @@ export const landingContent: Bilingual<LandingContent> = {
 
     emotionalExperience: {
       title: "Una experiencia de transformación emocional",
-      subtitle: "Embarca en un viaje profundo de autoconocimiento y transformación emocional.",
+      subtitle:
+        "Embarca en un viaje profundo de autoconocimiento y transformación emocional.",
       bodyText: [
         "A través del Tarot, escritura terapéutica, meditación, respiración y prácticas de terapia holística, serás guiada por un camino simbólico de claridad, reconexión y despertar emocional.",
         "Esta experiencia fue creada para mujeres que desean liberarse de patrones emocionales, recuperar su dirección interna y reconectarse con su verdadera esencia.",
@@ -498,67 +508,68 @@ export const landingContent: Bilingual<LandingContent> = {
 
     journeyFor: {
       badge: "Una experiencia de transformación emocional profunda",
-      title: "Este viaje fue creado para mujeres que...",
+      title:
+        "Para quienes buscan autoconocimiento y transformación verdadera...",
       bodyText: [
-        "Eres una mujer profunda, sensible, que ya ha buscado apoyo emocional, pero siente que algo aún falta para alcanzar lo que realmente deseas.",
-        "Quizás ya hayas intentado racionalizarlo todo.\nQuizás hayas buscado respuestas en relaciones, espiritualidad, desarrollo personal o incluso otras terapias.",
-        "Pero existe una parte de ti que aún pide acogida, claridad y dirección.",
-        "Este viaje fue creado para mujeres que están listas para dejar de sobrevivir emocionalmente y comenzar a escucharse de verdad.",
+        "Si te identificas con alguno de estos desafíos, este viaje es para ti. Hablemos y comencemos tu transformación.",
       ],
       cards: [
         {
-          icon: "🔮",
-          title: "Tarot simbólico",
-          description: "Lecturas para revelar patrones emocionales, bloqueos y caminos internos.",
-        },
-        {
-          icon: "🧘",
-          title: "Meditación y respiración",
-          description: "Prácticas guiadas para desacelerar la mente y acceder a tu intuición.",
-        },
-        {
-          icon: "✍️",
-          title: "Escritoterapia y cuentoterapia",
-          description: "Narrativas, símbolos y escritura terapéutica para resignificar tu historia.",
-        },
-        {
-          icon: "👭",
-          title: "Viaje en grupo",
-          description: "Conexión profunda con otras mujeres en un ambiente íntimo y acogedor.",
-        },
-      ],
-    },
-
-    whatfor: {
-      title: "Para quienes buscan...",
-      subtitle: "Si te identificas con alguno de estos desafíos:",
-      benefits: [
-        {
           icon: "✨",
-          title: "Claridad en decisiones",
+          title: "Claridad en las decisiones y sanación del niño interior",
           description:
-            "Entiende lo que tu corazón realmente quiere en relaciones, carrera y propósito de vida",
+            "Reconéctate con la sabiduría de tu corazón a través de la sanación del niño interior — descubrirás lo que realmente deseas en áreas cruciales de tu vida.",
         },
         {
           icon: "🔄",
           title: "Transformación personal",
           description:
-            "Trabaja los bloqueos emocionales que te detienen y desbloquea tu potencial",
+            "Libérate de bloqueos emocionales y desbloquea tu verdadero potencial, permitiendo un crecimiento auténtico y profundo.",
         },
         {
-          icon: "💫",
+          icon: "💫 ",
           title: "Reconexión con la esencia",
           description:
-            "Recuerda quién eres realmente, más allá de las expectativas de otros",
+            "Conéctate con tu verdadera esencia, más allá de las expectativas e influencias externas. Recuerda quién realmente eres.",
         },
         {
           icon: "🌱",
           title: "Orientación espiritual",
           description:
-            "Comprende el propósito y las sincronicidades de tu vida ahora mismo",
+            "Comprende las sincronicidades y el propósito detrás de tu viaje actual, y aprende a confiar en el camino que la vida te está invitando a seguir.",
         },
       ],
-      closingLine: "Si esto resuena contigo, es hora de hablar",
+    },
+
+    whatfor: {
+      title: "Si te reconoces en esto...",
+      subtitle: "Ve si alguna de estas frases resuena contigo.",
+      benefits: [
+        {
+          icon: "🧠",
+          title: "Ya sabes lo que necesitas hacer, pero no puedes actuar",
+          description:
+            "La respuesta existe dentro de ti, pero falta estructura emocional para sostener la decisión.",
+        },
+        {
+          icon: "🌀",
+          title: "Te sientes agotada en relaciones que no evolucionan",
+          description:
+            "Las relaciones confusas consumen tu energía, tu autoestima y tu presencia.",
+        },
+        {
+          icon: "🌙",
+          title: "Te perdiste intentando ser lo que esperan de ti",
+          description: "Te adaptaste tanto que olvidaste tu propio deseo.",
+        },
+        {
+          icon: "✨",
+          title: "Sientes que vives sin dirección",
+          description:
+            "Aunque hagas todo bien, aún parece que algo dentro de ti está desalineado.",
+        },
+      ],
+      closingLine: "Si esto te atravesó, este viaje es para ti.",
     },
 
     method: {
@@ -572,11 +583,13 @@ export const landingContent: Bilingual<LandingContent> = {
         },
         {
           title: "E — Exposición de patrones",
-          description: "Identificación de comportamientos repetitivos y ciclos emocionales",
+          description:
+            "Identificación de comportamientos repetitivos y ciclos emocionales",
         },
         {
           title: "S — Significación",
-          description: "Escritura terapéutica guiada para resignificar experiencias",
+          description:
+            "Escritura terapéutica guiada para resignificar experiencias",
         },
         {
           title: "E — Estrategia",
@@ -584,15 +597,15 @@ export const landingContent: Bilingual<LandingContent> = {
         },
         {
           title: "T — Transformación",
-          description: "Construcción de una nueva identidad emocional y relacional",
+          description:
+            "Construcción de una nueva identidad emocional y relacional",
         },
       ],
     },
 
     transformation: {
       title: "No se trata de predecir el futuro.",
-      text:
-        "Se trata de entender tus patrones, organizar tus emociones y tomar decisiones con conciencia.",
+      text: "Se trata de entender tus patrones, organizar tus emociones y tomar decisiones con conciencia.",
       bullets: [
         "Claridad emocional",
         "Conciencia de tus patrones",
@@ -602,29 +615,29 @@ export const landingContent: Bilingual<LandingContent> = {
     },
 
     whois: {
-      title: "Especialista en desbloqueo emocional y sexual femenino",
+      title: "Especialista en desbloqueo emocional y sexual femenino.",
       coreMessage:
-        "No vendo predicciones listas. Te muestro con claridad lo que ya sabes — pero aún no tuviste el coraje de enfrentar.",
+        "No vendo predicciones. Te muestro con claridad lo que ya sabes — pero aún no tuviste el valor de enfrentar.",
       credentials: [
         {
           icon: "🎓",
-          text: "Licenciada en Filosofía (UNIFESP) — entiendo la profundidad humana",
+          text: "Graduada en Bachillerato y Licenciatura en Filosofía por la Universidad Federal de São Paulo.",
         },
         {
           icon: "🔮",
-          text: "8 años de experiencia con Tarot — método propio probado y consolidado",
+          text: "Tarotista de la casa Maria Menina, con 9 años de experiencia y método propio.",
         },
         {
           icon: "❤️",
-          text: "Especialista en relaciones e identidad LGBTIQA+ — recibo a todas las personas",
+          text: "Coaching por el método eneagrama en relaciones y sexualidad, con experiencia con el público LGBTIQA+.",
         },
         {
           icon: "⚡",
-          text: "Reikiana y Auriculoterapeuta — trabajo cuerpo y energía integradamente",
+          text: "Reikiana, auriculoterapeuta, escritora, bailarina, yoguini, artista, viajera, madre.",
         },
         {
           icon: "🌍",
-          text: "Fluida en portugués y español — madre, viajera, inmersa en culturas",
+          text: "Este es mi cuarto año viviendo en Europa, actualmente vivo en España, en una ciudad muy cultural y mística. Atiendo en portugués y español.",
         },
       ],
       image: {
@@ -632,7 +645,7 @@ export const landingContent: Bilingual<LandingContent> = {
         alt: "Carol Calil",
       },
       approach:
-        "Utilizo el Tarot como herramienta de reflexión profunda, meditación guiada, respiración consciente y eneagrama para mapear tu comportamiento. Cada sesión se personaliza a lo que necesitas ahora.",
+        "Soy una mujer fantástica, porque dejo que la fantasía participe activamente en mi vida. Y ella transforma cada detalle en algo único y precioso. Amo verdaderamente vivir, porque la vida es el instante de la consciencia. Me siento viva cuando bailo, converso profunda y verdaderamente con alguien, cuando aprendo o enseño algo a mi hija o a cualquier otro niño; cuando encuentro salidas, respuestas y principalmente preguntas. Cuando escribo, leo, lloro, cuando me emociono de alegría, cuando interpreto el tarot y consecuentemente ayudo a personas.",
     },
 
     cta: {
@@ -641,8 +654,8 @@ export const landingContent: Bilingual<LandingContent> = {
       subtext:
         "Sin presión. Sin respuestas listas. Solo un espacio real para que te veas.",
       primary: {
-        label: "Quiero comenzar mi jornada",
-        href: "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0",
+        label: "Quiero comenzar mi viaje",
+        href: "https://wa.me/34639664590?text=%C2%A1Hola%20Carol!%20Vine%20desde%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20adquirir%20una%20sesi%C3%B3n%20contigo!",
         variant: "primary",
         target: "_blank",
       },
@@ -655,4 +668,3 @@ export const landingContent: Bilingual<LandingContent> = {
     },
   },
 };
-

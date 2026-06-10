@@ -10,7 +10,7 @@
     "lint": "eslint",
     "mcp:build": "tsc --project tsconfig.mcp.json",
     "mcp:dev": "npm run mcp:build && node build/server.js",
-    "mcp:inspect": "npm run mcp:build && npx @modelcontextprotocol/inspector node build/server.js"
+    "mcp:inspect": "npx @modelcontextprotocol/inspector npm run mcp:dev"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.3",
@@ -28,6 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.22.3",
     "typescript": "^5"
   }
 }

@@ -15,6 +15,7 @@ export { BenefitsFlow } from "./components/BenefitsFlow";
 export { MethodSection } from "./components/MethodSection";
 export { CredibilitySection } from "./components/CredibilitySection";
 export { TransformationSection } from "./components/TransformationSection";
+export { CartaDoDia } from "./components/CartaDoDia";
 export { CTASection } from "./components/CTASection";
 export { landingContent } from "./content";
 export type { HeroSection, EmotionalExperienceSection, JourneyForSection, BenefitsSection, BenefitItem } from "./types";

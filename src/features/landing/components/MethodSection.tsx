@@ -14,13 +14,13 @@ export function MethodSection() {
     <section id="metodo" className="py-20 sm:py-28 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.35em] text-[#5B2A86] font-semibold">
+          <p className="font-cinzel text-sm uppercase tracking-[0.35em] text-[#5B2A86] font-semibold">
             Método
           </p>
           <h2 className="font-cinzel text-4xl sm:text-5xl font-bold text-[#1B1A2E] mt-4">
             {content.title}
           </h2>
-          <p className="mt-5 text-lg text-[#4B5563] max-w-3xl mx-auto leading-relaxed">
+          <p className="font-cinzel mt-5 text-lg text-[#4B5563] max-w-3xl mx-auto leading-relaxed">
             {content.intro}
           </p>
         </div>
@@ -36,10 +36,10 @@ export function MethodSection() {
                 <div className="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-[#C8A2FF]/20 text-[#5B2A86] font-bold text-xl mb-4 shadow-sm border border-[#7B3FA1]/30">
                   {step.title[0]}
                 </div>
-                <h3 className="font-semibold text-xl text-[#1B1A2E] mb-3">
+                <h3 className="font-cinzel font-semibold text-xl text-[#1B1A2E] mb-3">
                   {step.title}
                 </h3>
-                <p className="text-[#4B5563] leading-relaxed">
+                <p className="font-cinzel text-[#4B5563] leading-relaxed">
                   {step.description}
                 </p>
               </div>

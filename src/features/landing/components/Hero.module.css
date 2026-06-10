@@ -4,6 +4,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -15,10 +16,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #F7F1E8 0%, #F0E9DC 50%, #E8E0D1 100%);
+  background: linear-gradient(135deg, #f7f1e8 0%, #f0e9dc 50%, #e8e0d1 100%);
   overflow: hidden;
-  padding-top: 5rem;
-  padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .decoration {
@@ -36,17 +37,17 @@
 .decorationCircleTop {
   top: 5rem;
   right: 2.5rem;
-  width: 20rem;
-  height: 20rem;
-  background: radial-gradient(circle, #5B2A86 0%, #7B3FA1 30%, transparent 70%);
+  width: 12rem;
+  height: 12rem;
+  background: radial-gradient(circle, #5b2a86 0%, #7b3fa1 30%, transparent 70%);
 }
 
 .decorationCircleBottom {
   bottom: 5rem;
   left: 2.5rem;
-  width: 28rem;
-  height: 28rem;
-  background: radial-gradient(circle, #C8A2FF 0%, #7B3FA1 20%, transparent 60%);
+  width: 16rem;
+  height: 16rem;
+  background: radial-gradient(circle, #c8a2ff 0%, #7b3fa1 20%, transparent 60%);
 }
 
 .languageSwitcher {
@@ -70,7 +71,7 @@
   padding: 0.75rem 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #5B2A86;
+  color: #5b2a86;
   transition: all 0.3s ease;
   background: transparent;
   border: none;
@@ -79,12 +80,12 @@
 
 .languageOption:hover {
   background-color: rgba(123, 63, 161, 0.1);
-  color: #7B3FA1;
+  color: #7b3fa1;
 }
 
 .languageOptionActive {
-  background: linear-gradient(135deg, #E8B15C, #F59E52);
-  color: #1B1A2E;
+  background: linear-gradient(135deg, #e8b15c, #f59e52);
+  color: #1b1a2e;
   box-shadow: 0 4px 12px rgba(232, 177, 92, 0.3);
 }
 
@@ -115,27 +116,34 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 0.75rem;
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
 }
 
 @media (min-width: 640px) {
   .grid {
-    gap: 3rem;
+    gap: 1rem;
   }
 }
 
 .textContent {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .textContent {
+    order: unset;
+  }
 }
 
 .badge {
@@ -157,45 +165,65 @@
 }
 
 .badgeText {
+  font-family: "Cinzel", serif;
   font-size: 0.875rem;
   color: #b45309;
   font-weight: 500;
 }
 
 .headline {
-  font-family: 'Cinzel', serif;
-  font-size: 3rem;
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
   font-weight: 700;
-  color: #111827;
   line-height: 1.1;
   white-space: pre-line;
+  background: linear-gradient(
+    135deg,
+    #2d1054 0%,
+    #5b2a86 40%,
+    #7b3fa1 70%,
+    #e8b15c 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @media (min-width: 640px) {
   .headline {
-    font-size: 3.75rem;
+    font-size: 2.5rem;
   }
 }
 
 .subheadline {
-  font-size: 1.25rem;
-  color: #4b5563;
-  line-height: 1.625;
+  font-family: "Cinzel", serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
   max-width: 28rem;
+  background: linear-gradient(135deg, #3d1a6e 0%, #5b2a86 50%, #c8a2ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .supportingText {
-  font-size: 1rem;
-  color: #6b7280;
+  font-family: "Cinzel", serif;
+  font-size: 0.875rem;
+  font-weight: 700;
   line-height: 1.75;
   max-width: 28rem;
+  background: linear-gradient(135deg, #5b2a86 0%, #7b3fa1 50%, #a56709 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .ctaWrapper {
-  padding-top: 1rem;
+  padding-top: 0.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .ctaButton {
@@ -212,6 +240,7 @@
 }
 
 .trustSignals {
+  font-family: "Cinzel", serif;
   padding-top: 1rem;
   display: flex;
   align-items: center;
@@ -226,10 +255,11 @@
 }
 
 .avatar {
+  font-family: "Cinzel", serif;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, #fcd34d, #fed7aa);
+  background: linear-gradient(135deg, #fcd34d, #e1943c);
   border: 2px solid #ffffff;
   display: flex;
   align-items: center;
@@ -242,12 +272,24 @@
 
 .imageWrapper {
   position: relative;
+  order: 1;
+  margin-top: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .imageWrapper {
+    order: unset;
+    margin-top: 0;
+  }
 }
 
 .imageContainer {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .image {
@@ -267,24 +309,26 @@
   background-color: #ffffff;
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  padding: 0.75rem;
+  padding: 0.5rem;
   border: 1px solid #fef3c7;
+  font-size: 0.75rem;
 }
 
 .decorativeBadgeBottomLeft {
   position: absolute;
-  bottom: -1rem;
-  left: -1rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
 }
 
 .decorativeBadgeTopRight {
   position: absolute;
-  top: -1rem;
-  right: -1rem;
+  top: -0.5rem;
+  right: -0.5rem;
 }
 
 .decorativeBadgeText {
-  font-size: 0.875rem;
+  font-family: "Cinzel", serif;
+  font-size: 0.625rem;
   font-weight: 600;
   color: #b45309;
 }
