@@ -63,7 +63,7 @@ export function CTASection() {
             href={content.primary.href}
             size="lg"
             variant="secondary"
-            className="text-white hover:bg-white/10 border"
+            className="w-full sm:w-auto text-white hover:bg-white/10 border"
             style={{ borderColor: "rgba(232,177,92,0.4)" }}
           >
             {content.primary.label}
@@ -84,7 +84,7 @@ export function CTASection() {
               href={content.secondary.href}
               size="lg"
               variant="ghost"
-              className="text-white hover:bg-white/10 border"
+              className="w-full sm:w-auto text-white hover:bg-white/10 border"
               style={{ borderColor: "rgba(232,177,92,0.4)" }}
             >
               {content.secondary.label}
