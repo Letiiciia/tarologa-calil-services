@@ -61,7 +61,10 @@ export function JourneyFor() {
   };
 
   return (
-    <section id="jornada" className="relative py-24 sm:py-32 lg:py-40 overflow-hidden">
+    <section
+      id="jornada"
+      className="relative py-24 sm:py-32 lg:py-40 overflow-hidden"
+    >
       {/* Soft warm cream background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#F7F1E8] via-white to-[#F0E9DC] -z-20" />
 
@@ -69,19 +72,28 @@ export function JourneyFor() {
       <div className="absolute inset-0 -z-10">
         <motion.div
           className="absolute top-10 left-10 w-32 h-32 rounded-full filter blur-3xl opacity-10"
-          style={{ background: 'radial-gradient(circle, #E8B15C 0%, #F59E52 30%, transparent 70%)' }}
+          style={{
+            background:
+              "radial-gradient(circle, #E8B15C 0%, #F59E52 30%, transparent 70%)",
+          }}
           animate={{ y: [0, 30, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-20 right-20 w-40 h-40 rounded-full filter blur-3xl opacity-10"
-          style={{ background: 'radial-gradient(circle, #7B3FA1 0%, #5B2A86 40%, transparent 70%)' }}
+          style={{
+            background:
+              "radial-gradient(circle, #7B3FA1 0%, #5B2A86 40%, transparent 70%)",
+          }}
           animate={{ y: [0, -30, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full filter blur-3xl opacity-5 -translate-x-1/2"
-          style={{ background: 'radial-gradient(circle, #C8A2FF 0%, #A03C78 20%, transparent 60%)' }}
+          style={{
+            background:
+              "radial-gradient(circle, #C8A2FF 0%, #A03C78 20%, transparent 60%)",
+          }}
           animate={{ y: [0, 20, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -125,7 +137,10 @@ export function JourneyFor() {
           </motion.div>
 
           {/* Divider - subtle visual break */}
-          <motion.div variants={itemVariants} className="flex justify-center pt-4">
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center pt-4"
+          >
             <div className="w-12 h-1 bg-gradient-to-r from-transparent via-[#E8B15C] to-transparent rounded-full" />
           </motion.div>
 
@@ -148,18 +163,22 @@ export function JourneyFor() {
                     className="relative w-full h-full transition-transform duration-500"
                     style={{
                       transformStyle: "preserve-3d",
-                      transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                      transform: isFlipped
+                        ? "rotateY(180deg)"
+                        : "rotateY(0deg)",
                     }}
                   >
                     {/* Front - Icon and Title Only */}
                     <div
-                      className="absolute w-full h-full rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-white border border-gray-100"
+                      className="absolute w-full h-full rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-[#E8D5F5]"
                       style={{
                         backfaceVisibility: "hidden",
+                        background:
+                          "linear-gradient(145deg, #F7F0FF 0%, #EDE4F8 50%, #F0E9DC 100%)",
                       }}
                     >
                       <div className="text-6xl mb-6">{card.icon}</div>
-                      <h3 className="font-cinzel text-xl font-bold text-[#1B1A2E]">
+                      <h3 className="font-cinzel text-xl font-bold text-[#3D1A6E]">
                         {card.title}
                       </h3>
                     </div>
@@ -184,7 +203,10 @@ export function JourneyFor() {
 
           {/* Closing message - optional */}
           {content.closingLine && (
-            <motion.div variants={itemVariants} className="text-center pt-4 sm:pt-8">
+            <motion.div
+              variants={itemVariants}
+              className="text-center pt-4 sm:pt-8"
+            >
               <p className="text-gray-600 text-base sm:text-lg italic">
                 {content.closingLine}
               </p>
