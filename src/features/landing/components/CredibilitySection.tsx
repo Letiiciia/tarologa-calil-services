@@ -36,8 +36,8 @@ export function CredibilitySection() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left: Image */}
-          <div className="relative order-2 lg:order-1">
+          {/* Left: Image — hidden on mobile, shown on desktop */}
+          <div className="relative order-2 lg:order-1 hidden lg:block">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={content.image.src}
@@ -61,6 +61,15 @@ export function CredibilitySection() {
               <h2 className="font-cinzel text-5xl font-bold text-[#1B1A2E] mb-4">
                 {content.title}
               </h2>
+            </div>
+
+            {/* Mobile-only image — shown below title on small screens */}
+            <div className="block lg:hidden rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src={content.image.src}
+                alt={content.image.alt}
+                className="w-full h-auto object-cover"
+              />
             </div>
 
             {/* Core message again - para emphasis */}
@@ -93,8 +102,8 @@ export function CredibilitySection() {
                 {lang === "pt"
                   ? "Quem sou eu:"
                   : lang === "es"
-                  ? "Cómo trabaja Carol:"
-                  : "How Carol works:"}
+                    ? "Cómo trabaja Carol:"
+                    : "How Carol works:"}
               </h3>
               <p className="font-cinzel text-[#4B5563] leading-relaxed">
                 {content.approach}

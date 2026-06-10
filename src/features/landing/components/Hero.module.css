@@ -137,6 +137,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .textContent {
+    order: unset;
+  }
 }
 
 .badge {
@@ -265,6 +272,15 @@
 
 .imageWrapper {
   position: relative;
+  order: 1;
+  margin-top: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .imageWrapper {
+    order: unset;
+    margin-top: 0;
+  }
 }
 
 .imageContainer {

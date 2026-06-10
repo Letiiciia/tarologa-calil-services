@@ -63,7 +63,7 @@ export function JourneyFor() {
   return (
     <section
       id="jornada"
-      className="relative py-24 sm:py-32 lg:py-40 overflow-hidden"
+      className="relative py-10 sm:py-32 lg:py-40 overflow-hidden"
     >
       {/* Soft warm cream background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#F7F1E8] via-white to-[#F0E9DC] -z-20" />
@@ -147,7 +147,7 @@ export function JourneyFor() {
           {/* Emotional Cards Grid */}
           <motion.div
             variants={itemVariants}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 sm:pt-8"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 pt-4 sm:pt-8"
           >
             {content.cards.map((card, idx) => {
               const isFlipped = flipped[idx] || false;
@@ -155,7 +155,7 @@ export function JourneyFor() {
               return (
                 <div
                   key={idx}
-                  className="h-80 cursor-pointer"
+                  className="aspect-square sm:aspect-auto sm:h-80 cursor-pointer"
                   onClick={() => toggleFlip(idx)}
                   style={{ perspective: "1000px" }}
                 >
@@ -170,28 +170,30 @@ export function JourneyFor() {
                   >
                     {/* Front - Icon and Title Only */}
                     <div
-                      className="absolute w-full h-full rounded-2xl p-8 flex flex-col items-center justify-center text-center border border-[#E8D5F5]"
+                      className="absolute w-full h-full rounded-2xl p-4 sm:p-8 flex flex-col items-center justify-center text-center border border-[#E8D5F5]"
                       style={{
                         backfaceVisibility: "hidden",
                         background:
                           "linear-gradient(145deg, #F7F0FF 0%, #EDE4F8 50%, #F0E9DC 100%)",
                       }}
                     >
-                      <div className="text-6xl mb-6">{card.icon}</div>
-                      <h3 className="font-cinzel text-xl font-bold text-[#3D1A6E]">
+                      <div className="text-4xl sm:text-6xl mb-3 sm:mb-6">
+                        {card.icon}
+                      </div>
+                      <h3 className="font-cinzel text-sm sm:text-xl font-bold text-[#3D1A6E]">
                         {card.title}
                       </h3>
                     </div>
 
                     {/* Back - Description */}
                     <div
-                      className="absolute w-full h-full rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-[#F7F1E8] border border-gray-100"
+                      className="absolute w-full h-full rounded-2xl p-4 sm:p-8 flex flex-col items-center justify-center text-center bg-[#F7F1E8] border border-gray-100"
                       style={{
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)",
                       }}
                     >
-                      <p className="font-cinzel text-base leading-relaxed text-[#4B5563]">
+                      <p className="font-cinzel text-xs sm:text-base leading-relaxed text-[#4B5563]">
                         {card.description}
                       </p>
                     </div>
