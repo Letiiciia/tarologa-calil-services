@@ -46,28 +46,28 @@ export function CartaDoDia() {
     setTimeout(() => {
       setPhase("mixing");
       setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
+    }, 500);
+
+    setTimeout(() => {
+      setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
     }, 900);
 
     setTimeout(() => {
       setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
-    }, 1600);
+    }, 1200);
 
     setTimeout(() => {
       setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
-    }, 2200);
-
-    setTimeout(() => {
-      setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
-    }, 2800);
+    }, 1500);
 
     setTimeout(() => {
       setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
       setPhase("spreading");
-    }, 3400);
+    }, 1800);
 
     setTimeout(() => {
       setPhase("choosing");
-    }, 4800);
+    }, 2800);
   };
 
   const handleCardClick = (card: Card, index: number) => {
@@ -133,15 +133,15 @@ export function CartaDoDia() {
 
   const getCardTransition = (i: number) => {
     if (phase === "gathering") {
-      return { type: "spring", stiffness: 80, damping: 18, delay: i * 0.06 };
+      return { type: "spring", stiffness: 260, damping: 22, delay: i * 0.03 };
     }
     if (phase === "mixing") {
-      return { type: "spring", stiffness: 160, damping: 18, delay: i * 0.08 };
+      return { type: "spring", stiffness: 420, damping: 18, delay: i * 0.04 };
     }
     if (phase === "spreading") {
-      return { type: "spring", stiffness: 70, damping: 12, delay: i * 0.1 };
+      return { type: "spring", stiffness: 200, damping: 14, delay: i * 0.06 };
     }
-    return { type: "spring", stiffness: 100, damping: 18 };
+    return { type: "spring", stiffness: 140, damping: 18 };
   };
 
   const isShuffling =
