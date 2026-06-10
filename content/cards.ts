@@ -71,7 +71,7 @@ Good luck, beautiful affection. 💜`,
       pt: "Diabo",
       en: "Devil",
     },
-    image: "/assets/3Copas.jpeg",
+    image: "/assets/Diabo.jpg",
     deck: "tarot",
     meaning: {
       pt: `Este arcano maior chega para te trazer a intensidade dos prazeres da vida. Seja da paixão, da luxúria, da bohemia, dos prazeres carnais, incluindo o dinheiro. Se sua pergunta foi relacionada a dinheiro ou negócio, esta carta traz uma mensagem muito positiva, as energias estão bastante favoráveis neste meio, basta saber como agir da melhor forma. Cuida-te, porque a intensidade não pode virar tropeço, você tem que ter consciência sobre ela e não deixá-la te dominar, afinal esse é o segredo do sucesso. A intensidade não tem que ser bloqueada ou reprimida, ela tem que ser canalizada. Se você precisa de orientação para saber como canalizá-la ou tem qualquer outra dúvida, agende uma consulta e saia mais leve e com soluções assertivas. Estamos entusiasmados e com os braços bem abertos para te acolher E se sua vida te parece morna e sem graça, não te traia, não minta para ti (lado negativo deste arcano), equilibre-se fazendo aquilo que você gosta, seja ler um livro, jogar xadrez ou pintar um pano de prato, lembre-se que os prazeres da vida não são os mesmos para todos e quiçá você precise explorar novos ares para descobrir novas sensações ou para recordar das antigas com um sabor atualizado. Desfrute!`,
@@ -94,7 +94,7 @@ Enjoy!`,
       pt: "a morte",
       en: "the death",
     },
-    image: "/assets/3Copas.jpeg",
+    image: "/assets/morte.jpg",
     deck: "tarot",
     meaning: {
       pt: `A morte chega sorrateiramente trazendo transformação.
@@ -213,7 +213,7 @@ You are already taking command of your own life.`,
       pt: "Rei de Paus",
       en: "King of Wands",
     },
-    image: "/assets/ReiDePaus.jpeg",
+    image: "/assets/reiDePaus.jpeg",
     deck: "tarot",
     meaning: {
       pt: `O Rei de Paus é fogo consciente.
@@ -250,7 +250,7 @@ You are illuminated by fire, take the opportunity to shine!!!`,
       pt: "4 de Ouros",
       en: "4 of Pentacles",
     },
-    image: "/assets/4DeOuros.jpeg",
+    image: "/assets/ouros.jpg",
     deck: "tarot",
     meaning: {
       pt: `O 4 de Ouros fala de estrutura.
@@ -299,7 +299,7 @@ Honor each brick.✨`,
       pt: "Ártemis",
       en: "Artemis",
     },
-    image: "/assets/Artemis.jpeg",
+    image: "/assets/artemis.jpg",
     deck: "oracle",
     meaning: {
       pt: `Ártemis surge como a mulher que caminha sozinha pela floresta — inteira, selvagem e soberana.
@@ -338,7 +338,7 @@ You are the goddess who walks free. 🏹🌿✨`,
       pt: "Durga",
       en: "Durga",
     },
-    image: "/assets/Durga.jpeg",
+    image: "/assets/Durga.jpg",
     deck: "oracle",
     meaning: {
       pt: `Durga chega montada em seu leão, com múltiplos braços e serenidade no olhar.
@@ -385,7 +385,7 @@ You are stronger than you imagine — and wiser than you think.`,
       pt: "Cavaleiro de Espadas",
       en: "Knight of Swords",
     },
-    image: "/assets/CavaleiroDEspadas.jpeg",
+    image: "/assets/cavaleirosDeEspadas.jpg",
     deck: "tarot",
     meaning: {
       pt: `O Cavaleiro de Espadas chega com velocidade mental e comunicativa.
