@@ -64,12 +64,19 @@ export function CredibilitySection() {
             </div>
 
             {/* Mobile-only image — shown below title on small screens */}
-            <div className="block lg:hidden rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src={content.image.src}
-                alt={content.image.alt}
-                className="w-full h-auto object-cover"
-              />
+            <div className="block lg:hidden relative pb-10">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src={content.image.src}
+                  alt={content.image.alt}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-2 -right-2 left-4 bg-white rounded-xl shadow-xl p-4 border-l-4 border-[#E8B15C]">
+                <p className="font-cinzel text-sm italic text-[#4B5563] leading-relaxed">
+                  "{content.coreMessage}"
+                </p>
+              </div>
             </div>
 
             {/* Core message again - para emphasis */}
