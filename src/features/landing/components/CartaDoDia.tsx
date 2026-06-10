@@ -146,17 +146,77 @@ export function CartaDoDia() {
 
   const isShuffling =
     phase === "gathering" || phase === "mixing" || phase === "spreading";
-  const whatsappHref =
-    "https://api.whatsapp.com/message/AWE5FVFPURUMK1?autoload=1&app_absent=0";
 
-  const subtitle = {
-    idle: "Embaralhe as cartas e escolha uma para revelar sua mensagem",
-    gathering: "Reunindo as cartas...",
-    mixing: "Embaralhando...",
-    spreading: "Espalhando as cartas...",
-    choosing: "Toque em uma carta para revelar sua mensagem",
-    revealed: "Sua mensagem foi revelada",
-  }[phase];
+  const whatsappHref = {
+    pt: "https://wa.me/34639664590?text=Ol%C3%A1%20Carol!%20Vim%20pelo%20site%20e%20quero%20iniciar%20minha%20jornada.%20Gostaria%20de%20adquirir%20uma%20sess%C3%A3o%20com%20voc%C3%AA!",
+    en: "https://wa.me/34639664590?text=Hi%20Carol!%20I%20came%20from%20your%20website%20and%20I%27d%20like%20to%20book%20a%20session%20with%20you!",
+    es: "https://wa.me/34639664590?text=%C2%A1Hola%20Carol!%20Vine%20desde%20tu%20sitio%20web%20y%20me%20gustar%C3%ADa%20adquirir%20una%20sesi%C3%B3n%20contigo!",
+  }[lang];
+
+  const t = {
+    pt: {
+      eyebrow: "✦ uma mensagem para você ✦",
+      title: "Carta do Dia",
+      subtitle: {
+        idle: "Embaralhe as cartas e escolha uma para revelar sua mensagem",
+        gathering: "Reunindo as cartas...",
+        mixing: "Embaralhando...",
+        spreading: "Espalhando as cartas...",
+        choosing: "Toque em uma carta para revelar sua mensagem",
+        revealed: "Sua mensagem foi revelada",
+      },
+      hint: "Toque em uma carta para revelar",
+      whatsappAfterFlip: "💬 Ressoou aí? Vem falar comigo",
+      shuffleAgain: "Embaralhar novamente",
+      shuffle: "Embaralhar cartas",
+      ctaText:
+        "Essa mensagem ressoou com você? Quer aprofundar essa leitura em uma consulta personalizada.",
+      ctaButton: "Ressoou aí? Vem falar comigo →",
+      reset: "Tirar outra carta",
+    },
+    en: {
+      eyebrow: "✦ a message for you ✦",
+      title: "Card of the Day",
+      subtitle: {
+        idle: "Shuffle the cards and choose one to reveal your message",
+        gathering: "Gathering the cards...",
+        mixing: "Shuffling...",
+        spreading: "Spreading the cards...",
+        choosing: "Tap a card to reveal your message",
+        revealed: "Your message has been revealed",
+      },
+      hint: "Tap a card to reveal",
+      whatsappAfterFlip: "💬 Did it resonate? Let's talk",
+      shuffleAgain: "Shuffle again",
+      shuffle: "Shuffle cards",
+      ctaText:
+        "Did this message resonate with you? Want to deepen this reading in a personalized session?",
+      ctaButton: "Did it resonate? Let's talk →",
+      reset: "Draw another card",
+    },
+    es: {
+      eyebrow: "✦ un mensaje para ti ✦",
+      title: "Carta del Día",
+      subtitle: {
+        idle: "Mezcla las cartas y elige una para revelar tu mensaje",
+        gathering: "Reuniendo las cartas...",
+        mixing: "Mezclando...",
+        spreading: "Extendiendo las cartas...",
+        choosing: "Toca una carta para revelar tu mensaje",
+        revealed: "Tu mensaje ha sido revelado",
+      },
+      hint: "Toca una carta para revelar",
+      whatsappAfterFlip: "💬 ¿Resonó? Hablemos",
+      shuffleAgain: "Mezclar de nuevo",
+      shuffle: "Mezclar cartas",
+      ctaText:
+        "¿Este mensaje resonó contigo? ¿Quieres profundizar esta lectura en una consulta personalizada?",
+      ctaButton: "¿Resonó? Hablemos →",
+      reset: "Sacar otra carta",
+    },
+  }[lang];
+
+  const subtitle = t.subtitle[phase];
 
   return (
     <section
@@ -181,10 +241,10 @@ export function CartaDoDia() {
           className="text-xs tracking-[3px] uppercase mb-3"
           style={{ color: "#E8B15C" }}
         >
-          ✦ uma mensagem para você ✦
+          {t.eyebrow}
         </p>
         <h2 className="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-3">
-          Carta do Dia
+          {t.title}
         </h2>
         <p
           className="text-sm sm:text-base mb-12 transition-all duration-500"
@@ -280,7 +340,7 @@ export function CartaDoDia() {
                 className="text-xs mb-6"
                 style={{ color: "rgba(255,255,255,0.35)" }}
               >
-                Toque em uma carta para revelar
+                {t.hint}
               </p>
             )}
 
@@ -293,7 +353,7 @@ export function CartaDoDia() {
                 className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
                 style={{ background: "#25D366", color: "#fff" }}
               >
-                💬 Ressoou aí? Vem falar comigo
+                {t.whatsappAfterFlip}
               </a>
             ) : (
               <button
@@ -306,10 +366,7 @@ export function CartaDoDia() {
                   color: "#E8B15C",
                 }}
               >
-                ✨{" "}
-                {phase === "choosing"
-                  ? "Embaralhar novamente"
-                  : "Embaralhar cartas"}
+                ✨ {phase === "choosing" ? t.shuffleAgain : t.shuffle}
               </button>
             )}
           </>
@@ -338,7 +395,11 @@ export function CartaDoDia() {
               className="font-cinzel text-2xl font-bold mb-4"
               style={{ color: "#E8B15C" }}
             >
-              {lang === "en" ? selectedCard.name.en : selectedCard.name.pt}
+              {lang === "pt"
+                ? selectedCard.name.pt
+                : lang === "en"
+                  ? selectedCard.name.en
+                  : selectedCard.name.es}
             </h3>
 
             <div
@@ -352,9 +413,11 @@ export function CartaDoDia() {
                 className="text-sm leading-relaxed whitespace-pre-line"
                 style={{ color: "rgba(255,255,255,0.75)" }}
               >
-                {lang === "en"
-                  ? selectedCard.meaning.en
-                  : selectedCard.meaning.pt}
+                {lang === "pt"
+                  ? selectedCard.meaning.pt
+                  : lang === "en"
+                    ? selectedCard.meaning.en
+                    : selectedCard.meaning.es}
               </p>
             </div>
 
@@ -369,8 +432,7 @@ export function CartaDoDia() {
                 className="text-sm mb-4 leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.65)" }}
               >
-                Essa mensagem ressoou com você? Quer aprofundar essa leitura em
-                uma consulta personalizada.
+                {t.ctaText}
               </p>
               <a
                 href={whatsappHref}
@@ -379,7 +441,7 @@ export function CartaDoDia() {
                 className="block w-full text-center font-semibold text-sm py-3 px-4 rounded-xl hover:opacity-90 transition-opacity"
                 style={{ background: "#25D366", color: "#fff" }}
               >
-                Ressoou aí? Vem falar comigo →
+                {t.ctaButton}
               </a>
             </div>
 
@@ -388,7 +450,7 @@ export function CartaDoDia() {
               className="text-xs underline hover:opacity-80 transition-opacity"
               style={{ color: "rgba(255,255,255,0.3)" }}
             >
-              Tirar outra carta
+              {t.reset}
             </button>
           </div>
         )}

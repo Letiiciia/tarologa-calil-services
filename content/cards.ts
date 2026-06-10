@@ -3,11 +3,13 @@ export interface Card {
   name: {
     pt: string;
     en: string;
+    es: string;
   };
   image: string;
   meaning: {
     pt: string;
     en: string;
+    es: string;
   };
   deck: "tarot" | "cigano" | "oracle";
 }
@@ -37,6 +39,7 @@ export const cards: Card[] = [
     name: {
       pt: "3 de Copas",
       en: "3 of Cups",
+      es: "3 de Copas",
     },
     image: "/assets/3Copas.jpeg",
     deck: "tarot",
@@ -63,6 +66,17 @@ Even if it's a small gain, celebrate with all your strength, because it is in th
 If you feel just the opposite, the indication is that you learn to celebrate and be grateful for the small moments and gains in your life, thus, naturally things improve to the point of ecstasy and maximum celebration.
 
 Good luck, beautiful affection. 💜`,
+      es: `¡Ha llegado el momento de celebrar!!! 🎉✨🥂
+
+Disfruta este momento, hay tiempo para todo y este en particular es uno de los más placenteros.
+
+Comparte la alegría con quienes verdaderamente amas y quienes merecen tu amor, o simplemente comunícate a ti misma/o cuán importante fue todo lo que atravesaste para llegar a esta etapa y siente el deleite del logro. Tu corazón está lleno de alegría y esto te hace bien más allá del cuerpo y el espíritu (que no es poco), te motiva a seguir el camino que realmente debes trazar.
+
+Aunque sea una ganancia pequeña, celébra con todas tus fuerzas, pues es en la energía que resplandece donde aparece la belleza de la verdad.
+
+Si sientes exactamente lo contrario, la indicación es que aprendas a celebrar y agradecer los pequeños momentos y ganancias de tu vida, así, naturalmente las cosas irán mejorando hasta el punto de éxtasis y celebración máxima.
+
+Buena suerte, bello afecto. 💜`,
     },
   },
   {
@@ -70,6 +84,7 @@ Good luck, beautiful affection. 💜`,
     name: {
       pt: "Diabo",
       en: "Devil",
+      es: "El Diablo",
     },
     image: "/assets/Diabo.jpg",
     deck: "tarot",
@@ -86,6 +101,13 @@ If you need guidance on how to channel this energy, or if you have any other que
 And if your life seems lukewarm and without excitement, do not betray yourself or lie to yourself (the negative side of this arcana). Find balance by doing what you enjoy—whether it’s reading a book, playing chess, or painting a kitchen cloth. Remember that life’s pleasures are not the same for everyone, and perhaps you need to explore new paths to discover new sensations, or to revisit old ones with a renewed flavor.
 
 Enjoy!`,
+      es: `Este arcano mayor llega para traerte la intensidad de los placeres de la vida. Ya sea de la pasión, la lujuria, la bohemia, los placeres carnales, incluido el dinero. Si tu pregunta fue relacionada con dinero o negocios, esta carta trae un mensaje muy positivo: las energías están bastante favorables en este ámbito, solo hay que saber cómo actuar de la mejor manera. Cuídate, porque la intensidad no puede convertirse en tropiezo; debes tener conciencia sobre ella y no dejar que te domine, al fin y al cabo ese es el secreto del éxito. La intensidad no tiene que ser bloqueada ni reprimida, tiene que ser canalizada.
+
+Si necesitas orientación para saber cómo canalizarla o tienes cualquier otra duda, agenda una consulta y sal más ligera/o y con soluciones asertivas. Estamos entusiasmados y con los brazos bien abiertos para recibirte.
+
+Y si tu vida te parece tibia y sin gracia, no te traiciones, no te mientas a ti misma/o (lado negativo de este arcano); equilibrate haciendo lo que te gusta, ya sea leer un libro, jugar ajedrez o pintar. Recuerda que los placeres de la vida no son los mismos para todos y quizás necesites explorar nuevos aires para descubrir nuevas sensaciones o recordar las antiguas con un sabor actualizado.
+
+¡Disfruta!`,
     },
   },
   {
@@ -93,6 +115,7 @@ Enjoy!`,
     name: {
       pt: "a morte",
       en: "the death",
+      es: "la muerte",
     },
     image: "/assets/morte.jpg",
     deck: "tarot",
@@ -129,6 +152,22 @@ But be careful of the fear of emptiness. Emptiness is not absence — it is fert
 If you need to understand what is coming to an end and how to move through this transition with more awareness and serenity, schedule a consultation. We can look together at this rebirth and find clarity in the midst of change.
 
 Trust: every true transformation honors who you have been — and prepares who you are becoming.`,
+      es: `La Muerte llega sigilosamente trayendo transformación.
+Una parte tuya cambia de forma, pero mantiene la esencia. Por eso también la llaman la carta del renacimiento: mueres para nacer mejor y más fuerte. Puede simbolizar el corte de relaciones o situaciones que te hacían daño o que ya no te servían, por haberlas superado. Maravilloso. Señal de evolución. Observa y sé consciente de tu mérito — y si logras identificar cuál es, mejor aún.
+
+Este arcano sopla como el viento que limpia el campo después de la tormenta.
+Algo en ti ya sabe lo que terminó — aunque el corazón aún esté aprendiendo a soltar.
+
+Si tu pregunta involucra amor, trabajo o una etapa de la vida que parece suspendida, esta carta confirma: el ciclo se cumplió. Resistir prolonga el dolor. Aceptar abre el portal.
+
+Hay dignidad en reconocer que creciste.
+Hay valentía en no caber más en lo que antes servía.
+
+Pero cuidado con el miedo al vacío. El vacío no es ausencia — es tierra fértil esperando nuevas semillas.
+
+Si necesitas comprender lo que está cerrándose y cómo atravesar esta transición con más conciencia y serenidad, agenda una consulta. Podemos mirar juntos este renacimiento y encontrar claridad en medio del cambio.
+
+Confía: toda transformación verdadera honra quien fuiste — y prepara quien estás llegando a ser.`,
     },
   },
   {
@@ -136,6 +175,7 @@ Trust: every true transformation honors who you have been — and prepares who y
     name: {
       pt: "o carro",
       en: "the chariot",
+      es: "el carro",
     },
     image: "/assets/3Copas.jpeg",
     deck: "tarot",
@@ -167,44 +207,19 @@ If you need clarity about which path to follow or how to act without losing your
 
 You are not lost.
 You are already taking command of your own life.`,
-    },
-  },
-  {
-    id: "o-carro",
-    name: {
-      pt: "o carro",
-      en: "the chariot",
-    },
-    image: "/assets/3Copas.jpeg",
-    deck: "tarot",
-    meaning: {
-      pt: `O Carro é símbolo da decisão de avançar, consequência da evolução pessoal e espiritual da sua vida.
-É a alma que para de hesitar e segura firme as rédeas do próprio destino.
+      es: `El Carro es símbolo de la decisión de avanzar, consecuencia de la evolución personal y espiritual de tu vida.
+Es el alma que deja de dudar y sujeta con firmeza las riendas de su propio destino.
 
-Se sua pergunta fala de metas, mudanças ou decisões, esta carta anuncia movimento rumo ao sucesso. Há força, há direção, há vitória possível — mas ela nasce do alinhamento interno.
+Si tu pregunta habla de metas, cambios o decisiones, esta carta anuncia movimiento hacia el éxito. Hay fuerza, hay dirección, hay victoria posible — pero nace del alineamiento interno.
 
-Você não pode puxar para dois lados ao mesmo tempo.
-É preciso escolher.
+No puedes tirar hacia dos lados al mismo tiempo.
+Es necesario elegir.
 
-Cuidado apenas com a pressa que ignora o sentir. Conquistar não é atropelar — é conduzir.
+Cuidado solo con la prisa que ignora el sentir. Conquistar no es atropellar — es conducir.
 
-Se você precisa de clareza para saber qual caminho seguir ou como agir sem se perder de si, agende uma consulta. Juntos podemos alinhar suas forças para que seu avanço seja inteiro.
+Si necesitas claridad para saber qué camino seguir o cómo actuar sin perderte a ti misma/o, agenda una consulta. Juntos podemos alinear tus fuerzas para que tu avance sea completo.
 
-Você não está perdido(a). Você já está assumindo o comando da sua vida`,
-      en: `The Chariot is the symbol of the decision to move forward, a consequence of your personal and spiritual evolution in life.
-It is the soul that stops hesitating and firmly holds the reins of its own destiny.
-
-If your question is about goals, changes, or decisions, this card announces movement toward success. There is strength, there is direction, and there is possible victory — but it comes from inner alignment.
-
-You cannot pull in two directions at the same time.
-A choice must be made.
-
-Just be careful with haste that ignores your inner feelings. Achieving something is not about rushing over everything — it is about guiding and steering.
-
-If you need clarity about which path to follow or how to act without losing yourself along the way, schedule a consultation. Together we can align your strengths so that your progress becomes complete and purposeful.
-
-You are not lost.
-You are already taking command of your own life.`,
+No estás perdida/o. Ya estás asumiendo el mando de tu vida.`,
     },
   },
   {
@@ -212,6 +227,7 @@ You are already taking command of your own life.`,
     name: {
       pt: "Rei de Paus",
       en: "King of Wands",
+      es: "Rey de Bastos",
     },
     image: "/assets/reiDePaus.jpeg",
     deck: "tarot",
@@ -242,6 +258,19 @@ This is a call to assume your place with confidence and maturity.
 If you feel you can go further but don't yet know how to direct your power, schedule a consultation. We will organize your strength so it becomes concrete achievement.
 
 You are illuminated by fire, take the opportunity to shine!!!`,
+      es: `El Rey de Bastos es fuego consciente.
+No es llama descontrolada — es hoguera que calienta y orienta.
+
+Habla de liderazgo natural, de visión amplia, de alguien que sabe a dónde quiere llegar. Si tu pregunta involucra trabajo, proyectos o reconocimiento, hay potencia y expansión en el horizonte.
+
+En el amor, indica presencia marcante, deseo, magnetismo.
+Pero recuerda: la verdadera autoridad no necesita imponer — inspira.
+
+Este es un llamado a asumir tu lugar con confianza y madurez.
+
+Si sientes que puedes ir más lejos pero aún no sabes cómo dirigir tu poder, agenda una consulta. Organizaremos tu fuerza para que se convierta en realización concreta.
+
+¡Estás iluminada/o por el fuego, aprovecha para brillar!!!`,
     },
   },
   {
@@ -249,6 +278,7 @@ You are illuminated by fire, take the opportunity to shine!!!`,
     name: {
       pt: "4 de Ouros",
       en: "4 of Pentacles",
+      es: "4 de Oros",
     },
     image: "/assets/ouros.jpg",
     deck: "tarot",
@@ -291,6 +321,25 @@ If you want to strengthen your financial life with more strategy or understand h
 
 You are building something real.
 Honor each brick.✨`,
+      es: `El 4 de Oros habla de estructura.
+Habla de alguien que está aprendiendo a construir base, suelo, seguridad.
+
+Si tu pregunta está relacionada con tu vida financiera, esta carta es una señal hermosa: estás logrando organizarte, estructurarte, crear estabilidad. Quizás aún no sea abundancia exuberante — pero es solidez. Y la solidez es riqueza silenciosa.
+
+Comienzas a entender el valor de lo que conquistas.
+Comienzas a proteger lo que es tuyo.
+Comienzas a construir con conciencia.
+
+Si tu pregunta fue sobre la vida afectiva, algo también está estructurándose. Puede ser un vínculo que empieza a tomar forma más concreta, tu deseo de estabilidad emocional o tu capacidad de posicionarte con más firmeza. Estás en momento de construcción. Y la construcción es lo que sostiene.
+
+Pero atención: la seguridad no necesita convertirse en rigidez.
+Prosperar también es confiar en el flujo.
+Amar también es permitir que el otro respire.
+
+Si deseas fortalecer tu vida financiera con más estrategia o comprender cómo crear estabilidad emocional, agenda una consulta. Podemos mirar con profundidad lo que estás edificando.
+
+Estás construyendo algo real.
+Honra cada ladrillo.✨`,
     },
   },
   {
@@ -298,6 +347,7 @@ Honor each brick.✨`,
     name: {
       pt: "Ártemis",
       en: "Artemis",
+      es: "Ártemis",
     },
     image: "/assets/artemis.jpg",
     deck: "oracle",
@@ -330,6 +380,20 @@ Discernment is different from coldness.
 If you feel you need to reaffirm your boundaries or want to understand how to balance autonomy and openness, schedule a consultation. We can look together at your inner strength and direct it with awareness.
 
 You are the goddess who walks free. 🏹🌿✨`,
+      es: `Ártemis surge como la mujer que camina sola por el bosque — entera, salvaje y soberana.
+Ella es independencia, enfoque e instinto refinado. Es la diosa que protege sus límites y honra su propia verdad.
+
+Si tu pregunta involucra amor, esta carta habla de autonomía emocional. Quizás sea momento de recogerte, fortalecerte o recordar que no necesitas disminuirte para ser elegida. O aparece justamente porque tienes la conciencia de honrar tu individualidad. Ártemis no implora presencia — ella es presencia.
+
+En el trabajo y los proyectos, indica enfoque, disciplina y estrategia silenciosa. Sabes a dónde quieres llegar. Ahora es confiar en tu propia puntería.
+
+Pero cuidado de que la independencia no se convierta en aislamiento.
+Ser fuerte no significa no necesitar a nadie.
+El discernimiento es diferente de la frialdad.
+
+Si sientes que necesitas reafirmar tus límites o quieres entender cómo equilibrar autonomía y apertura, agenda una consulta. Podemos mirar juntas/os tu fuerza interior y dirigirla con conciencia.
+
+Eres la diosa que camina libre. 🏹🌿✨`,
     },
   },
   {
@@ -337,6 +401,7 @@ You are the goddess who walks free. 🏹🌿✨`,
     name: {
       pt: "Durga",
       en: "Durga",
+      es: "Durga",
     },
     image: "/assets/Durga.jpg",
     deck: "oracle",
@@ -377,6 +442,24 @@ Strength is also knowing when to rest your sword.
 If you need clarity to face a situation with balance and emotional strategy, schedule a consultation. We will organize your courage so it becomes a solution, not exhaustion.
 
 You are stronger than you imagine — and wiser than you think.`,
+      es: `Durga llega montada en su león, con múltiples brazos y serenidad en la mirada.
+Ella es la fuerza que protege, el valor que enfrenta y la energía que remueve obstáculos.
+
+Si tu pregunta involucra desafíos, conflictos o situaciones que parecen más grandes que tú, esta carta es un poderoso recordatorio: hay suficiente fuerza dentro de ti para atravesar esto.
+
+Durga no actúa con rabia descontrolada — actúa con firmeza consciente.
+Lucha solo lo necesario.
+Protege lo que es sagrado.
+
+En el amor, puede indicar la necesidad de posicionarte, defender tus límites o romper patrones que debilitan tu autoestima.
+En el trabajo, habla de determinación y superación.
+
+Pero atención: luchar contra todo todo el tiempo agota.
+La fuerza también es saber cuándo descansar la espada.
+
+Si necesitas claridad para enfrentar una situación con equilibrio y estrategia emocional, agenda una consulta. Organizaremos tu valentía para que se convierta en solución, no en desgaste.
+
+Eres más fuerte de lo que imaginas — y más sabia de lo que crees.`,
     },
   },
   {
@@ -384,6 +467,7 @@ You are stronger than you imagine — and wiser than you think.`,
     name: {
       pt: "Cavaleiro de Espadas",
       en: "Knight of Swords",
+      es: "Caballero de Espadas",
     },
     image: "/assets/cavaleirosDeEspadas.jpg",
     deck: "tarot",
@@ -416,6 +500,20 @@ It is only necessary to unite reason and sensitivity.
 If you want clarity before acting or need to understand how to position yourself firmly without losing elegance, schedule a consultation. We can transform impulse into strategy.
 
 Use your mind as light, not as a storm. Cut out negative thoughts that don't add value to your inner communication. First communicate to yourself how wonderful you are!`,
+      es: `El Caballero de Espadas llega con velocidad mental y comunicativa.
+Llega rápido, con ideas afiladas y verdades que no piden permiso.
+
+Si tu pregunta involucra comunicación, decisiones o conflictos, esta carta habla de movimiento mental intenso. Puede haber conversaciones importantes, revelaciones, posicionamientos.
+
+Pero cuidado de que la prisa no se convierta en herida.
+Las palabras son hojas — pueden abrir caminos o cortar vínculos.
+
+Aquí hay valentía. Hay lucidez.
+Solo es necesario unir razón y sensibilidad.
+
+Si quieres claridad antes de actuar o necesitas entender cómo posicionarte con firmeza sin perder elegancia, agenda una consulta. Podemos transformar impulso en estrategia.
+
+¡Usa tu mente como luz, no como tormenta. Corta los pensamientos negativos que no agregan valor a tu comunicación interna. ¡Primero comunícate a ti misma/o lo maravillosa/o que eres!`,
     },
   },
 ];
