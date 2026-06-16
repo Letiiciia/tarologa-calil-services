@@ -11,13 +11,14 @@ declare global {
     gtag: (
       command: "config" | "event" | "js" | "set",
       targetId: string | Date,
-      params?: Record<string, unknown>,
+      params?: Record<string, unknown>
     ) => void;
     dataLayer: unknown[];
   }
 }
 
-export const GA_MEASUREMENT_ID = "G-8LLMFKK282";
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 
 /**
  * Send a page_view hit to GA4.
@@ -38,7 +39,7 @@ export function trackPageView(url: string): void {
  */
 export function trackEvent(
   eventName: string,
-  parameters?: Record<string, unknown>,
+  parameters?: Record<string, unknown>
 ): void {
   if (!GA_MEASUREMENT_ID || typeof window === "undefined" || !window.gtag) {
     return;
