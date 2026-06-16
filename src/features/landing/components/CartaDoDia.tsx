@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import type { Card } from "../../../../content/cards";
 import { cards } from "../../../../content/cards";
+import { trackTarotCardClick } from "@/shared/utils/analytics";
 
 type Phase =
   | "idle"
@@ -74,6 +75,7 @@ export function CartaDoDia() {
     if (phase !== "choosing") return;
     setFlippedIndex(index);
     setSelectedCard(card);
+    trackTarotCardClick(card.id);
     setTimeout(() => setPhase("revealed"), 800);
   };
 
