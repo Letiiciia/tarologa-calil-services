@@ -278,7 +278,7 @@ export const landingContent: Bilingual<LandingContent> = {
       },
       secondary: {
         label: "Falar com Carol no Instagram",
-        href: "https://www.instagram.com/tarologacalil/",
+        href: "https://www.instagram.com/carolcaliltarot/",
         variant: "secondary",
         target: "_blank",
       },
@@ -468,7 +468,7 @@ export const landingContent: Bilingual<LandingContent> = {
       },
       secondary: {
         label: "Talk to Carol on Instagram",
-        href: "https://www.instagram.com/tarologacalil/",
+        href: "https://www.instagram.com/carolcaliltarot/",
         variant: "secondary",
         target: "_blank",
       },
@@ -661,7 +661,7 @@ export const landingContent: Bilingual<LandingContent> = {
       },
       secondary: {
         label: "Hablar con Carol en Instagram",
-        href: "https://www.instagram.com/tarologacalil/",
+        href: "https://www.instagram.com/carolcaliltarot/",
         variant: "secondary",
         target: "_blank",
       },

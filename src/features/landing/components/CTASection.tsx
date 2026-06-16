@@ -113,7 +113,7 @@ export function CTASection() {
         </p>
         <div className="flex justify-center gap-6">
           <a
-            href="https://www.instagram.com/tarologacalil"
+            href="https://www.instagram.com/carolcaliltarot"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-white transition-colors text-sm"
