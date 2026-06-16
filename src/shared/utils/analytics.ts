@@ -17,8 +17,7 @@ declare global {
   }
 }
 
-export const GA_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-8LLMFKK282";
+export const GA_MEASUREMENT_ID = "G-8LLMFKK282";
 
 /**
  * Send a page_view hit to GA4.
