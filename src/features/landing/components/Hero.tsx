@@ -5,6 +5,7 @@ import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
 import { getLocalizedLabel } from "../HeroService";
 import styles from "./Hero.module.css";
+import { trackStartJourneyClick } from "@/shared/utils/analytics";
 
 export function Hero() {
   const { lang, mounted, setLanguage } = useLanguage();
@@ -68,6 +69,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.ctaButton}
+                onClick={() => trackStartJourneyClick("hero")}
               >
                 {content.cta}
                 <span className={styles.ctaArrow}>→</span>

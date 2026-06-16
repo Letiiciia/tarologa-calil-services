@@ -3,6 +3,10 @@
 import { Button } from "@/shared/ui/Button";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
+import {
+  trackWhatsappClick,
+  trackInstagramClick,
+} from "@/shared/utils/analytics";
 
 /**
  * CTA SECTION = Seção de conversão final
@@ -65,6 +69,7 @@ export function CTASection() {
             variant="secondary"
             className="w-full sm:w-auto text-white hover:bg-white/10 border"
             style={{ borderColor: "rgba(232,177,92,0.4)" }}
+            onClick={() => trackWhatsappClick("cta_section")}
           >
             {content.primary.label}
             <span className="ml-2">💬</span>
@@ -86,6 +91,7 @@ export function CTASection() {
               variant="ghost"
               className="w-full sm:w-auto text-white hover:bg-white/10 border"
               style={{ borderColor: "rgba(232,177,92,0.4)" }}
+              onClick={() => trackInstagramClick("cta_section")}
             >
               {content.secondary.label}
               <span className="ml-2">📸</span>
@@ -118,6 +124,7 @@ export function CTASection() {
             rel="noopener noreferrer"
             className="text-white hover:text-white transition-colors text-sm"
             style={{ color: "rgba(255,255,255,0.65)" }}
+            onClick={() => trackInstagramClick("footer")}
           >
             Instagram
           </a>
@@ -136,6 +143,7 @@ export function CTASection() {
             rel="noopener noreferrer"
             className="text-white hover:text-white transition-colors text-sm"
             style={{ color: "rgba(255,255,255,0.65)" }}
+            onClick={() => trackWhatsappClick("footer")}
           >
             WhatsApp
           </a>
