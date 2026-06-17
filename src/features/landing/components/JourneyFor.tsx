@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
-import { motion } from "framer-motion";
 
 /**
  * JOURNEY FOR COMPONENT
@@ -36,30 +35,6 @@ export function JourneyFor() {
     }));
   };
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
   return (
     <section
       id="jornada"
@@ -70,62 +45,49 @@ export function JourneyFor() {
 
       {/* Subtle floating particles background */}
       <div className="absolute inset-0 -z-10">
-        <motion.div
+        <div
           className="absolute top-10 left-10 w-32 h-32 rounded-full filter blur-3xl opacity-10"
           style={{
             background:
               "radial-gradient(circle, #E8B15C 0%, #F59E52 30%, transparent 70%)",
           }}
-          animate={{ y: [0, 30, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div
+        <div
           className="absolute bottom-20 right-20 w-40 h-40 rounded-full filter blur-3xl opacity-10"
           style={{
             background:
               "radial-gradient(circle, #7B3FA1 0%, #5B2A86 40%, transparent 70%)",
           }}
-          animate={{ y: [0, -30, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div
+        <div
           className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full filter blur-3xl opacity-5 -translate-x-1/2"
           style={{
             background:
               "radial-gradient(circle, #C8A2FF 0%, #A03C78 20%, transparent 60%)",
           }}
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Main content container with animations */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="space-y-8 sm:space-y-12"
-        >
+        <div className="space-y-8 sm:space-y-12">
           {/* Premium Badge */}
-          <motion.div variants={itemVariants} className="flex justify-center">
+          <div className="flex justify-center">
             <div className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white border border-[#7B3FA1]/30 shadow-sm hover:shadow-md transition-shadow">
               <span className="font-cinzel text-sm sm:text-base font-medium text-[#5B2A86]">
                 ✨ {content.badge}
               </span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Main Title - Elegant Serif */}
-          <motion.div variants={itemVariants} className="text-center space-y-4">
+          <div className="text-center space-y-4">
             <h2 className="font-cinzel text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1B1A2E] leading-tight">
               {content.title}
             </h2>
-          </motion.div>
+          </div>
 
           {/* Body Text - Clean Sans-serif with strong hierarchy */}
-          <motion.div variants={itemVariants} className="space-y-6 text-center">
+          <div className="space-y-6 text-center">
             {content.bodyText.map((paragraph, idx) => (
               <p
                 key={idx}
@@ -134,21 +96,15 @@ export function JourneyFor() {
                 {paragraph}
               </p>
             ))}
-          </motion.div>
+          </div>
 
           {/* Divider - subtle visual break */}
-          <motion.div
-            variants={itemVariants}
-            className="flex justify-center pt-4"
-          >
+          <div className="flex justify-center pt-4">
             <div className="w-12 h-1 bg-gradient-to-r from-transparent via-[#E8B15C] to-transparent rounded-full" />
-          </motion.div>
+          </div>
 
           {/* Emotional Cards Grid */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 pt-4 sm:pt-8"
-          >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 pt-4 sm:pt-8">
             {content.cards.map((card, idx) => {
               const isFlipped = flipped[idx] || false;
 
@@ -201,18 +157,15 @@ export function JourneyFor() {
                 </div>
               );
             })}
-          </motion.div>
+          </div>
 
           {/* Closing message - optional */}
           {content.closingLine && (
-            <motion.div
-              variants={itemVariants}
-              className="text-center pt-4 sm:pt-8"
-            >
+            <div className="text-center pt-4 sm:pt-8">
               <p className="text-gray-600 text-base sm:text-lg italic">
                 {content.closingLine}
               </p>
-            </motion.div>
+            </div>
           )}
 
           {/* CTA Button */}
@@ -230,7 +183,7 @@ export function JourneyFor() {
               Quero começar minha jornada →
             </a>
           </div> */}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
