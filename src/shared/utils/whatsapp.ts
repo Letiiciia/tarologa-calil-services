@@ -17,9 +17,9 @@ type MessageMap = Record<WhatsAppSource, Record<Language, string>>;
 
 export const WHATSAPP_MESSAGES: MessageMap = {
   hero: {
-    pt: "Vim pela Landing Page - Hero",
-    en: "I came from the Landing Page - Hero",
-    es: "Vine desde la Landing Page - Hero",
+    pt: "Olá Carol! Me identifiquei com sua mensagem e quero iniciar minha jornada com você.",
+    en: "Hi Carol! I connected with your message and I want to start my journey with you.",
+    es: "¡Hola Carol! Me identifiqué con tu mensaje y quiero comenzar mi camino contigo.",
   },
   method: {
     pt: "Quero conhecer o Método RESET",
@@ -27,14 +27,14 @@ export const WHATSAPP_MESSAGES: MessageMap = {
     es: "Quiero conocer el Método RESET",
   },
   cta: {
-    pt: "Quero agendar minha sessão diagnóstica",
-    en: "I want to book my diagnostic session",
-    es: "Quiero agendar mi sesión de diagnóstico",
+    pt: "Olá Carol! Quero saber mais sobre suas sessões e como funciona o atendimento.",
+    en: "Hi Carol! I want to know more about your sessions and how your service works.",
+    es: "¡Hola Carol! Quiero saber más sobre tus sesiones y cómo funciona la atención.",
   },
   footer: {
-    pt: "Quero agendar minha sessão diagnóstica",
-    en: "I want to book my diagnostic session",
-    es: "Quiero agendar mi sesión de diagnóstico",
+    pt: "Olá Carol! Quero agendar minha sessão diagnóstica com você.",
+    en: "Hi Carol! I want to book my diagnostic session with you.",
+    es: "¡Hola Carol! Quiero agendar mi sesión de diagnóstico contigo.",
   },
   carta_do_dia: {
     pt: "Vim pelo site e quero iniciar minha jornada. Gostaria de adquirir uma sessão com você!",
