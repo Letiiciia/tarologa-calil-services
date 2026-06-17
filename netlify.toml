@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# NEXT_PUBLIC_ variables are intentionally public and appear in build output.
+# Omit them from secrets scanning to prevent false positives.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_GA_MEASUREMENT_ID"
