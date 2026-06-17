@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import type { Card } from "../../../../content/cards";
 import { cards } from "../../../../content/cards";
-import { trackTarotCardClick } from "@/shared/utils/analytics";
+import { useTarotAnalytics } from "../hooks/useTarotAnalytics";
 
 type Phase =
   | "idle"
@@ -31,6 +31,8 @@ export function CartaDoDia() {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const { onDrawStarted, onDrawCompleted, onCardSelected, onCtaClicked } =
+    useTarotAnalytics();
 
   useEffect(() => {
     setDisplayCards(embaralharCartas([...cards]).slice(0, 7));
@@ -40,6 +42,7 @@ export function CartaDoDia() {
     if (phase !== "idle" && phase !== "choosing") return;
     setFlippedIndex(null);
     setSelectedCard(null);
+    onDrawStarted();
 
     // Step 1: gather
     setPhase("gathering");
@@ -68,6 +71,7 @@ export function CartaDoDia() {
 
     setTimeout(() => {
       setPhase("choosing");
+      onDrawCompleted();
     }, 2800);
   };
 
@@ -75,7 +79,7 @@ export function CartaDoDia() {
     if (phase !== "choosing") return;
     setFlippedIndex(index);
     setSelectedCard(card);
-    trackTarotCardClick(card.id);
+    onCardSelected(card);
     setTimeout(() => setPhase("revealed"), 800);
   };
 
@@ -352,6 +356,7 @@ export function CartaDoDia() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => selectedCard && onCtaClicked(selectedCard)}
                 className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
                 style={{ background: "#25D366", color: "#fff" }}
               >
@@ -440,6 +445,7 @@ export function CartaDoDia() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => selectedCard && onCtaClicked(selectedCard)}
                 className="block w-full text-center font-semibold text-sm py-3 px-4 rounded-xl hover:opacity-90 transition-opacity"
                 style={{ background: "#25D366", color: "#fff" }}
               >

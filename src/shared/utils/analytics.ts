@@ -11,9 +11,11 @@ declare global {
     gtag: (
       command: "config" | "event" | "js" | "set",
       targetId: string | Date,
-      params?: Record<string, unknown>
+      params?: Record<string, unknown>,
     ) => void;
     dataLayer: unknown[];
+    /** Microsoft Clarity */
+    clarity: (command: string, ...args: unknown[]) => void;
   }
 }
 
@@ -39,7 +41,7 @@ export function trackPageView(url: string): void {
  */
 export function trackEvent(
   eventName: string,
-  parameters?: Record<string, unknown>
+  parameters?: Record<string, unknown>,
 ): void {
   if (!GA_MEASUREMENT_ID || typeof window === "undefined" || !window.gtag) {
     return;
@@ -63,4 +65,15 @@ export function trackTarotCardClick(cardName?: string): void {
 
 export function trackStartJourneyClick(location?: string): void {
   trackEvent("start_journey_click", { location });
+}
+
+/**
+ * Send a custom event to Microsoft Clarity.
+ * Safe to call even if Clarity is not loaded.
+ */
+export function trackClarity(eventName: string, value?: string): void {
+  if (typeof window === "undefined" || typeof window.clarity !== "function") {
+    return;
+  }
+  window.clarity("event", eventName, value);
 }
