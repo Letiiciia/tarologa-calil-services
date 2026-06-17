@@ -1,8 +1,10 @@
 "use client";
 
 import { Button } from "@/shared/ui/Button";
+import { WhatsAppButton } from "@/shared/ui/WhatsAppButton";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
+import { buildWhatsAppUrl } from "@/shared/utils/whatsapp";
 import {
   trackWhatsappClick,
   trackInstagramClick,
@@ -29,6 +31,7 @@ export function CTASection() {
   if (!mounted) return null;
 
   const content = landingContent[lang].cta;
+  const footerWhatsappHref = buildWhatsAppUrl("footer", lang);
 
   return (
     <section
@@ -63,17 +66,15 @@ export function CTASection() {
 
         {/* Primary CTA */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-          <Button
-            href={content.primary.href}
+          <WhatsAppButton
+            source="cta"
+            lang={lang}
+            label={content.primary.label}
             size="lg"
             variant="secondary"
             className="w-full sm:w-auto text-white hover:bg-white/10 border"
-            style={{ borderColor: "rgba(232,177,92,0.4)" }}
             onClick={() => trackWhatsappClick("cta_section")}
-          >
-            {content.primary.label}
-            <span className="ml-2">💬</span>
-          </Button>
+          />
 
           {/* Divider */}
           <span
@@ -138,7 +139,7 @@ export function CTASection() {
             YouTube
           </a>
           <a
-            href="https://wa.me/34639664590?text=Ol%C3%A1%20Carol!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20suas%20sess%C3%B5es."
+            href={footerWhatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className="text-white hover:text-white transition-colors text-sm"

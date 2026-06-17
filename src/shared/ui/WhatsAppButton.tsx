@@ -18,6 +18,7 @@ interface WhatsAppButtonProps {
   className?: string;
   size?: "sm" | "md" | "lg";
   variant?: "primary" | "secondary" | "ghost";
+  onClick?: () => void;
 }
 
 const sizeStyles: Record<NonNullable<WhatsAppButtonProps["size"]>, string> = {
@@ -54,6 +55,7 @@ export function WhatsAppButton({
   className,
   size = "md",
   variant = "primary",
+  onClick,
 }: WhatsAppButtonProps) {
   const href = buildWhatsAppUrl(source, lang, phoneNumber);
 
@@ -63,6 +65,8 @@ export function WhatsAppButton({
 
     // Microsoft Clarity
     trackClarity("whatsapp_click", source);
+
+    onClick?.();
   };
 
   return (

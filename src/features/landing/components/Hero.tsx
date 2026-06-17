@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/shared/ui/Button";
+import { WhatsAppButton } from "@/shared/ui/WhatsAppButton";
 import { useLanguage } from "@/shared/hooks/useLanguage";
 import { landingContent } from "../content";
 import { getLocalizedLabel } from "../HeroService";
@@ -63,17 +64,14 @@ export function Hero() {
 
             {/* CTA Buttons - primary + secondary */}
             <div className={styles.ctaWrapper}>
-              <Button
-                href={landingContent[lang].cta.primary.href}
+              <WhatsAppButton
+                source="hero"
+                lang={lang}
+                label={content.cta}
                 size="lg"
-                target="_blank"
-                rel="noopener noreferrer"
                 className={styles.ctaButton}
                 onClick={() => trackStartJourneyClick("hero")}
-              >
-                {content.cta}
-                <span className={styles.ctaArrow}>→</span>
-              </Button>
+              />
               <Button
                 href={content.secondaryCta.href}
                 size="lg"
