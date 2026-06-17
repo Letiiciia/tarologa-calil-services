@@ -16,7 +16,7 @@ function getSessionId(): string {
   return id;
 }
 
-interface TarotEventParams {
+interface TarotEventParams extends Record<string, unknown> {
   card_id?: string;
   card_name?: string;
   session_id: string;
