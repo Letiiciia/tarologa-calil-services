@@ -49,7 +49,7 @@ export const WHATSAPP_MESSAGES: MessageMap = {
 export function buildWhatsAppUrl(
   source: WhatsAppSource,
   lang: Language,
-  phoneNumber: string = WHATSAPP_PHONE
+  phoneNumber: string = WHATSAPP_PHONE,
 ): string {
   const message = WHATSAPP_MESSAGES[source][lang];
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

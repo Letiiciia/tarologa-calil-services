@@ -75,7 +75,7 @@ export function WhatsAppButton({
         "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E8B15C]",
         sizeStyles[size],
         variantStyles[variant],
-        className
+        className,
       )}
     >
       {label}
